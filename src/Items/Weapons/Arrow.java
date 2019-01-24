@@ -1,3 +1,7 @@
+package Items.Weapons;
+
+import Items.Consumable;
+
 public class Arrow extends Weapon implements Consumable
 {
     public int attack()

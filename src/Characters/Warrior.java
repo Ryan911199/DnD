@@ -1,3 +1,7 @@
+package Characters;
+
+import Characters.CharacterClass;
+
 public class Warrior extends CharacterClass
 {
 
@@ -15,7 +19,7 @@ public class Warrior extends CharacterClass
     public void printClass()
     {
         super.printClass();
-        System.out.println(" I am a proud Warrior");
+        System.out.println(" I am a proud Characters.Warrior");
     }
 
     public int attack()

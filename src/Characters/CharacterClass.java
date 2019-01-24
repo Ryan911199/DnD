@@ -1,3 +1,4 @@
+package Characters;
 
 public abstract class CharacterClass
 {

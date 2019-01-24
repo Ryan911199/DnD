@@ -1,3 +1,7 @@
+package Characters;
+
+import Characters.CharacterClass;
+
 public class Thief extends CharacterClass
 {
 
