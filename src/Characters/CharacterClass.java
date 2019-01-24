@@ -1,5 +1,7 @@
 package Characters;
 
+import Items.item;
+
 public abstract class CharacterClass
 {
 
@@ -9,6 +11,7 @@ public abstract class CharacterClass
     public int dexterity;
     public int screamLevel;
     protected int sneak;
+    public item[] Inventory = new item[20];
 
     public CharacterClass()
     {
