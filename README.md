@@ -1,17 +1,64 @@
 # DnD-game
 items 
     consumable items
+        food
+            bread 
+            
+            cat soup 
+            
+            bone meal
+            
+            leg of lamb 
+            
+            elvin bread
+            
+            ambrosia
+        
+        potions
+        
+        ammo 
+            throwing daggers
+            
+            arrows
     
     wepons 
-        ranges
+        ranged
+            bow
+            
+            staff (magic only revisit)
+            
+            cross bow
+            
+            throwing daggers ability 
+            
         
         melee
-    
+            sword 
+                broad sword
+                reg sword
+                                
+            knife
+            
+            axe
+            
+            club
+            
+            
     armor 
+        boots 
+        
+        chest plate
+        
+        helmet
+        
+        pants
+        
+        gauntles
+        
 
 
 magic 
-
+    //todo read hand book
 
 combat 
     Movement grid
