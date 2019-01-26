@@ -1,3 +1,5 @@
 .idea/
 out/
 *.xml
+out/production/DnD game/Characters/Character.class
+out/production/DnD game/Game/createCharacter.class
