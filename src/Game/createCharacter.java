@@ -15,7 +15,7 @@ public class createCharacter {
     public int[] abilityRoll(){
         Dice die = new Dice();
         int[] roll = new int[3];
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++);
     }
 
 
