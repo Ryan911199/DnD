@@ -22,6 +22,7 @@ public class createCharacter {
 
     public int[] abilityRoll(Scanner scan){
         Dice die = new Dice();
+
         int[] abilityScores = new int[6];
         String ans;
         for (int i = 0; i < 6; i++){
@@ -39,6 +40,8 @@ public class createCharacter {
     }
     public void reroll(Scanner scan){
         abilityRoll(scan);
+        int[] roll = new int[3];
+        for (int i = 0; i < 5; i++);
     }
 
 }
