@@ -4,7 +4,7 @@ import Items.item;
 
 public abstract class Character
 {
-
+    public String name;
     public int hitPointsPerLevel;
     public int magicPointsPerLevel;
     public int Strength;
@@ -14,7 +14,6 @@ public abstract class Character
     public int Wisdom;
     public int Charisma;
     public Race playerRace;
-    public Class playerClass;
     public item[] Inventory = new item[20];
 
     public Character()
