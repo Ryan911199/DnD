@@ -41,7 +41,7 @@ public class createCharacter {
     public void reroll(Scanner scan){
         abilityRoll(scan);
         int[] roll = new int[3];
-        for (int i = 0; i < 5; i++);
+        for (int i = 0; i < 5; i++)
     }
 
 }
