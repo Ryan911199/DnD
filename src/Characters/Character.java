@@ -2,18 +2,22 @@ package Characters;
 
 import Items.item;
 
-public abstract class CharacterClass
+public abstract class Character
 {
 
     public int hitPointsPerLevel;
     public int magicPointsPerLevel;
-    public int stamina;
-    public int dexterity;
-    public int screamLevel;
-    protected int sneak;
+    public int Strength;
+    public int Dexterity;
+    public int Constitution;
+    public int Intelligence;
+    public int Wisdom;
+    public int Charisma;
+    public Race playerRace;
+    public Class playerClass;
     public item[] Inventory = new item[20];
 
-    public CharacterClass()
+    public Character()
     {
 
     }

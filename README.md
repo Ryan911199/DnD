@@ -71,8 +71,38 @@ dice
     Done
 
 character
-    ability scores and modifiers
-
+    character creation 
+        pick race 
+        
+        pick class
+        
+        roll ability scores
+            abilities
+                Strength 
+                
+                Dexterity
+                
+                Constitution
+                
+                Intelligence
+                
+                Wisdom
+                
+                Charisma
+                
+            reroll ability 
+                if play wants to (ask them)
+                
+                if modifyer scores (added) are less than or == 0
+                
+                if your highest score is less then 13 
+        
+        assing and ajust ability scores
+        
+        pick equipment  
+        
+        set name gender and age (done by player)
+   
 
 game
 

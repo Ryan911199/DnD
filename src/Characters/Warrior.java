@@ -1,17 +1,12 @@
 package Characters;
 
-import Items.item;
-
-public class Warrior extends CharacterClass {
+public class Warrior extends Character {
 
     public Warrior() {
         //TODO implement correct stats for Warrior
         hitPointsPerLevel = 10;
         magicPointsPerLevel = 0;
-        stamina = 10;
-        dexterity = 2;
-        screamLevel = 20;
-        sneak = 0;
+
     }
 
     //Overwriting
