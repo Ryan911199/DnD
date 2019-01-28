@@ -1,13 +1,13 @@
 package Game;
 
-import Characters.*;
+import Characters.Character;
 import Items.*;
 
 public class Main {
     public static void main(String[] args)
     {
         Dice dice = new Dice();
-        createCharacter Player = new createCharacter();
-
+        createCharacter creatPlayer = new createCharacter();
+        Character Player = creatPlayer.newPlayer();
     }
 }
