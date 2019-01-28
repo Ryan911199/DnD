@@ -29,6 +29,6 @@ public abstract class Character
     {
         return 5;
     }
-    public abstract int ultimateAttack();
+    //public abstract int ultimateAttack();
 }
 
