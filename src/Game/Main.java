@@ -8,12 +8,12 @@ public class Main {
     {
         Dice dice = new Dice();
         Menu menu = new Menu();
-        Character Player;
+        Character Player = 'A';
         createCharacter creatPlayer = new createCharacter();
         String[] classes = {"barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "wizard"};
         switch (menu.menu(classes)){
             case 1:
-                barbarian Player1 = new barbarian(creatPlayer.name, creatPlayer.Strength, creatPlayer.Dexterity, creatPlayer.Constitution, creatPlayer.Intelligence, creatPlayer.Wisdom, creatPlayer.Charisma, creatPlayer.playerRace);
+                Player = new barbarian(creatPlayer.name, creatPlayer.Strength, creatPlayer.Dexterity, creatPlayer.Constitution, creatPlayer.Intelligence, creatPlayer.Wisdom, creatPlayer.Charisma, creatPlayer.playerRace);
                 break;
             case 2:
                 bard Player2 = new bard(creatPlayer.name, creatPlayer.Strength, creatPlayer.Dexterity, creatPlayer.Constitution, creatPlayer.Intelligence, creatPlayer.Wisdom, creatPlayer.Charisma, creatPlayer.playerRace);
