@@ -1,6 +1,7 @@
 package Game;
-import Characters.Character;
-import Characters.Race;
+import Characters.*;
+import Characters.Classes.*;
+
 import java.util.Scanner;
 
 
@@ -25,10 +26,10 @@ public class createCharacter {
         playerRace = Race.notchosen;
     }
 
-    public void newPlayer() {
+    public playerCharacter newPlayer() {
         Scanner scan = new Scanner(System.in);
         Menu menu = new Menu();
-        //String[] classes = {"barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "wizard"};
+        String[] classes = {"barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "wizard"};
         String[] races = {"human", "dwarf", "elf", "gnome", "half-lings", "half-elf", "half-orc"};
         System.out.println("Hello and welcome to (insert game name). This is a spin off of Dungeons and dragons focused on combat with basic AI enemies");
         System.out.println();
@@ -60,7 +61,33 @@ public class createCharacter {
                 break;
         }
         System.out.println("great, next lets pick a class type for your character");//TODO tell player the benefits of each class
-
+        switch (menu.menu(classes)){
+            case 1:
+                return new barbarian(name, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, playerRace);
+            case 2:
+                return new bard(name, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, playerRace);
+            case 3:
+                return new cleric(name, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, playerRace);
+            case 4:
+                return new druid(name, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, playerRace);
+            case 5:
+                return new fighter(name, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, playerRace);
+            case 6:
+                return new monk(name, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, playerRace);
+            case 7:
+                return new paladin(name, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, playerRace);
+            case 8:
+                return new ranger(name, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, playerRace);
+            case 9:
+                return new rogue(name, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, playerRace);
+            case 10:
+                return new sorcerer(name, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, playerRace);
+            case 11:
+                return new wizard(name, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, playerRace);
+            default:
+                System.out.println("something went wrong");
+                return null;
+        }
     }
 
     public void abilityRoll(Scanner scan){
