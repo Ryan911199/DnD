@@ -3,58 +3,71 @@ import Characters.Character;
 import Characters.Race;
 import java.util.Scanner;
 
-public class createCharacter {
-    public  createCharacter(){
 
+public class createCharacter {
+    public String name;
+    public int Strength;
+    public int Dexterity;
+    public int Constitution;
+    public int Intelligence;
+    public int Wisdom;
+    public int Charisma;
+    public Race playerRace;
+
+    public  createCharacter(){
+        name = "NA";
+        Strength = -1;
+        Dexterity = -1;
+        Constitution = -1;
+        Intelligence = -1;
+        Wisdom = -1;
+        Charisma = -1;
+        playerRace = Race.notchosen;
     }
-    public Character newPlayer() {
+
+    public void newPlayer() {
         Scanner scan = new Scanner(System.in);
         Menu menu = new Menu();
-        Race playerPick;
-        String[] classes = {"barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "wizard"};
+        //String[] classes = {"barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "wizard"};
         String[] races = {"human", "dwarf", "elf", "gnome", "half-lings", "half-elf", "half-orc"};
         System.out.println("Hello and welcome to (insert game name). This is a spin off of Dungeons and dragons focused on combat with basic AI enemies");
         System.out.println();
         System.out.println("To begin please roll the dice to determine your ability scores" );//TODO tell player what ability scores do
         System.out.println();
-        int[] abilityScores = abilityRoll(scan);
+        abilityRoll(scan);
         System.out.println("now it is time for you to pick you race ");//TODO tell player the benefits of each race
-        switch (menu.menu(races)){
+        switch (menu.menu(races)){ //TODO add race benefits to abilities
             case 1:
-                playerPick = Race.human;
+                playerRace = Race.human;
                 break;
             case 2:
-                playerPick = Race.dwarf;
+                playerRace = Race.dwarf;
                 break;
             case 3:
-                playerPick = Race.elf;
+                playerRace = Race.elf;
                 break;
             case 4:
-                playerPick = Race.gnome;
+                playerRace = Race.gnome;
                 break;
             case 5:
-                playerPick = Race.halflings;
+                playerRace = Race.halflings;
                 break;
             case 6:
-                playerPick = Race.halfelf;
+                playerRace = Race.halfelf;
                 break;
             case 7:
-                playerPick = Race.halforc;
+                playerRace = Race.halforc;
                 break;
         }
         System.out.println("great, next lets pick a class type for your character");//TODO tell player the benefits of each class
-        switch (menu.menu(classes)){
-            case 1:
 
-        }
-        return new Character("tom", abilityScores[1], abilityScores[1], abilityScores[1], abilityScores[1], abilityScores[1], abilityScores[1], Race.elf);
     }
 
-    public int[] abilityRoll(Scanner scan){
+    public void abilityRoll(Scanner scan){
         Dice die = new Dice();
-
         int[] abilityScores = new int[6];
         String ans;
+
         for (int i = 0; i < 6; i++){
             abilityScores[i] = die.rollDice(3, 6);
         }
@@ -66,18 +79,16 @@ public class createCharacter {
         if (ans.equals("Y") || ans.equals("y") || ans.equals("Yes") || ans.equals("yes")){
             reroll(scan);
         }
-        abilityScores = placeAbilityScores(scan, abilityScores);
-        return abilityScores;
+        placeAbilityScores(scan, abilityScores);
     }
     public void reroll(Scanner scan){
         abilityRoll(scan);
     }
 
-    public int[] placeAbilityScores(Scanner scan, int[] scores){
+    public void placeAbilityScores(Scanner scan, int[] scores){
         int[] scores2 = new int[6];
-        for (int i = 0; i < 6; i++){
-            scores2[i] = scores[i];
-        }
+        System.arraycopy(scores, 0, scores2, 0, 6);
+
         System.out.println("it is now time to pick where you want your scores to be applied");
         System.out.println("here are all of the scores to chose from.");
         System.out.println();
@@ -94,7 +105,6 @@ public class createCharacter {
             System.out.print((i + 1) + ". " + scores2[i] +", ");
         }
         //strength,  dexterity,  constitution,  intelligence,  wisdom,  charisma
-        return scores;
     }
 
 

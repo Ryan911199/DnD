@@ -2,7 +2,7 @@ package Characters;
 
 import Items.item;
 
-public class Character {
+public abstract class Character {
     public String name;
     public int hitPointsPerLevel;
     public int hitPoints;
@@ -17,21 +17,7 @@ public class Character {
     public Race playerRace;
     public item[] Inventory = new item[20];
 
-    public Character(String Name, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, Race race) {
 
-        name = Name;
-        //hitPointsPerLevel;
-        //hitPoints; //TODO fill in correct numbers for Barbarian
-        //magicPointsPerLevel;
-        //magicPoints;
-        Strength = strength;
-        Dexterity = dexterity;
-        Constitution = constitution;
-        Intelligence = intelligence;
-        Wisdom = wisdom;
-        Charisma = charisma;
-        playerRace = race;
-    }
 
 
     //overwriting
