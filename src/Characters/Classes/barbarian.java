@@ -1,10 +1,9 @@
 package Characters.Classes;
 
-import Characters.Character;
+import Characters.playerCharacter;
 import Characters.Race;
-import Items.item;
 
-public class barbarian extends Character {
+public class barbarian extends playerCharacter {
     public barbarian(String Name, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, Race PlayerRace){
         name = Name;
         hitPointsPerLevel = 0; //TODO implement barbarian stats

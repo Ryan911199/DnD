@@ -2,7 +2,7 @@ package Characters;
 
 import Items.item;
 
-public abstract class Character {
+public abstract class playerCharacter {
     public String name;
     public int hitPointsPerLevel;
     public int hitPoints;
