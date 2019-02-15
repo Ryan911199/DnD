@@ -16,7 +16,7 @@ public class CatSoup extends item implements Consumable{
 
     @Override
     public void consume() {
-
+        //TODO implement consume
     }
 
     @Override

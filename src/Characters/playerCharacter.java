@@ -36,7 +36,7 @@ public abstract class playerCharacter {
     public void printInventory(){
         int i = 0;
         System.out.println("Inventory");
-        while (Inventory[i] != null && i < 20){
+        while (Inventory[i] != null && i < Inventory.length){
             System.out.print("   " + (i+1) + ". " + Inventory[i] );
             i++;
         }

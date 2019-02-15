@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Shop {
     private int gold;
-    public item[] items = {new Arrow(), new Bread()};
+    public item[] items = {new Arrow(), new Ambrosia(), new BoneMeal(), new Bread(), new CatSoup(), new ElvinBread(), new LegofLamb(), new Sword()};
     private Menu menu = new Menu();
     private playerCharacter Player;
     private String plaerBuying = "y";
@@ -25,6 +25,7 @@ public class Shop {
             System.out.println("what would you like to buy today");
             get(menu.menu(items) - 1);
             System.out.println("Do you want to buy something else?");
+            System.out.println("You have " + gold +" gold remaining");
             plaerBuying = scan.nextLine();
         }
         System.out.println("Thank you Please come again");

@@ -14,6 +14,11 @@ public class Arrow extends Weapon implements Consumable {
     }
 
     @Override
+    public int health() {
+        return 0;
+    }
+
+    @Override
     public String toString() {
         return "Arrow";
     }
