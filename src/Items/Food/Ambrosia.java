@@ -2,16 +2,18 @@ package Items.Food;
 
 import Items.*;
 
-public class CatSoup extends item implements Consumable{
+public class Ambrosia extends item implements Consumable
+{
 
-    public CatSoup()
+    public Ambrosia()
     {
-        value = 25;
-        weight = 12;
+        value = 100;
+        weight = 5;
     }
+
     @Override
     public String toString() {
-        return "Cat Soup";
+        return "Ambrosia";
     }
 
     @Override
@@ -21,6 +23,6 @@ public class CatSoup extends item implements Consumable{
 
     @Override
     public int health() {
-        return 30;
+        return 100;
     }
 }

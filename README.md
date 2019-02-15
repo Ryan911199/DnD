@@ -2,15 +2,15 @@
 items 
     consumable items
         food
-            bread 
+            bread //done
             
-            cat soup 
+            cat soup //done
             
-            bone meal
+            bone meal //done
             
-            leg of lamb 
+            leg of lamb //done
             
-            elvin bread
+            elvin bread //done
             
             ambrosia
         
