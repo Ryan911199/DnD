@@ -12,17 +12,18 @@ items
             
             elvin bread //done
             
-            ambrosia
+            ambrosia //done
         
         potions
         
         ammo 
-            throwing daggers
+            throwing daggers //done
             
-            arrows
+            arrows //done
     
     wepons 
         ranged
+            //need to add ammo to ranged weapons
             bow
             
             staff (magic only revisit)
