@@ -2,7 +2,7 @@ package Items.Food;
 
 import Items.*;
 
-public class Bread extends item {
+public class Bread extends item implements Consumable{
 
     public Bread()
     {
@@ -14,5 +14,15 @@ public class Bread extends item {
     @Override
     public String toString() {
         return "Bread";
+    }
+
+    @Override
+    public void consume() {
+
+    }
+
+    @Override
+    public int health() {
+        return 20;
     }
 }
