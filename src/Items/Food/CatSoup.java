@@ -9,6 +9,8 @@ public class CatSoup extends item{
         value = 25;
         weight = 12;
     }
-
-
+    @Override
+    public String toString() {
+        return "Cat Soup";
+    }
 }

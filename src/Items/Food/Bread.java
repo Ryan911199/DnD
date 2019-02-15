@@ -10,4 +10,8 @@ public class Bread extends item {
         weight = 5;
     }
 
+    @Override
+    public String toString() {
+        return "Bread";
+    }
 }

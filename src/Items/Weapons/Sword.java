@@ -6,4 +6,9 @@ public class Sword extends Weapon
     {
         return 20;
     }
+
+    @Override
+    public String toString() {
+        return "Sword";
+    }
 }
