@@ -14,11 +14,10 @@ public class Main {
         createCharacter createPlayer = new createCharacter();
         //Player = createPlayer.newPlayer();
         Player = new wizard();// for testing
-        Player.Setup("name", 13, 13, 13, 13, 13, 13, Race.halfelf); //for testing
+        Player.Setup("name", 13,13, 13, 13, 13, 13, 13, Race.halfelf); //for testing
         System.out.println(Player.name +"  " + Player.Strength + "  " + Player.Race + "  " + Player);
-        Player.addInventory(new Bread());
-        Player.addInventory(new Bread());
-        Player.addInventory(new Bread());
+        Shop shop = new Shop(Player);
+        shop.openShop(Player.gold);
         Player.printInventory();
     }
 

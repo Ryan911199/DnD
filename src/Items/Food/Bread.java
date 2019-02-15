@@ -8,6 +8,7 @@ public class Bread extends item {
     {
         value = 10;
         weight = 5;
+
     }
 
     @Override

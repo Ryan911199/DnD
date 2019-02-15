@@ -2,8 +2,8 @@ package Game;
 
 import java.util.Scanner;
 
-public class Menu {
-    public static int menu(String[] input) {
+public class Menu <T>{
+    public int menu(T[] input) {
         Scanner scan = new Scanner(System.in);
         int length = input.length;
         int ans = -1;

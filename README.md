@@ -73,26 +73,30 @@ dice
 character
     character creation 
         pick race 
-        
+            done
+            
         pick class
-        
+            dnoe
+            
         roll ability scores
-            abilities
-                Strength 
-                
-                Dexterity
-                
-                Constitution
-                
-                Intelligence
-                
-                Wisdom
-                
-                Charisma
+             done 
+             
+                abilities
+                    Strength 
+                    
+                    Dexterity
+                    
+                    Constitution
+                    
+                    Intelligence
+                    
+                    Wisdom
+                    
+                    Charisma
                 
             reroll ability 
                 if play wants to (ask them)
-                
+                    done 
                 if modifyer scores (added) are less than or == 0
                 
                 if your highest score is less then 13 
@@ -114,3 +118,5 @@ enemies
         when to use items
         when/where to move
         what wepon to use (if multiple)
+
+
