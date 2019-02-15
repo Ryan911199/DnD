@@ -19,7 +19,7 @@ public class BoneMeal extends item implements Consumable
 
     @Override
     public void consume() {
-
+        //TODO implement consume
     }
 
     @Override
