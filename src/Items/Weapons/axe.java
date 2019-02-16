@@ -1,20 +1,20 @@
 package Items.Weapons;
 
-public class Knife extends Weapon
+public class axe extends Weapon
 {
-    public Knife()
+    public axe()
     {
-        weight = 5;
-        value = 5;
+        weight = 15;
+        value = 15;
     }
 
     @Override
     public int attack() {
-        return 10;
+        return 30;
     }
 
     @Override
     public String toString() {
-        return "Knife";
+        return "Axe";
     }
 }

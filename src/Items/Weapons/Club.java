@@ -1,11 +1,11 @@
 package Items.Weapons;
 
-public class Knife extends Weapon
+public class Club extends Weapon
 {
-    public Knife()
+    public Club()
     {
-        weight = 5;
-        value = 5;
+        weight = 15;
+        value = 3;
     }
 
     @Override
@@ -15,6 +15,6 @@ public class Knife extends Weapon
 
     @Override
     public String toString() {
-        return "Knife";
+        return "Club";
     }
 }

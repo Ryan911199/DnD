@@ -2,6 +2,7 @@
 items 
     consumable items
         food
+            //consume is something to be done
             bread //done
             
             cat soup //done
@@ -34,18 +35,18 @@ items
             
         
         melee
-            sword 
-                broad sword
-                reg sword
+            sword
+                broad sword //done
+                reg sword //done
                                 
-            knife
+            knife //done
             
-            axe
+            axe //done
             
-            club
+            club //done
             
             
-    armor 
+    armor //create armor class
         boots 
         
         chest plate
@@ -54,7 +55,7 @@ items
         
         pants
         
-        gauntles
+        gauntlets
         
 
 
@@ -106,7 +107,7 @@ character
         
         pick equipment  
         
-        set name gender and age (done by player)
+        set name gender and age (done by player) //there are only 2 genders
    
 
 game
