@@ -1,9 +1,6 @@
 package Game;
 
 import Characters.*;
-import Characters.PlayerClasses.wizard;
-import Items.*;
-import Items.Food.Bread;
 
 import java.util.Scanner;
 

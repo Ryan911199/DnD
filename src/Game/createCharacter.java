@@ -40,11 +40,10 @@ public class createCharacter {
                 new fighter(), new monk(), new paladin(), new ranger(), new rogue(), new sorcerer(), new wizard()};
 
         System.out.println();
-        System.out.println("To begin lets us creat a character");//TODO tell player what ability scores do
+        System.out.println("To begin lets us create a character");//TODO tell player what ability scores do
         System.out.println("please roll the dice to determine your ability scores");
         System.out.println("Hit Enter to roll the dice");
         scan.nextLine();
-        System.out.println();
         abilityRoll(scan);
         System.out.println("now it is time for you to pick you race ");//TODO tell player the benefits of each race
         switch (menu.menu(races)) { //TODO add race benefits to abilities
@@ -93,7 +92,7 @@ public class createCharacter {
             System.out.print(abilityScores[i] + ", ");
         }
         System.out.println();
-        System.out.println("do you want to re roll all of the dice?");
+        System.out.println("do you want to reroll all of the dice?"); //TODO tell them why they might want to reroll
         if (Yes.check()) {
             reroll(scan);
         }
@@ -105,18 +104,10 @@ public class createCharacter {
     }
 
     public void placeAbilityScores(Scanner scan, int[] scores) {
-        int[] scores2 = new int[6];
-        int ans;
-        //System.arraycopy(scores, 0, scores2, 0, 6);
-
         System.out.println("it is now time to pick where you want your scores to be applied");
-        System.out.println("here are all of the scores to choose from.");
-        System.out.println();
-        options(scores);
-        System.out.println();
-        System.out.println("and here are all of the categories they can be applied to");
-        System.out.println();
-        System.out.println("Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma");
+        System.out.println("here are all of the categories they can be applied to");
+        System.out.println("Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma (Hit Enter)"); //TODO tell them what the categories do
+        scan.nextLine();
         System.out.println();
         System.out.println("what number would you like to assign to Strength ");
         options(scores);
@@ -143,9 +134,10 @@ public class createCharacter {
     public void options(int[] op) {
         for (int i = 0; i < 6; i++) {
             if (op[i] != 0) {
-                System.out.print((i + 1) + ". " + op[i] + "   ");
+                System.out.print(op[i] + ", ");
             }
         }
+        System.out.println();
     }
 
     public int inArray(int[] arr, Scanner scan) {
@@ -156,7 +148,6 @@ public class createCharacter {
                 if (arr[i] == ans) {
                     arr[i] = 0;
                     System.out.println("the number was assigned");
-                    System.out.println();
                     return ans;
                 }
             }
