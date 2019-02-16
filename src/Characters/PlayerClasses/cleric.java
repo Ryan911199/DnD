@@ -8,6 +8,12 @@ public class cleric extends playerCharacter {
         hitPointsPerLevel = 0; //TODO implement cleric stats
         magicPointsPerLevel = 0;
     }
+
+    @Override
+    public void raceAjustment() {
+
+    }
+
     @Override
     public String toString() {
         return "I am a Cleric";

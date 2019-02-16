@@ -1,9 +1,7 @@
 package Items.Weapons;
 
-public class BroadSword extends Weapon
-{
-    public BroadSword()
-    {
+public class BroadSword extends Weapon {
+    public BroadSword() {
         weight = 20;
         value = 20;
     }

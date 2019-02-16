@@ -16,7 +16,7 @@ public abstract class playerCharacter {
     public int Wisdom;
     public int Charisma;
     public Race Race;
-    public item[] Inventory = new item[3];
+    public item[] Inventory = new item[20];
     public int gold = 1000000; //TODO give gold
 
 
@@ -31,6 +31,7 @@ public abstract class playerCharacter {
         Wisdom = wisdom;
         Charisma = charisma;
         Race = PlayerRace;
+        raceAjustment();
     }
 
     public void printInventory(){
@@ -52,6 +53,43 @@ public abstract class playerCharacter {
         System.out.println("Your Inventory is full please drop an item");
         return false;
     }
+
+    public int abilityMod(int score){
+        if (score == 2 || score == 3){
+            return -4;
+        }
+        if (score == 4 || score == 5){
+            return -3;
+        }
+        if (score == 6 || score == 7){
+            return -2;
+        }
+        if (score == 8 || score == 9){
+            return -1;
+        }
+        if (score == 10 || score == 11){
+            return 0;
+        }
+        if (score == 12 || score == 13){
+            return 1;
+        }
+        if (score == 14 || score == 15){
+            return 2;
+        }
+        if (score == 16 || score == 17){
+            return 3;
+        }
+        if (score == 18 || score == 19){
+            return 4;
+        }
+        if (score == 20 || score == 21){
+            return 5;
+        }
+        System.out.println("there was a problem in score mod");
+        return -100;
+    }
+
+    public abstract void raceAjustment();
 
     public abstract String toString();
 

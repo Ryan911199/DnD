@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Shop {
     private int gold;
-    public item[] items = {new Arrow(), new Ambrosia(), new BoneMeal(), new Bread(), new CatSoup(), new ElvinBread(), new LegofLamb(), new Sword()};
+    public item[] items = {new Arrow(), new Ambrosia(), new axe(), new BoneMeal(), new Bow(), new Bread(), new BroadSword(), new CatSoup(), new Club(), new ElvinBread(), new Knife(), new LegofLamb(), new Sword(), new ThrowingDaggers()};
     private Menu menu = new Menu();
     private playerCharacter Player;
     private String plaerBuying = "y";

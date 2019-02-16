@@ -8,6 +8,12 @@ public class sorcerer extends playerCharacter {
         hitPointsPerLevel = 0; //TODO implement sorcerer stats
         magicPointsPerLevel = 0;
     }
+
+    @Override
+    public void raceAjustment() {
+
+    }
+
     @Override
     public String toString() {
         return "I am a Sorcerer";

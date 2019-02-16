@@ -10,6 +10,15 @@ public class barbarian extends playerCharacter {
     }
 
     @Override
+    public void raceAjustment() {
+        if (Race == Characters.Race.halforc){
+            Intelligence = Intelligence - 2;
+            Strength = Strength + 2;
+            Charisma = Charisma - 2;
+        }
+    }
+
+    @Override
     public String toString() {
         return "I am a Barbarian";
     }

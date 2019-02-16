@@ -10,6 +10,14 @@ public class bard extends playerCharacter {
     }
 
     @Override
+    public void raceAjustment() {
+        if (Race == Characters.Race.gnome){
+            Constitution = Constitution + 2;
+            Strength = Strength - 2;
+        }
+    }
+
+    @Override
     public String toString() {
         return "I am a Bard";
     }

@@ -8,6 +8,15 @@ public class fighter extends playerCharacter {
         hitPointsPerLevel = 0; //TODO implement fighter stats
         magicPointsPerLevel = 0;
     }
+
+    @Override
+    public void raceAjustment() {
+            if (Race == Characters.Race.dwarf){
+                Constitution = Constitution + 2;
+                Charisma = Charisma - 2;
+            }
+    }
+
     @Override
     public String toString() {
         return "I am a Fighter";

@@ -16,6 +16,7 @@ public class createCharacter {
     public int Charisma;
     public Race playerRace;
     public int age;
+    YesOrNo Yes = new YesOrNo();
 
     public createCharacter() {
         name = "Tom";
@@ -37,9 +38,12 @@ public class createCharacter {
         String[] races = {"human", "dwarf", "elf", "gnome", "half-lings", "half-elf", "half-orc"};
         playerCharacter[] PlayerPick = {new barbarian(), new bard(), new cleric(), new druid(),
                 new fighter(), new monk(), new paladin(), new ranger(), new rogue(), new sorcerer(), new wizard()};
-        System.out.println("Hello and welcome to (insert game name). This is a spin off of Dungeons and dragons focused on combat with basic AI enemies");
+
         System.out.println();
-        System.out.println("To begin please roll the dice to determine your ability scores");//TODO tell player what ability scores do
+        System.out.println("To begin lets us creat a character");//TODO tell player what ability scores do
+        System.out.println("please roll the dice to determine your ability scores");
+        System.out.println("Hit Enter to roll the dice");
+        scan.nextLine();
         System.out.println();
         abilityRoll(scan);
         System.out.println("now it is time for you to pick you race ");//TODO tell player the benefits of each race
@@ -81,18 +85,16 @@ public class createCharacter {
     public void abilityRoll(Scanner scan) {
         Dice die = new Dice();
         int[] abilityScores = new int[6];
-        String ans;
 
         for (int i = 0; i < 6; i++) {
-            abilityScores[i] = die.rollDice(3, 6);
+            abilityScores[i] = (die.rollDice(4, 6) - 3);
         }
         for (int i = 0; i < 6; i++) {
             System.out.print(abilityScores[i] + ", ");
         }
         System.out.println();
         System.out.println("do you want to re roll all of the dice?");
-        ans = scan.nextLine();
-        if (ans.equals("Y") || ans.equals("y") || ans.equals("Yes") || ans.equals("yes")) {
+        if (Yes.check()) {
             reroll(scan);
         }
         placeAbilityScores(scan, abilityScores);
@@ -137,17 +139,19 @@ public class createCharacter {
         Charisma = inArray(scores, scan);
         //strength,  dexterity,  constitution,  intelligence,  wisdom,  charisma
     }
-    public void options(int[] op){
+
+    public void options(int[] op) {
         for (int i = 0; i < 6; i++) {
-            if(op[i] != 0 ) {
+            if (op[i] != 0) {
                 System.out.print((i + 1) + ". " + op[i] + "   ");
             }
         }
     }
-    public int inArray(int[] arr, Scanner scan){
+
+    public int inArray(int[] arr, Scanner scan) {
         int ans = scan.nextInt();
         scan.nextLine();
-        while(true) {
+        while (true) {
             for (int i = 0; i < 6; i++) {
                 if (arr[i] == ans) {
                     arr[i] = 0;
@@ -164,6 +168,5 @@ public class createCharacter {
             scan.nextLine();
         }
     }
-
 
 }

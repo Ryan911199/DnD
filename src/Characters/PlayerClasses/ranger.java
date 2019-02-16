@@ -8,6 +8,12 @@ public class ranger extends playerCharacter {
         hitPointsPerLevel = 0; //TODO implement ranger stats
         magicPointsPerLevel = 0;
     }
+
+    @Override
+    public void raceAjustment() {
+
+    }
+
     @Override
     public String toString() {
         return "I am a Ranger";
