@@ -2,6 +2,8 @@ package Characters;
 
 import Items.item;
 
+import java.util.Scanner;
+
 public abstract class playerCharacter {
     public String name;
     public int age;
@@ -17,6 +19,7 @@ public abstract class playerCharacter {
     public int Charisma;
     public Race Race;
     public item[] Inventory = new item[20];
+    private int numOfItems = 0;
     public int gold = 1000000; //TODO give gold
 
 
@@ -47,11 +50,17 @@ public abstract class playerCharacter {
         for(int x = 0; x < Inventory.length; x++){
             if(Inventory[x] == null){
                 Inventory[x] = newI;
+                numOfItems++;
                 return true;
             }
         }
         System.out.println("Your Inventory is full please drop an item");
         return false;
+    }
+    public boolean romeoveItem(int x){
+        if(Inventory[x] != null){
+            
+        }
     }
 
     public int abilityMod(int score){
