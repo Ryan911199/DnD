@@ -2,13 +2,11 @@ package Characters;
 
 import Items.item;
 
-import java.util.Scanner;
-
 public abstract class playerCharacter {
     public String name;
     public int age;
     public int hitPointsPerLevel;
-    public int hitPoints;
+    public double hitPoints;
     public int magicPointsPerLevel;
     public int magicPoints;
     public int Strength;
@@ -57,11 +55,11 @@ public abstract class playerCharacter {
         System.out.println("Your Inventory is full please drop an item");
         return false;
     }
-    public boolean romeoveItem(int x){
-        if(Inventory[x] != null){
-            
-        }
-    }
+//    public boolean romeoveItem(int x){
+//        if(Inventory[x] != null){
+//
+//        }
+//    }
 
     public int abilityMod(int score){
         if (score == 2 || score == 3){
