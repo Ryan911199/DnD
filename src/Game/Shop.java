@@ -23,12 +23,15 @@ public class Shop {
 
     public void openShop(int x){
         setGold(x);
+        System.out.println("hello and welcome to our shop.");
+        System.out.println("what would you like to buy today");
+        get(menu.menu(items) - 1);
+        System.out.println("Do you want to buy something else?");
+        System.out.println("You have " + gold +" gold remaining");
         while (Yes.check()){
-            System.out.println("what would you like to buy today");
             get(menu.menu(items) - 1);
-            System.out.println("Do you want to buy something else?");
             System.out.println("You have " + gold +" gold remaining");
-            plaerBuying = scan.nextLine();
+            System.out.println("Do you want to buy something else?");
         }
         System.out.println("Thank you Please come again");
     }

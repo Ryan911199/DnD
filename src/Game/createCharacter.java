@@ -106,7 +106,7 @@ public class createCharacter {
     public void placeAbilityScores(Scanner scan, int[] scores) {
         System.out.println("it is now time to pick where you want your scores to be applied");
         System.out.println("here are all of the categories they can be applied to");
-        System.out.println("Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma (Hit Enter)"); //TODO tell them what the categories do
+        System.out.println("Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma (E)"); //TODO tell them what the categories do
         scan.nextLine();
         System.out.println();
         System.out.println("what number would you like to assign to Strength ");

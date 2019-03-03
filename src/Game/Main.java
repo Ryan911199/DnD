@@ -1,36 +1,38 @@
 package Game;
 
+import Characters.PlayerClasses.*;
 import Characters.*;
 
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args)
-    {
-        Dice dice = new Dice();
-        Menu menu = new Menu();
-        YesOrNo Yes = new YesOrNo();
-        Scanner scan = new Scanner(System.in);
-        playerCharacter Player;
-        System.out.println("Hello and welcome to (insert game name). ");
-        System.out.println("would you like to play the tutorial? (please type yes or no)");
-        if(Yes.check()){
-            Tutorial Start = new Tutorial(scan);
-            Start.start();
-        }
+    private static YesOrNo Yes = new YesOrNo();
+    private static Scanner scan = new Scanner(System.in);
+    private static Tutorial Start = new Tutorial(scan);
 
+    public static void main(String[] args) {
         createCharacter createPlayer = new createCharacter();
-        Player = createPlayer.newPlayer();
+        playerCharacter Player;
+        intro();
+        //Player = createPlayer.newPlayer();
+        // for testing
+        Player = new wizard();
+        Player.Setup("name", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
+        // for testing
+        System.out.println("Great " + Player.name + " you made a character would you like to play the combat tutorial?");
+        if (Yes.check()) {
+            Start.Combat();
+        }
+        Game game = new Game(Player);
 
-
-        //Testing
-
-        //Player = new wizard();// for testing
-        //Player.Setup("name", 13,13, 13, 13, 13, 13, 13, Race.halfelf); //for testing
-        System.out.println(Player.name +"  " + Player.Strength + "  " + Player.Race + "  " + Player);
-        Shop shop = new Shop(Player);
-        shop.openShop(Player.gold);
-        Player.printInventory();
+        //System.out.println(Player.name +"  " + Player.Strength + "  " + Player.Race + "  " + Player);
     }
 
+    public static void intro() {
+        System.out.println("Hello and welcome to (insert game name). ");
+        System.out.println("would you like to play the tutorial? (please type yes or no)");
+        if (Yes.check()) {
+            Start.start();
+        }
+    }
 }

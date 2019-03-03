@@ -3,10 +3,10 @@ package Game;
 import java.util.Scanner;
 
 public class Tutorial {
-    Scanner scan;
+    private Scanner scan;
     private YesOrNo Yes = new YesOrNo();
     private Menu menu = new Menu();
-    String[] YesOrNa = {"Yes", "No"};
+    private String[] YesOrNa = {"Yes", "No"};
 
     public Tutorial(Scanner Scan){
         scan = Scan;
@@ -33,6 +33,7 @@ public class Tutorial {
             System.out.println("Would you like us to explain that again?");
         }
         System.out.println("Now lets talk about some of the game mechanics ");
+        Mechanics();
     }
     public void Mechanics(){
         System.out.println("the first thing you will do after this tutorial is create a character");
@@ -42,16 +43,20 @@ public class Tutorial {
         System.out.println("after that you will pick one of the 11 classes ");
         System.out.println("barbarian, bard, cleric, druid, fighter, monk, paladin, ranger, rogue, sorcerer, wizard (E)");
         scan.nextLine();
-        System.out.println("Some Races have a specialty class. For example, if you pick a Dwarf Fighter then you get a + 2 Constitution modifier and a -2 Charisma");
-        System.out.println("(dont worry we will tell you each Races Special class when the time comes)");
-        System.out.println("as for Constitution and Charisma theses are both abilities.(E)");
+        System.out.println("Each Race has their own strengths and weaknesses. For example, if you pick a Dwarf then you get a + 2 Constitution modifier and a -2 Charisma modifier");
+        //System.out.println("(dont worry we will tell you each Races Special class when the time comes)");
+        System.out.println("Constitution and Charisma are both abilities.(E)");
         scan.nextLine();
         System.out.println("There are six ability categories");
         System.out.println("Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma,");
-        System.out.println("Each category has an affect on how you player plays ");
+        System.out.println("Each category has an affect on how your player plays");
+
     }
     public void theShop(){
         System.out.println("Welcome to the Shop, here you can buy items like armor, weapons, potions and food");
-        System.out.println("Everything here costs gold. To buy something just select the number corresponding to the item and if you have the money and room to hold the item then it will be added to your inventory");
+        System.out.println("Everything here costs gold. To buy something just select the number corresponding to the item. If you have the money and room to hold the item then it will be added to your inventory");
+    }
+    public void Combat(){
+
     }
 }
