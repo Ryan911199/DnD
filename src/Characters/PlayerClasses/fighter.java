@@ -5,16 +5,7 @@ import Characters.Race;
 
 public class fighter extends playerCharacter {
     public fighter() {
-        hitPointsPerLevel = 0; //TODO implement fighter stats
-        magicPointsPerLevel = 0;
-    }
-
-    @Override
-    public void raceAjustment() {
-            if (Race == Characters.Race.dwarf){
-                Constitution = Constitution + 2;
-                Charisma = Charisma - 2;
-            }
+        //TODO implement fighter stats
     }
 
     @Override

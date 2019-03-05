@@ -5,17 +5,9 @@ import Characters.Race;
 
 public class rogue extends playerCharacter {
     public rogue() {
-        hitPointsPerLevel = 0; //TODO implement rogue stats
-        magicPointsPerLevel = 0;
+        //TODO implement rogue stats
     }
 
-    @Override
-    public void raceAjustment() {
-        if (Race == Characters.Race.halflings){
-            Dexterity = Dexterity + 2;
-            Strength = Strength - 2;
-        }
-    }
 
     @Override
     public String toString() {

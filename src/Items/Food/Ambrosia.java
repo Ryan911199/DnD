@@ -4,11 +4,10 @@ import Items.*;
 
 public class Ambrosia extends item implements Consumable
 {
-
     public Ambrosia()
     {
-        value = 100;
-        weight = 5;
+        value = Set.AmbrosiaValue;
+        weight = Set.AmbrosiaWeight;
     }
 
     @Override
@@ -23,6 +22,6 @@ public class Ambrosia extends item implements Consumable
 
     @Override
     public int health() {
-        return 100;
+        return Set.AmbrosiaHeal;
     }
 }

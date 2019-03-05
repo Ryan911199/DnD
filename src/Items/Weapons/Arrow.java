@@ -3,6 +3,14 @@ package Items.Weapons;
 import Items.Consumable;
 
 public class Arrow extends Weapon implements Consumable {
+
+    public int numberOfArrows = 1;
+
+    public  Arrow(){
+        value = 0;
+        weight = 0;
+    }
+
     public int attack()
     {
        consume();

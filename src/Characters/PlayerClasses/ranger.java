@@ -5,14 +5,9 @@ import Characters.Race;
 
 public class ranger extends playerCharacter {
     public ranger() {
-        hitPointsPerLevel = 0; //TODO implement ranger stats
-        magicPointsPerLevel = 0;
+        //TODO implement ranger stats
     }
 
-    @Override
-    public void raceAjustment() {
-
-    }
 
     @Override
     public String toString() {

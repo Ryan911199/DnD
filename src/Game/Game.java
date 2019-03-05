@@ -1,6 +1,7 @@
 package Game;
 
 import Characters.playerCharacter;
+import Game.Helpers.Menu;
 
 import java.util.Scanner;
 
@@ -11,7 +12,6 @@ public class Game {
     private Tutorial Start = new Tutorial(scan);
 
     public Game(playerCharacter Player){
-
         Shop shop = new Shop(Player);
         switch (menu.menu((playerOptions))) {
             case 1:

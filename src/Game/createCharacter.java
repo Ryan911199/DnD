@@ -2,6 +2,9 @@ package Game;
 
 import Characters.*;
 import Characters.PlayerClasses.*;
+import Game.Helpers.Dice;
+import Game.Helpers.Menu;
+import Game.Helpers.YesOrNo;
 
 import java.util.Scanner;
 
@@ -76,9 +79,9 @@ public class createCharacter {
         System.out.println("How old are you?");
         age = scan.nextInt();
         scan.nextLine();
+        raceAjustments();
         player.Setup(name, age, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, playerRace);
         return player;
-
     }
 
     public void abilityRoll(Scanner scan) {
@@ -157,6 +160,30 @@ public class createCharacter {
             System.out.println("please choose a number");
             ans = scan.nextInt();
             scan.nextLine();
+        }
+    }
+
+    public void raceAjustments(){
+        if (playerRace == Characters.Race.halforc){
+            Intelligence = Intelligence - 2;
+            Strength = Strength + 2;
+            Charisma = Charisma - 2;
+        }
+        if (playerRace == Characters.Race.gnome){
+            Constitution = Constitution + 2;
+            Strength = Strength - 2;
+        }
+        if (playerRace == Characters.Race.dwarf){
+            Constitution = Constitution + 2;
+            Charisma = Charisma - 2;
+        }
+        if (playerRace == Characters.Race.halflings){
+            Dexterity = Dexterity + 2;
+            Strength = Strength - 2;
+        }
+        if (playerRace == Characters.Race.elf){
+            Dexterity = Dexterity + 2;
+            Constitution = Constitution - 2;
         }
     }
 

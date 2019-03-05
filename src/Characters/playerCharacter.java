@@ -1,13 +1,25 @@
 package Characters;
 
+import Game.BalancingSheet;
+import Game.BattleEngine.BattleEvent;
+import Game.Helpers.DoAction;
+import Game.Inventory;
+import Items.Armor.ArmorTypes.helmet.*;
+import Items.Armor.ArmorTypes.chestplate.*;
+import Items.Armor.ArmorTypes.gauntlets.*;
+import Items.Armor.ArmorTypes.pants.*;
+import Items.Armor.ArmorTypes.boots.*;
 import Items.item;
 
+import javax.swing.*;
+
+
 public abstract class playerCharacter {
+    private BalancingSheet Set = new BalancingSheet();
+    private DoAction Action = new DoAction();
     public String name;
     public int age;
-    public int hitPointsPerLevel;
     public double hitPoints;
-    public int magicPointsPerLevel;
     public int magicPoints;
     public int Strength;
     public int Dexterity;
@@ -16,11 +28,14 @@ public abstract class playerCharacter {
     public int Wisdom;
     public int Charisma;
     public Race Race;
-    public item[] Inventory = new item[20];
-    private int numOfItems = 0;
-    public int gold = 1000000; //TODO give gold
-
-
+    public helmet helmet;
+    public chestplate chestplate;
+    public gauntlets gauntlets;
+    public pants pants;
+    public boots boots;
+    public Inventory Inventory = new Inventory();
+    public int gold = Set.PlayerGold; //TODO give gold
+    public boolean isEnemy = false;
 
     public void Setup(String Name, int Age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, Race PlayerRace){
         name = Name;
@@ -32,34 +47,20 @@ public abstract class playerCharacter {
         Wisdom = wisdom;
         Charisma = charisma;
         Race = PlayerRace;
-        raceAjustment();
+        //raceAjustment();
     }
 
     public void printInventory(){
-        int i = 0;
-        System.out.println("Inventory");
-        while (Inventory[i] != null && i < Inventory.length){
-            System.out.print("   " + (i+1) + ". " + Inventory[i] );
-            i++;
-        }
+        Inventory.print();
     }
 
     public boolean addInventory(item newI){
-        for(int x = 0; x < Inventory.length; x++){
-            if(Inventory[x] == null){
-                Inventory[x] = newI;
-                numOfItems++;
-                return true;
-            }
-        }
-        System.out.println("Your Inventory is full please drop an item");
-        return false;
+        return Inventory.Add(newI);
     }
-//    public boolean romeoveItem(int x){
-//        if(Inventory[x] != null){
-//
-//        }
-//    }
+    public boolean removeItem(item oldI){
+        Inventory.remove(oldI);
+        return true;
+    }
 
     public int abilityMod(int score){
         if (score == 2 || score == 3){
@@ -96,9 +97,31 @@ public abstract class playerCharacter {
         return -100;
     }
 
-    public abstract void raceAjustment();
+    public int getArmorClass(){
+        int armorclass = 0;
+        if (helmet != null){
+            armorclass = armorclass + helmet.armorBonus;
+        }
+        if (chestplate != null){
+            armorclass = armorclass + chestplate.armorBonus;
+        }
+        if (gauntlets != null){
+            armorclass = armorclass + gauntlets.armorBonus;
+        }if (pants != null){
+            armorclass = armorclass + pants.armorBonus;
+        }
+        if (boots != null){
+            armorclass = armorclass + boots.armorBonus;
+        }
+        return armorclass;
+    }
+
+    public void equipArmor(){
+        //TODO implement equip armor
+    }
 
     public abstract String toString();
+
 
 }
 

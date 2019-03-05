@@ -5,18 +5,9 @@ import Characters.Race;
 
 public class wizard extends playerCharacter {
     public wizard() {
-        hitPointsPerLevel = 0; //TODO implement wizard stats
-        magicPointsPerLevel = 0;
+        //TODO implement wizard stats
     }
 
-    @Override
-    public void raceAjustment() {
-        if (Race == Characters.Race.elf){
-            Dexterity = Dexterity + 2;
-            Constitution = Constitution - 2;
-        }
-
-    }
 
     @Override
     public String toString() {

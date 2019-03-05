@@ -1,5 +1,8 @@
 package Game;
 
+import Game.Helpers.Menu;
+import Game.Helpers.YesOrNo;
+
 import java.util.Scanner;
 
 public class Tutorial {

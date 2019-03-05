@@ -5,16 +5,7 @@ import Characters.Race;
 
 public class bard extends playerCharacter {
     public bard() {
-        hitPointsPerLevel = 0; //TODO implement bard stats
-        magicPointsPerLevel = 0;
-    }
-
-    @Override
-    public void raceAjustment() {
-        if (Race == Characters.Race.gnome){
-            Constitution = Constitution + 2;
-            Strength = Strength - 2;
-        }
+        //TODO implement bard stats
     }
 
     @Override

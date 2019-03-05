@@ -5,17 +5,7 @@ import Characters.Race;
 
 public class barbarian extends playerCharacter {
     public barbarian() {
-        hitPointsPerLevel = 0; //TODO implement barbarian stats
-        magicPointsPerLevel = 0;
-    }
-
-    @Override
-    public void raceAjustment() {
-        if (Race == Characters.Race.halforc){
-            Intelligence = Intelligence - 2;
-            Strength = Strength + 2;
-            Charisma = Charisma - 2;
-        }
+        //TODO implement barbarian stats
     }
 
     @Override

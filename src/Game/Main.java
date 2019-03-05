@@ -2,6 +2,7 @@ package Game;
 
 import Characters.PlayerClasses.*;
 import Characters.*;
+import Game.Helpers.YesOrNo;
 
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class Main {
         //Player = createPlayer.newPlayer();
         // for testing
         Player = new wizard();
-        Player.Setup("name", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
+        Player.Setup("Ryland", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
         // for testing
         System.out.println("Great " + Player.name + " you made a character would you like to play the combat tutorial?");
         if (Yes.check()) {
@@ -25,7 +26,6 @@ public class Main {
         }
         Game game = new Game(Player);
 
-        //System.out.println(Player.name +"  " + Player.Strength + "  " + Player.Race + "  " + Player);
     }
 
     public static void intro() {

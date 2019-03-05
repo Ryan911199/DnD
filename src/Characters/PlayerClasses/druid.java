@@ -5,13 +5,7 @@ import Characters.Race;
 
 public class druid extends playerCharacter {
     public druid() {
-        hitPointsPerLevel = 0; //TODO implement druid stats
-        magicPointsPerLevel = 0;
-    }
-
-    @Override
-    public void raceAjustment() {
-
+        //TODO implement druid stats
     }
 
     @Override

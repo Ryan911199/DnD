@@ -5,13 +5,7 @@ import Characters.Race;
 
 public class sorcerer extends playerCharacter {
     public sorcerer() {
-        hitPointsPerLevel = 0; //TODO implement sorcerer stats
-        magicPointsPerLevel = 0;
-    }
-
-    @Override
-    public void raceAjustment() {
-
+        //TODO implement sorcerer stats
     }
 
     @Override

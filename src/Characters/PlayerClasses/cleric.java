@@ -5,14 +5,9 @@ import Characters.Race;
 
 public class cleric extends playerCharacter {
     public cleric() {
-        hitPointsPerLevel = 0; //TODO implement cleric stats
-        magicPointsPerLevel = 0;
+        //TODO implement cleric stats
     }
 
-    @Override
-    public void raceAjustment() {
-
-    }
 
     @Override
     public String toString() {

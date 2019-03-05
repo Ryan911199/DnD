@@ -5,14 +5,9 @@ import Characters.Race;
 
 public class monk extends playerCharacter {
     public monk() {
-        hitPointsPerLevel = 0; //TODO implement monk stats
-        magicPointsPerLevel = 0;
+        //TODO implement monk stats
     }
 
-    @Override
-    public void raceAjustment() {
-
-    }
 
     @Override
     public String toString() {
