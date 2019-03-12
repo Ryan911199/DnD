@@ -7,15 +7,15 @@ public class Arrow extends Weapon implements Consumable {
     public int numberOfArrows = 1;
 
     public  Arrow(){
-        value = 0;
-        weight = 0;
+        value = Set.ArrowValue;
+        weight = Set.ArrowWeight;
         isRanged = true;
     }
 
     public int attack()
     {
        consume();
-        return 12;
+        return Set.ArrowAttack;
     }
 
     public void consume() {

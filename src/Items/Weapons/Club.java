@@ -4,14 +4,14 @@ public class Club extends Weapon
 {
     public Club()
     {
-        weight = 15;
-        value = 3;
+        weight = Set.ClubWeight;
+        value = Set.ClubValue;
         isRanged = false;
     }
 
     @Override
     public int attack() {
-        return 10;
+        return Set.ClubAttack;
     }
 
     @Override

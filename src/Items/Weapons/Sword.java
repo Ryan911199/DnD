@@ -3,13 +3,13 @@ package Items.Weapons;
 public class Sword extends Weapon
 {
     public Sword() {
-        weight = 10;
-        value = 10;
+        weight = Set.SwordWeight;
+        value = Set.SwordValue;
         isRanged = false;
     }
 
     public int attack() {
-        return 20;
+        return Set.SwordAttack;
     }
 
     @Override

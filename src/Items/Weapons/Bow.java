@@ -2,18 +2,18 @@ package Items.Weapons;
 
 public class Bow extends Weapon {
     public Bow(){
-        weight = 20;
-        value = 20;
+        weight = Set.BowWeight;
+        value = Set.BowValue;
         isRanged = true;
     }
 
     @Override
     public int attack() {
-        return 45;
+        return Set.BowAttack;
     }
 
     @Override
     public String toString() {
-        return "Broad Sword";
+        return "Bow";
     }
 }

@@ -2,14 +2,14 @@ package Items.Weapons;
 
 public class BroadSword extends Weapon {
     public BroadSword() {
-        weight = 20;
-        value = 20;
+        weight = Set.BroadSwordWeight;
+        value = Set.BroadSwordValue;
         isRanged = false;
     }
 
     @Override
     public int attack() {
-        return 45;
+        return Set.BroadSwordAttack;
     }
 
     @Override

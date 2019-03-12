@@ -4,14 +4,14 @@ public class axe extends Weapon
 {
     public axe()
     {
-        weight = 15;
-        value = 15;
+        weight = Set.AxeWeight;
+        value = Set.AxeValue;
         isRanged = false;
     }
 
     @Override
     public int attack() {
-        return 30;
+        return Set.AxeAttack;
     }
 
     @Override

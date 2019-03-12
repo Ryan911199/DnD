@@ -6,13 +6,13 @@ public class ThrowingDaggers extends Weapon implements Consumable
 {
     public ThrowingDaggers()
     {
-        value = 0;
-        weight = 0;
+        value = Set.ThrowingDaggersValue;
+        weight = Set.ThrowingDaggersWeight;
         isRanged = true;
     }
     @Override
     public int attack() {
-        return 0;
+        return Set.ThrowingDaggersAttack;
     }
 
     @Override

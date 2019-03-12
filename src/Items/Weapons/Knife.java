@@ -4,14 +4,14 @@ public class Knife extends Weapon
 {
     public Knife()
     {
-        weight = 5;
-        value = 5;
+        weight = Set.KnifeWeight;
+        value = Set.KnifeValue;
         isRanged = false;
     }
 
     @Override
     public int attack() {
-        return 10;
+        return Set.KnifeAttack;
     }
 
     @Override
