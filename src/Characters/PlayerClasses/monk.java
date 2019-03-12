@@ -5,7 +5,10 @@ import Characters.Race;
 
 public class monk extends playerCharacter {
     public monk() {
-        //TODO implement monk stats
+        baseAttackBonus = 0;
+        fortSave = 2;
+        refSave = 2;
+        WillSave = 2;
     }
 
 

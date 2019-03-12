@@ -30,7 +30,7 @@ public class BattleEngine {
             addEvent(Action.getAction(Battleorder.get(x)));
         }
     }
-    public void addEvent(BattleEvent add){
+    private void addEvent(BattleEvent add){
         BattleNode current = head;
         BattleNode Add = new BattleNode(add);
         if(head == null){

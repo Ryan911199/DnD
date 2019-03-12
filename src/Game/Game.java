@@ -37,7 +37,7 @@ public class Game {
                 Start.start();
                 break;
             case 4:
-                System.out.println("Thanks for playing our game. Fell free to come back and play again");
+                System.out.println("Thanks for playing our game. Feel free to come back and play again");
                 System.exit(0);
                 break;
             default:

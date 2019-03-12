@@ -5,7 +5,10 @@ import Characters.Race;
 
 public class rogue extends playerCharacter {
     public rogue() {
-        //TODO implement rogue stats
+        baseAttackBonus = 0;
+        fortSave = 0;
+        refSave = 2;
+        WillSave = 0;
     }
 
 

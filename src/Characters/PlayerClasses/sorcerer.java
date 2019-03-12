@@ -5,7 +5,10 @@ import Characters.Race;
 
 public class sorcerer extends playerCharacter {
     public sorcerer() {
-        //TODO implement sorcerer stats
+        baseAttackBonus = 0;
+        fortSave = 0;
+        refSave = 0;
+        WillSave = 2;
     }
 
     @Override

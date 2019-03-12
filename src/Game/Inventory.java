@@ -14,9 +14,7 @@ public class Inventory {
     public int Arrow = 0;
     public int ThrowingDaggers = 0;
     public int numberOfWepons = 0;
-
     private ArrayList<item> Inventory = new ArrayList<item>();
-    private ArrayList<Weapon> Weapons = new ArrayList<Weapon>();
 
     public Inventory(){
         Arrow = 0;

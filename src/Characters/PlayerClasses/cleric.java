@@ -5,7 +5,10 @@ import Characters.Race;
 
 public class cleric extends playerCharacter {
     public cleric() {
-        //TODO implement cleric stats
+        baseAttackBonus = 0;
+        fortSave = 2;
+        refSave = 0;
+        WillSave = 2;
     }
 
 
