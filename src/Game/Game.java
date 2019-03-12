@@ -1,25 +1,35 @@
 package Game;
 
 import Characters.playerCharacter;
+import Game.BattleEngine.BattleEngine;
 import Game.Helpers.Menu;
 
 import java.util.Scanner;
 
 public class Game {
-    private String[] playerOptions = {"Go To Shop", "Go TO Battle", "Run Tutorial", "Quit"};
+    private String[] playerOptions;
     private Menu menu = new Menu();
     private Scanner scan = new Scanner(System.in);
     private Tutorial Start = new Tutorial(scan);
+    private BattleEngine BattleEngine;
 
-    public Game(playerCharacter Player){
+    public Game(playerCharacter Player) {
+        BattleEngine = new BattleEngine(Player);
+        playerOptions = new String[]{"Go To Shop", "Go TO Battle", "Run Tutorial", "Quit"};
+        while (true){
+            playGame(Player);
+        }
+    }
+    private void playGame(playerCharacter Player){
         Shop shop = new Shop(Player);
+        System.out.println();
         switch (menu.menu((playerOptions))) {
             case 1:
                 shop.openShop(Player.gold);
                 Player.printInventory();
                 break;
             case 2:
-                //TODO implement battle
+                BattleEngine.Battle();
                 break;
             case 3:
                 System.out.println("What tutorial would you like to play?");

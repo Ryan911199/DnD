@@ -29,25 +29,10 @@ public class Inventory {
         System.out.print("1. Arrows (" + Arrow + ") ");
         System.out.print("2. Throwing Daggers (" + ThrowingDaggers + ") ");
         for (int x = 0; x < Inventory.size(); x++){
-            System.out.print((x + y) + ". " + Inventory.get(x) + " ");
-            y++;
-            System.out.print((x + y) + ". " + Weapons.get(x) + " ");
-            y++;
-        }
-    }
+            System.out.print((x + 3) + ". " + Inventory.get(x) + " ");
 
-    public void printWeapons(){
-        System.out.println("Weapons:");
-        System.out.print("1. Arrows (" + Arrow + ") ");
-        System.out.print("2. Throwing Daggers (" + ThrowingDaggers + ") ");
-        for (int x = 0; x < Inventory.size(); x++){
-            System.out.print((x + 3) + ". " + Weapons.get(x) + " ");
         }
-    }
-
-    public String[] printWepons(){
-        String[] out = new String[numberOfWepons];
-        return null;
+        System.out.println();
     }
 
     public Boolean Add(item add){
@@ -57,11 +42,6 @@ public class Inventory {
         }
         else if(add instanceof ThrowingDaggers){
             ThrowingDaggers++;
-            return true;
-        }
-        else if (add instanceof Weapon && numOfItems < 20){
-            Weapons.add(add);
-            numOfItems++;
             return true;
         }
         else if (numOfItems < 20){
@@ -99,11 +79,7 @@ public class Inventory {
     public item getItem(){
         System.out.println("what item would you like to use?");
         print();
-        int ans = scan.nextInt();
-        while (ans <= 0 || ans > (Inventory.size()+ 2)){
-            System.out.println("Please enter a valid number");
-            ans = scan.nextInt();
-        }
+        int ans = getNum();
         if(ans == 1){
             return new Arrow();
         }
@@ -113,21 +89,37 @@ public class Inventory {
         return Inventory.get(ans);
     }
 
-    public Weapon getWeapon(){
+    public item getWeapon(){
+        item temp;
         System.out.println("what item would you like to use?");
         print();
+        int ans = getNum();
+        while (true){
+            if(ans == 1){
+                Arrow--;
+                return new Arrow();
+            }
+            if(ans == 2){
+                return new ThrowingDaggers();
+            }
+            if(Inventory.get(ans - 3) instanceof Weapon){
+                temp = Inventory.get(ans - 3);
+                Inventory.remove(ans - 3);
+                return temp;
+            }
+            System.out.println("That item is not a weapon. Please pick a weapon.");
+            print();
+            ans = getNum();
+        }
+    }
+
+    private int getNum(){
         int ans = scan.nextInt();
         while (ans <= 0 || ans > (Inventory.size()+ 2)){
             System.out.println("Please enter a valid number");
             ans = scan.nextInt();
-        }
-        if(ans == 1){
-            return new Arrow();
-        }
-        if(ans == 2){
-            return new ThrowingDaggers();
-        }
-        return Weapons.get(ans);
 
+        }
+        return ans;
     }
 }

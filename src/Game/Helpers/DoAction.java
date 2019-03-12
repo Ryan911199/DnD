@@ -22,7 +22,8 @@ public class DoAction {
 
         switch (menu.menu(BasicActions)) {
             case 1:
-
+                System.out.println(Player.Inventory.getWeapon());
+                System.exit(1);
                 break;
             case 2:
                 //TODO implement battle

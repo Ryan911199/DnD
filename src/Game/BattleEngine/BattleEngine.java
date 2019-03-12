@@ -9,6 +9,12 @@ public class BattleEngine {
     private BattleNode head;
     private ArrayList<playerCharacter> compatants = new ArrayList<playerCharacter>();
     private DoAction Action = new DoAction();
+    playerCharacter Player;
+
+    public BattleEngine(playerCharacter player){
+        Player = player;
+        compatants.add(Player);
+    }
 
     public void Battle(){
         getActions();
@@ -18,7 +24,8 @@ public class BattleEngine {
         }
     }
     public void getActions(){
-        ArrayList<playerCharacter> Battleorder = new ArrayList<playerCharacter>();
+        //ArrayList<playerCharacter> Battleorder = new ArrayList<playerCharacter>();
+        ArrayList<playerCharacter> Battleorder = compatants;
         for(int x = 0; x < Battleorder.size(); x++){
             addEvent(Action.getAction(Battleorder.get(x)));
         }
