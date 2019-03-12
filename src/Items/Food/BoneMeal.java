@@ -7,8 +7,8 @@ public class BoneMeal extends item implements Consumable
 
     public BoneMeal()
     {
-        value = 7;
-        weight = 3;
+        value = Set.BoneMealValue;
+        weight = Set.BoneMealWeight;
     }
 
     @Override
@@ -24,6 +24,6 @@ public class BoneMeal extends item implements Consumable
 
     @Override
     public int health() {
-        return 15;
+        return Set.BoneMealHeal;
     }
 }

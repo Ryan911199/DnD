@@ -6,8 +6,8 @@ public class CatSoup extends item implements Consumable{
 
     public CatSoup()
     {
-        value = 25;
-        weight = 12;
+        value = Set.CatSoupValue;
+        weight = Set.CatSoupWeight;
     }
     @Override
     public String toString() {
@@ -21,6 +21,6 @@ public class CatSoup extends item implements Consumable{
 
     @Override
     public int health() {
-        return 30;
+        return Set.CatSoupHeal;
     }
 }

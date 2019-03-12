@@ -4,6 +4,7 @@ public class Bow extends Weapon {
     public Bow(){
         weight = 20;
         value = 20;
+        isRanged = true;
     }
 
     @Override

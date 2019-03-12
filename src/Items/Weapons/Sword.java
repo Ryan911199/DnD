@@ -5,6 +5,7 @@ public class Sword extends Weapon
     public Sword() {
         weight = 10;
         value = 10;
+        isRanged = false;
     }
 
     public int attack() {

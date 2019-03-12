@@ -7,8 +7,8 @@ public class ElvinBread extends item implements Consumable
 
     public ElvinBread()
     {
-        value = 90;
-        weight = 4;
+        value = Set.ElvinBreadValue;
+        weight = Set.ElvinBreadWeight;
     }
 
     @Override
@@ -24,6 +24,6 @@ public class ElvinBread extends item implements Consumable
 
     @Override
     public int health() {
-        return 65;
+        return Set.ElvinBreadHeal;
     }
 }

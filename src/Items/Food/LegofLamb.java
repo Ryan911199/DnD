@@ -7,8 +7,8 @@ public class LegofLamb extends item implements Consumable
 
     public LegofLamb()
     {
-        value = 35;
-        weight = 15;
+        value = Set.LegofLambValue;
+        weight = Set.LegofLambWeight;
     }
 
     @Override
@@ -23,6 +23,6 @@ public class LegofLamb extends item implements Consumable
 
     @Override
     public int health() {
-        return 50;
+        return Set.LegofLambHeal;
     }
 }

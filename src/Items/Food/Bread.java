@@ -6,8 +6,8 @@ public class Bread extends item implements Consumable{
 
     public Bread()
     {
-        value = 10;
-        weight = 5;
+        value = Set.BreadValue;
+        weight = Set.BreadWeight;
 
     }
 
@@ -23,6 +23,6 @@ public class Bread extends item implements Consumable{
 
     @Override
     public int health() {
-        return 20;
+        return Set.BreadHeal;
     }
 }
