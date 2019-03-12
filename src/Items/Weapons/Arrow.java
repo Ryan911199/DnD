@@ -4,9 +4,7 @@ import Items.Consumable;
 
 public class Arrow extends Weapon implements Consumable {
 
-    public int numberOfArrows = 1;
-
-    public  Arrow(){
+    public Arrow(){
         value = 0;
         weight = 0;
     }

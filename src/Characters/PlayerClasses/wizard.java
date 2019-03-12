@@ -5,7 +5,10 @@ import Characters.Race;
 
 public class wizard extends playerCharacter {
     public wizard() {
-        //TODO implement wizard stats
+        baseAttackBonus = 0;
+        fortSave = 0;
+        refSave = 0;
+        WillSave = 2;
     }
 
 

@@ -5,7 +5,10 @@ import Characters.Race;
 
 public class druid extends playerCharacter {
     public druid() {
-        //TODO implement druid stats
+        baseAttackBonus = 0;
+        fortSave = 2;
+        refSave = 0;
+        WillSave = 2;
     }
 
     @Override

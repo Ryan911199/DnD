@@ -5,7 +5,10 @@ import Characters.Race;
 
 public class paladin extends playerCharacter {
     public paladin() {
-        //TODO implement paladin stats
+        baseAttackBonus = 1;
+        fortSave = 2;
+        refSave = 0;
+        WillSave = 0;
     }
 
 

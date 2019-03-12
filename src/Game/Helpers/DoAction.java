@@ -1,4 +1,5 @@
 package Game.Helpers;
+
 import Characters.playerCharacter;
 import Game.BattleEngine.BattleEvent;
 import Game.Inventory;
@@ -8,16 +9,16 @@ public class DoAction {
     private Menu menu = new Menu();
     // private playerCharacter Character;
 
-    public BattleEvent getAction(playerCharacter Character){
-        if (Character.isEnemy){
+    public BattleEvent getAction(playerCharacter Character) {
+        if (Character.isEnemy) {
 
-        }else {
+        } else {
             getPlayerAction(Character);
         }
         return null;
     }
 
-    public BattleEvent getPlayerAction(playerCharacter Player){
+    public BattleEvent getPlayerAction(playerCharacter Player) {
         System.out.println("What would you like to do?");
 
         switch (menu.menu(BasicActions)) {

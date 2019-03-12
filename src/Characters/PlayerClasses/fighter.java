@@ -5,7 +5,10 @@ import Characters.Race;
 
 public class fighter extends playerCharacter {
     public fighter() {
-        //TODO implement fighter stats
+        baseAttackBonus = 1;
+        fortSave = 2;
+        refSave = 0;
+        WillSave = 0;
     }
 
     @Override

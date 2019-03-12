@@ -5,7 +5,10 @@ import Characters.Race;
 
 public class bard extends playerCharacter {
     public bard() {
-        //TODO implement bard stats
+        baseAttackBonus = 0;
+        fortSave = 0;
+        refSave = 2;
+        WillSave = 2;
     }
 
     @Override

@@ -33,6 +33,10 @@ public abstract class playerCharacter {
     public gauntlets gauntlets;
     public pants pants;
     public boots boots;
+    public int baseAttackBonus;
+    public int fortSave;
+    public int refSave;
+    public int WillSave;
     public Inventory Inventory = new Inventory();
     public int gold = Set.PlayerGold; //TODO give gold
     public boolean isEnemy = false;
@@ -47,7 +51,6 @@ public abstract class playerCharacter {
         Wisdom = wisdom;
         Charisma = charisma;
         Race = PlayerRace;
-        //raceAjustment();
     }
 
     public void printInventory(){
@@ -57,6 +60,7 @@ public abstract class playerCharacter {
     public boolean addInventory(item newI){
         return Inventory.Add(newI);
     }
+
     public boolean removeItem(item oldI){
         Inventory.remove(oldI);
         return true;
@@ -121,7 +125,5 @@ public abstract class playerCharacter {
     }
 
     public abstract String toString();
-
-
 }
 
