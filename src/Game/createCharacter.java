@@ -98,6 +98,7 @@ public class createCharacter {
         System.out.println("do you want to reroll all of the dice?"); //TODO tell them why they might want to reroll
         if (Yes.check()) {
             reroll(scan);
+            return;
         }
         placeAbilityScores(scan, abilityScores);
     }

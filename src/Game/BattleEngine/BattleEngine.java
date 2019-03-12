@@ -20,7 +20,7 @@ public class BattleEngine {
     public void getActions(){
         ArrayList<playerCharacter> Battleorder = new ArrayList<playerCharacter>();
         for(int x = 0; x < Battleorder.size(); x++){
-            addEvent(Action.getAction(Battleorder.get(x)));lads
+            addEvent(Action.getAction(Battleorder.get(x)));
         }
     }
     public void addEvent(BattleEvent add){

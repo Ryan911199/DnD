@@ -8,13 +8,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Inventory {
-    private int numOfItems = 0;
+    private Scanner scan = new Scanner(System.in);
     private Menu menu = new Menu();
-    public ArrayList<item> Inventory = new ArrayList<item>();
+    private int numOfItems = 0;
     public int Arrow = 0;
     public int ThrowingDaggers = 0;
     public int numberOfWepons = 0;
-    private Scanner scan = new Scanner(System.in);
+
+    private ArrayList<item> Inventory = new ArrayList<item>();
+    private ArrayList<Weapon> Weapons = new ArrayList<Weapon>();
 
     public Inventory(){
         Arrow = 0;
@@ -22,11 +24,24 @@ public class Inventory {
     }
 
     public void print(){
+        int y = 3;
         System.out.println("BackPack:");
         System.out.print("1. Arrows (" + Arrow + ") ");
         System.out.print("2. Throwing Daggers (" + ThrowingDaggers + ") ");
         for (int x = 0; x < Inventory.size(); x++){
-            System.out.print((x + 3) + ". " + Inventory.get(x) + " ");
+            System.out.print((x + y) + ". " + Inventory.get(x) + " ");
+            y++;
+            System.out.print((x + y) + ". " + Weapons.get(x) + " ");
+            y++;
+        }
+    }
+
+    public void printWeapons(){
+        System.out.println("Weapons:");
+        System.out.print("1. Arrows (" + Arrow + ") ");
+        System.out.print("2. Throwing Daggers (" + ThrowingDaggers + ") ");
+        for (int x = 0; x < Inventory.size(); x++){
+            System.out.print((x + 3) + ". " + Weapons.get(x) + " ");
         }
     }
 
@@ -42,6 +57,11 @@ public class Inventory {
         }
         else if(add instanceof ThrowingDaggers){
             ThrowingDaggers++;
+            return true;
+        }
+        else if (add instanceof Weapon && numOfItems < 20){
+            Weapons.add(add);
+            numOfItems++;
             return true;
         }
         else if (numOfItems < 20){
@@ -91,5 +111,23 @@ public class Inventory {
             return new ThrowingDaggers();
         }
         return Inventory.get(ans);
+    }
+
+    public Weapon getWeapon(){
+        System.out.println("what item would you like to use?");
+        print();
+        int ans = scan.nextInt();
+        while (ans <= 0 || ans > (Inventory.size()+ 2)){
+            System.out.println("Please enter a valid number");
+            ans = scan.nextInt();
+        }
+        if(ans == 1){
+            return new Arrow();
+        }
+        if(ans == 2){
+            return new ThrowingDaggers();
+        }
+        return Weapons.get(ans);
+
     }
 }

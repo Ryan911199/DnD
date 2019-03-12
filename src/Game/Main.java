@@ -15,17 +15,17 @@ public class Main {
         createCharacter createPlayer = new createCharacter();
         playerCharacter Player;
         intro();
-        //Player = createPlayer.newPlayer();
-        // for testing
-        Player = new wizard();
-        Player.Setup("Ryland", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
-        // for testing
+        Player = createPlayer.newPlayer();
+
         System.out.println("Great " + Player.name + " you made a character would you like to play the combat tutorial?");
         if (Yes.check()) {
             Start.Combat();
         }
         Game game = new Game(Player);
-
+        // for testing
+        Player = new wizard();
+        Player.Setup("Ryland", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
+        // for testing
     }
 
     public static void intro() {

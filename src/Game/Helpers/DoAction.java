@@ -29,7 +29,6 @@ public class DoAction {
                 break;
             case 3:
                 Player.Inventory.getItem();
-
                 break;
             case 4:
                 Player.Inventory.print();
