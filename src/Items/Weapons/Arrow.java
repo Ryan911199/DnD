@@ -9,6 +9,7 @@ public class Arrow extends Weapon implements Consumable {
     public  Arrow(){
         value = 0;
         weight = 0;
+        isRanged = true;
     }
 
     public int attack()

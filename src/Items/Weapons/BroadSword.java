@@ -4,6 +4,7 @@ public class BroadSword extends Weapon {
     public BroadSword() {
         weight = 20;
         value = 20;
+        isRanged = false;
     }
 
     @Override

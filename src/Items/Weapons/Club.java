@@ -6,6 +6,7 @@ public class Club extends Weapon
     {
         weight = 15;
         value = 3;
+        isRanged = false;
     }
 
     @Override

@@ -6,6 +6,7 @@ public class axe extends Weapon
     {
         weight = 15;
         value = 15;
+        isRanged = false;
     }
 
     @Override

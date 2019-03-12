@@ -4,6 +4,12 @@ import Items.Consumable;
 
 public class ThrowingDaggers extends Weapon implements Consumable
 {
+    public ThrowingDaggers()
+    {
+        value = 0;
+        weight = 0;
+        isRanged = true;
+    }
     @Override
     public int attack() {
         return 0;

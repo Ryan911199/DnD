@@ -6,6 +6,7 @@ public class Knife extends Weapon
     {
         weight = 5;
         value = 5;
+        isRanged = false;
     }
 
     @Override
