@@ -20,17 +20,4 @@ public class Menu <T>{
         }
         return ans;
     }
-//    public int menu(ArrayList input) {
-//        int length = input.size();
-//        int ans = -1;
-//        for (int x = 0; x < length; x++) {
-//            System.out.println((x + 3) + ". " + input.get(x));
-//        }
-//        while (ans <= 0 || ans > length)  {
-//            System.out.println("Please enter a number between 3 and " + length);
-//            ans = scan.nextInt();
-//            scan.nextLine();
-//        }
-//        return ans;
-//    }
 }

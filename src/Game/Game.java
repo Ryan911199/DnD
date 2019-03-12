@@ -1,5 +1,7 @@
 package Game;
 
+import Characters.PlayerClasses.wizard;
+import Characters.Race;
 import Characters.playerCharacter;
 import Game.BattleEngine.BattleEngine;
 import Game.Helpers.Menu;
@@ -12,15 +14,23 @@ public class Game {
     private Scanner scan = new Scanner(System.in);
     private Tutorial Start = new Tutorial(scan);
     private BattleEngine BattleEngine;
+    playerCharacter Enemy;
+    playerCharacter Player;
 
-    public Game(playerCharacter Player) {
+    public Game(playerCharacter player) {
+        Player = player;
         BattleEngine = new BattleEngine(Player);
         playerOptions = new String[]{"Go To Shop", "Go TO Battle", "Run Tutorial", "Quit"};
+        //Testing
+        Enemy = new wizard();
+        Enemy.Setup("Ryland", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
+        //Testing
         while (true){
-            playGame(Player);
+            playGame();
         }
+
     }
-    private void playGame(playerCharacter Player){
+    private void playGame(){
         Shop shop = new Shop(Player);
         System.out.println();
         switch (menu.menu((playerOptions))) {
@@ -29,7 +39,7 @@ public class Game {
                 Player.printInventory();
                 break;
             case 2:
-                BattleEngine.Battle();
+                BattleEngine.Battle(Enemy);
                 break;
             case 3:
                 System.out.println("What tutorial would you like to play?");

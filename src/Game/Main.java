@@ -2,6 +2,7 @@ package Game;
 
 import Characters.PlayerClasses.*;
 import Characters.*;
+import Game.Helpers.Dice;
 import Game.Helpers.YesOrNo;
 
 import java.util.Scanner;
@@ -12,6 +13,7 @@ public class Main {
     private static Tutorial Start = new Tutorial(scan);
 
     public static void main(String[] args) {
+
         createCharacter createPlayer = new createCharacter();
         playerCharacter Player;
         // for testing

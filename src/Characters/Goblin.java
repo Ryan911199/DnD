@@ -3,7 +3,7 @@ package Characters;
 
 public class Goblin extends playerCharacter{
     public Goblin(){
-        isEnemy = true;
+
     }
 
 

@@ -1,8 +1,6 @@
 package Characters;
 
 import Game.BalancingSheet;
-import Game.BattleEngine.BattleEvent;
-import Game.Helpers.DoAction;
 import Game.Inventory;
 import Items.Armor.ArmorTypes.helmet.*;
 import Items.Armor.ArmorTypes.chestplate.*;
@@ -11,12 +9,9 @@ import Items.Armor.ArmorTypes.pants.*;
 import Items.Armor.ArmorTypes.boots.*;
 import Items.item;
 
-import javax.swing.*;
-
 
 public abstract class playerCharacter {
     private BalancingSheet Set = new BalancingSheet();
-    private DoAction Action = new DoAction();
     public String name;
     public int age;
     public double hitPoints;
@@ -39,7 +34,6 @@ public abstract class playerCharacter {
     public int WillSave;
     public Inventory Inventory = new Inventory();
     public int gold = Set.PlayerGold; //TODO give gold
-    public boolean isEnemy = false;
 
     public void Setup(String Name, int Age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, Race PlayerRace){
         name = Name;
