@@ -1,7 +1,7 @@
 package Game.BattleEngine;
 
 import Characters.playerCharacter;
-import Game.BattleEngine.BattleEvents.Attack;
+import Game.BattleEngine.BattleEvents.*;
 import Game.Helpers.Dice;
 import Game.Helpers.Menu;
 
@@ -11,7 +11,6 @@ public class BattleEngine {
     private String[] BasicActions = {"Attack", "Use Item", "List Inventory"};
     private Menu menu = new Menu();
     playerCharacter Player;
-    playerCharacter Enemy;
 
     public BattleEngine(playerCharacter player){
         Player = player;
@@ -59,7 +58,7 @@ public class BattleEngine {
                 int roll = Dice.rollDice(1,20);
                 if(roll == 1){
                     System.out.println("You missed because you rolled a 1");
-                    return new Attack();
+                    return new Miss();
                 }
                 if(roll == 20){
                     System.out.println("You rolled a 20 there is a chance for a critical hit");
