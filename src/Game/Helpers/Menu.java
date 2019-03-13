@@ -15,6 +15,7 @@ public class Menu <T>{
         }
         while (ans <= 0 || ans > length)  {
             System.out.println("Please enter a number between 1 and " + length);
+
             ans = scan.nextInt();
             scan.nextLine();
         }

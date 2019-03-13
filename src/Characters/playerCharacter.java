@@ -32,6 +32,7 @@ public abstract class playerCharacter {
     public int fortSave;
     public int refSave;
     public int WillSave;
+    public boolean isEnemy = false;
     public Inventory Inventory = new Inventory();
     public int gold = Set.PlayerGold; //TODO give gold
 
@@ -119,5 +120,9 @@ public abstract class playerCharacter {
     }
 
     public abstract String toString();
+
+    public String BattleGrid(){
+        return "[ P ]";
+    }
 }
 

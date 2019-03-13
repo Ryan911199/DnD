@@ -3,6 +3,7 @@ package Game;
 import Characters.PlayerClasses.*;
 import Characters.*;
 import Game.Helpers.Dice;
+import Game.Helpers.Menu;
 import Game.Helpers.YesOrNo;
 
 import java.util.Scanner;
@@ -11,9 +12,9 @@ public class Main {
     private static YesOrNo Yes = new YesOrNo();
     private static Scanner scan = new Scanner(System.in);
     private static Tutorial Start = new Tutorial(scan);
+    Menu Menu = new Menu();
 
     public static void main(String[] args) {
-
         createCharacter createPlayer = new createCharacter();
         playerCharacter Player;
         // for testing

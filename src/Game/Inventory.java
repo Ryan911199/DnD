@@ -7,13 +7,11 @@ import Items.item;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Inventory {
+public class Inventory <T>{
     private Scanner scan = new Scanner(System.in);
-    private Menu menu = new Menu();
     private int numOfItems = 0;
     public int Arrow = 0;
     public int ThrowingDaggers = 0;
-    public int numberOfWepons = 0;
     private ArrayList<item> Inventory = new ArrayList<item>();
 
     public Inventory(){
@@ -87,8 +85,8 @@ public class Inventory {
         return Inventory.get(ans);
     }
 
-    public item getWeapon(){
-        item temp;
+    public Weapon getWeapon(){
+        Weapon temp;
         System.out.println("what item would you like to use?");
         print();
         int ans = getNum();
@@ -101,7 +99,7 @@ public class Inventory {
                 return new ThrowingDaggers();
             }
             if(Inventory.get(ans - 3) instanceof Weapon){
-                temp = Inventory.get(ans - 3);
+                temp = ((Weapon) Inventory.get(ans - 3));
                 Inventory.remove(ans - 3);
                 return temp;
             }
