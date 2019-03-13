@@ -49,5 +49,7 @@ public class BalancingSheet {
     public int ThrowingDaggersAttack = 20;
     public int ThrowingDaggersValue = 5;
 
+    //Armor
+
 
 }
