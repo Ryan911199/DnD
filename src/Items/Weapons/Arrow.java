@@ -4,17 +4,9 @@ import Items.Consumable;
 
 public class Arrow extends Weapon implements Consumable {
 
-<<<<<<< HEAD
-    public int numberOfArrows = 1;
-
-    public  Arrow(){
+    public Arrow(){
         value = Set.ArrowValue;
         weight = Set.ArrowWeight;
-=======
-    public Arrow(){
-        value = 0;
-        weight = 0;
->>>>>>> 0b54a3a8c402e6916a5eb77b7d67e37424e8ff2e
         isRanged = true;
     }
 

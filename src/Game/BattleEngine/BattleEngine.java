@@ -1,9 +1,13 @@
 package Game.BattleEngine;
 
+import Characters.Blank;
+import Characters.Goblin;
 import Characters.playerCharacter;
 import Game.BattleEngine.BattleEvents.*;
 import Game.Helpers.Dice;
 import Game.Helpers.Menu;
+import Items.Weapons.Weapon;
+import Items.item;
 
 public class BattleEngine {
     private BattleNode head;
@@ -11,19 +15,26 @@ public class BattleEngine {
     private String[] BasicActions = {"Attack", "Use Item", "List Inventory"};
     private Menu menu = new Menu();
     playerCharacter Player;
+    playerCharacter Enemy;
+
 
     public BattleEngine(playerCharacter player){
         Player = player;
     }
 
-    public void Battle(playerCharacter Enemy){
+    public void setEnemy(playerCharacter enemy){
+        Enemy = enemy;
+    }
+
+    public void Battle(playerCharacter enemy){
+        setEnemy(enemy);
         if(Dice.rollDice(1,2) == 1){
-            addEvent(getPlayerAction(Player));
-            addEvent(getEnemyAction(Enemy));
+            addEvent(getPlayerAction());
+            addEvent(getEnemyAction());
         }
         else {
-            addEvent(getEnemyAction(Enemy));
-            addEvent(getPlayerAction(Player));
+            addEvent(getEnemyAction());
+            addEvent(getPlayerAction());
         }
         while (head != null){
             head.event.doEvent();
@@ -31,6 +42,44 @@ public class BattleEngine {
         }
     }
 
+    public BattleEvent getEnemyAction() {
+
+        return null;
+    }
+
+    public BattleEvent getPlayerAction() {
+        System.out.println("What would you like to do?");
+
+        switch (menu.menu(BasicActions)) {
+            case 1:
+                System.out.println("What Weapon would you like to use?");
+                Weapon weapon = Player.Inventory.getWeapon();
+                if (weapon.isRanged){
+
+                }
+                int roll = Dice.rollDice(1,20);
+                if(roll == 1){
+                    System.out.println("You missed because you rolled a 1");
+                    return new Miss();
+                }
+                if(roll == 20){
+                    System.out.println("You rolled a 20 there is a chance for a critical hit");
+                }
+
+                System.exit(1);
+                break;
+            case 2:
+                Player.Inventory.getItem();
+                break;
+            case 3:
+                Player.Inventory.print();
+                break;
+            default:
+                System.out.println("There was a problem");
+                System.exit(1);
+        }
+        return null;
+    }
     private void addEvent(BattleEvent add){
         BattleNode current = head;
         BattleNode Add = new BattleNode(add);
@@ -45,40 +94,6 @@ public class BattleEngine {
         }
     }
 
-    public BattleEvent getEnemyAction(playerCharacter Character) {
 
-        return null;
-    }
 
-    public BattleEvent getPlayerAction(playerCharacter Player) {
-        System.out.println("What would you like to do?");
-
-        switch (menu.menu(BasicActions)) {
-            case 1:
-                int roll = Dice.rollDice(1,20);
-                if(roll == 1){
-                    System.out.println("You missed because you rolled a 1");
-                    return new Miss();
-                }
-                if(roll == 20){
-                    System.out.println("You rolled a 20 there is a chance for a critical hit");
-                }
-                System.out.println(Player.Inventory.getWeapon());
-                System.exit(1);
-                break;
-            case 2:
-                //TODO implement battle
-                break;
-            case 3:
-                Player.Inventory.getItem();
-                break;
-            case 4:
-                Player.Inventory.print();
-                break;
-            default:
-                System.out.println("There was a problem");
-                System.exit(1);
-        }
-        return null;
-    }
 }
