@@ -87,7 +87,6 @@ public class Inventory <T>{
 
     public Weapon getWeapon(){
         Weapon temp;
-        System.out.println("what item would you like to use?");
         print();
         int ans = getNum();
         while (true){
@@ -100,7 +99,7 @@ public class Inventory <T>{
             }
             if(Inventory.get(ans - 3) instanceof Weapon){
                 temp = ((Weapon) Inventory.get(ans - 3));
-                Inventory.remove(ans - 3);
+                //Inventory.remove(ans - 3);
                 return temp;
             }
             System.out.println("That item is not a weapon. Please pick a weapon.");

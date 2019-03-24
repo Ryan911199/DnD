@@ -1,9 +1,10 @@
 package Game;
 
-import Characters.PlayerClasses.wizard;
+import Characters.Goblin;
 import Characters.Race;
 import Characters.playerCharacter;
 import Game.BattleEngine.BattleEngine;
+import Game.BattleEngine.BattleGrid;
 import Game.Helpers.Menu;
 
 import java.util.Scanner;
@@ -14,21 +15,22 @@ public class Game {
     private Scanner scan = new Scanner(System.in);
     private Tutorial Start = new Tutorial(scan);
     private BattleEngine BattleEngine;
-    playerCharacter Enemy;
-    playerCharacter Player;
+    private playerCharacter Enemy;
+    private playerCharacter Player;
+    private BattleGrid BattleGrid;
 
     public Game(playerCharacter player) {
         Player = player;
         BattleEngine = new BattleEngine(Player);
         playerOptions = new String[]{"Go To Shop", "Go TO Battle", "Run Tutorial", "Quit"};
         //Testing
-        Enemy = new wizard();
-        Enemy.Setup("Ryland", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
+        Enemy = new Goblin("Fred the Goblin");
+        Enemy.Setup("Fred the Goblin", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
         //Testing
+        BattleGrid =  new BattleGrid(Player);
         while (true){
             playGame();
         }
-
     }
     private void playGame(){
         Shop shop = new Shop(Player);
