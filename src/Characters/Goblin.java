@@ -2,8 +2,9 @@ package Characters;
 
 
 public class Goblin extends playerCharacter{
-    public Goblin(){
+    public Goblin(String name){
         isEnemy = true;
+        name = name;
     }
 
     public String BattleGrid(){

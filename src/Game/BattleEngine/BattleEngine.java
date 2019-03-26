@@ -1,26 +1,26 @@
 package Game.BattleEngine;
 
-import Characters.Blank;
-import Characters.Goblin;
 import Characters.playerCharacter;
 import Game.BattleEngine.BattleEvents.*;
 import Game.Helpers.Dice;
 import Game.Helpers.Menu;
 import Items.Weapons.Weapon;
-import Items.item;
 
 public class BattleEngine {
     private BattleNode head;
     Dice Dice = new Dice();
-    private String[] BasicActions = {"Attack", "Use Item", "List Inventory"};
+    private String[] BasicActions = {"Attack", "Use Item", "Move", "List Inventory"};
     private Menu menu = new Menu();
     playerCharacter Player;
     playerCharacter Enemy;
-    BattleGird grid = new BattleGird(Player,Enemy);
+    BattleGrid grid = new BattleGrid(Player);
+    private boolean hasAttacked = false;
+    private Game.BattleEngine.BattleGrid BattleGrid;
 
 
     public BattleEngine(playerCharacter player){
         Player = player;
+        BattleGrid = new BattleGrid(Player);
     }
 
     public void setEnemy(playerCharacter enemy){
@@ -29,61 +29,115 @@ public class BattleEngine {
 
     public void Battle(playerCharacter enemy){
         setEnemy(enemy);
-        if(Dice.rollDice(1,2) == 1){
-            addEvent(getPlayerAction());
-            addEvent(getEnemyAction());
-        }
-        else {
-            addEvent(getEnemyAction());
-            addEvent(getPlayerAction());
-        }
-        while (head != null){
-            head.event.doEvent();
-            head = head.getNext();
+        BattleGrid.Setup(Enemy);
+        hasAttacked = false;
+        int order = Dice.rollDice(1,2);
+        while (!battleIsOver()){
+            hasAttacked = false;
+            if(order == 1){
+                addEvent(getPlayerAction());
+                if (run()){
+                    addEvent(getPlayerAction());
+                }else {
+                    break;
+                }
+                if (run()){
+                    addEvent(getEnemyAction());
+                }else {
+                    break;
+                }
+                if (run()){
+                    addEvent(getEnemyAction());
+                }else {
+                    break;
+                }
+            }
+            else {
+                addEvent(getEnemyAction());
+                if (run()){
+                    addEvent(getEnemyAction());
+                }else {
+                    break;
+                }
+                if (run()){
+                    addEvent(getPlayerAction());
+                }else {
+                    break;
+                }
+                if (run()){
+                    addEvent(getPlayerAction());
+                }else {
+                    break;
+                }
+            }
         }
     }
 
     public BattleEvent getEnemyAction() {
-
-        return null;
+        return new Miss();
     }
 
     public BattleEvent getPlayerAction() {
+        String[] Actions = {"Move", "Use Item", "List Inventory", "Attack"};
+        String[] lessActions = {"Move", "Use Item", "List Inventory"};
+        System.out.println("Battle Grid");
+        BattleGrid.printGrid();
         System.out.println("What would you like to do?");
 
-        switch (menu.menu(BasicActions)) {
-            case 1:
-                System.out.println("What Weapon would you like to use?");
-                Weapon weapon = Player.Inventory.getWeapon();
-                if (weapon.isRanged && grid.inLine()){
 
-
-                }else if(weapon.isRanged && !grid.inLine()){
-                    
-                }
-                int roll = Dice.rollDice(1,20);
-                if(roll == 1){
-                    System.out.println("You missed because you rolled a 1");
-                    return new Miss();
-                }
-                if(roll == 20){
-                    System.out.println("You rolled a 20 there is a chance for a critical hit");
-                }
-
-                System.exit(1);
-                break;
-            case 2:
-                Player.Inventory.getItem();
-                break;
-            case 3:
-                Player.Inventory.print();
-                break;
-            default:
-                System.out.println("There was a problem");
-                System.exit(1);
+        String[] temp = Actions;
+        if(hasAttacked){
+            temp = lessActions;
+        }while(true){
+            switch (menu.menu(temp)) {
+                case 1:
+                    return new Move(BattleGrid);
+                case 2:
+                    return new UseItem();
+                case 3:
+                    Player.Inventory.print();
+                    break;
+                case 4:
+                    System.out.println("What Weapon would you like to use?");
+                    Weapon weapon = Player.Inventory.getWeapon();
+                    while (!weapon.isRanged && !BattleGrid.canMeelee()){
+                        weapon = Player.Inventory.getWeapon();
+                    }
+                    hasAttacked = true;
+                    int roll = Dice.rollDice(1, 20);
+                    if (roll == 1) {
+                        System.out.println("You missed because you rolled a 1");
+                        return new Miss();
+                    }else if (roll == 20) {
+                        System.out.println("You rolled a 20 there is a chance for a critical hit");
+                    }
+                    else if(roll > 1 && roll < 20){
+                        if (weapon.isRanged) {
+                            roll = roll + Player.Strength + Player.baseAttackBonus;
+                        }
+                        else{
+                            roll = roll + Player.Dexterity + Player.baseAttackBonus;
+                        }
+                        if (Enemy.getArmorClass() > roll){
+                            System.out.println("You missed because you attacked with a " + roll + " and you enemy's armor class is " + Enemy.getArmorClass());
+                            return new Miss();
+                        }
+                        else {
+                            if (!weapon.isRanged){
+                                return new Attack(Player, Enemy, (weapon.attack() + Player.Strength));
+                            }
+                            else {
+                                return new Attack(Player, Enemy, weapon.attack());
+                            }
+                        }
+                    }
+                default:
+                    System.out.println("There was a problem");
+                    System.exit(1);
+            }
         }
-        return null;
     }
+
     private void addEvent(BattleEvent add){
         BattleNode current = head;
         BattleNode Add = new BattleNode(add);
@@ -98,8 +152,27 @@ public class BattleEngine {
         }
     }
 
-    private int roll(){}
 
+    private boolean battleIsOver(){
+        if (Player.hitPoints <= 0){
+            System.out.println("You died. That is the end of the game.");
+            System.exit(0);
+        }
+        else if (Enemy.hitPoints <= 0){
+            System.out.println("You killed the" + Enemy + " and won the battle. ");
+            return true;
+        }
+        return false;
+    }
 
-
+    private boolean run(){
+        while (head != null){
+            head.event.doEvent();
+            head = head.getNext();
+            if (battleIsOver()){
+                return false;
+            }
+        }
+        return true;
+    }
 }

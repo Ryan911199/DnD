@@ -14,7 +14,7 @@ public abstract class playerCharacter {
     private BalancingSheet Set = new BalancingSheet();
     public String name;
     public int age;
-    public double hitPoints;
+    public double hitPoints = 100;
     public int magicPoints;
     public int Strength;
     public int Dexterity;
