@@ -16,6 +16,7 @@ public class BattleEngine {
     private Menu menu = new Menu();
     playerCharacter Player;
     playerCharacter Enemy;
+    BattleGird grid = new BattleGird(Player,Enemy);
 
 
     public BattleEngine(playerCharacter player){
@@ -54,8 +55,11 @@ public class BattleEngine {
             case 1:
                 System.out.println("What Weapon would you like to use?");
                 Weapon weapon = Player.Inventory.getWeapon();
-                if (weapon.isRanged){
+                if (weapon.isRanged && grid.inLine()){
 
+
+                }else if(weapon.isRanged && !grid.inLine()){
+                    
                 }
                 int roll = Dice.rollDice(1,20);
                 if(roll == 1){
@@ -93,6 +97,8 @@ public class BattleEngine {
             Add.setLast(current);
         }
     }
+
+    private int roll(){}
 
 
 
