@@ -1,8 +1,9 @@
 package Game;
 
-import Characters.Goblin;
+import Characters.Enemys.*;
+import Characters.Enemys.Goblin;
 import Characters.Race;
-import Characters.playerCharacter;
+import Characters.*;
 import Game.BattleEngine.BattleEngine;
 import Game.BattleEngine.BattleGrid;
 import Game.Helpers.Menu;
@@ -15,9 +16,8 @@ public class Game {
     private Scanner scan = new Scanner(System.in);
     private Tutorial Start = new Tutorial(scan);
     private BattleEngine BattleEngine;
-    private playerCharacter Enemy;
+    private Enemy Enemy;
     private playerCharacter Player;
-    private BattleGrid BattleGrid;
 
     public Game(playerCharacter player) {
         Player = player;
@@ -27,7 +27,6 @@ public class Game {
         Enemy = new Goblin("Fred the Goblin");
         Enemy.Setup("Fred the Goblin", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
         //Testing
-        BattleGrid =  new BattleGrid(Player);
         while (true){
             playGame();
         }

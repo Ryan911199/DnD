@@ -1,7 +1,5 @@
 package Game.BattleEngine.BattleEvents;
 
-import Game.BattleEngine.BattleEvent;
-
 public class Move extends BattleEvent {
     private Game.BattleEngine.BattleGrid BattleGrid;
 

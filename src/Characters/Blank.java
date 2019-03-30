@@ -5,7 +5,8 @@ public class Blank extends playerCharacter {
     public String toString() {
         return "blank";
     }
-    public String BattleGrid(){
+
+    public String BattleGrid() {
         return "[   ]";
     }
 }

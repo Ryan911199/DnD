@@ -1,7 +1,7 @@
 package Game.BattleEngine;
 
-import Characters.Goblin;
-import Characters.playerCharacter;
+import Characters.Enemys.*;
+import Characters.*;
 
 public class Space {
     private playerCharacter occupant;
@@ -23,12 +23,12 @@ public class Space {
         if (occupant == null){
             return " [   ] ";
         }
-        if (occupant.isEnemy){
+        if (occupant instanceof Enemy){
             return " [ E ] ";
         }
-        else if(!occupant.isEnemy){
+        else{
             return " [ P ] ";
         }
-        return "there was a Problem";
+        //return "there was a Problem";
     }
 }

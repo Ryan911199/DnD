@@ -107,6 +107,25 @@ public class Inventory<T> {
         }
     }
 
+    public boolean getArrow(){
+        if (Arrow > 0){
+            Arrow--;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    public boolean getThrowingDagger(){
+        if (ThrowingDaggers > 0){
+            ThrowingDaggers--;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     private int getNum() {
         int ans = scan.nextInt();
         while (ans <= 0 || ans > (Inventory.size() + 2)) {
@@ -116,4 +135,5 @@ public class Inventory<T> {
         }
         return ans;
     }
+
 }

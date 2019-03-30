@@ -1,72 +1,71 @@
 package Game.BattleEngine;
 
+import Characters.Enemys.*;
 import Characters.playerCharacter;
 import Game.BattleEngine.BattleEvents.*;
-import Game.Helpers.Dice;
-import Game.Helpers.Menu;
+import Game.Helpers.*;
 import Items.Weapons.Weapon;
 
 public class BattleEngine {
+    private Dice Dice = new Dice();
+    private playerCharacter Player;
+    private Enemy Enemy;
+    private BattleGrid grid = new BattleGrid(Player);
     private BattleNode head;
-    Dice Dice = new Dice();
     private String[] BasicActions = {"Attack", "Use Item", "Move", "List Inventory"};
     private Menu menu = new Menu();
-    playerCharacter Player;
-    playerCharacter Enemy;
-    BattleGrid grid = new BattleGrid(Player);
     private boolean hasAttacked = false;
     private Game.BattleEngine.BattleGrid BattleGrid;
 
 
-    public BattleEngine(playerCharacter player){
+    public BattleEngine(playerCharacter player) {
         Player = player;
         BattleGrid = new BattleGrid(Player);
     }
 
-    public void setEnemy(playerCharacter enemy){
+    public void setEnemy(Enemy enemy) {
         Enemy = enemy;
     }
 
-    public void Battle(playerCharacter enemy){
+    public void Battle(Enemy enemy) {
         setEnemy(enemy);
         BattleGrid.Setup(Enemy);
         hasAttacked = false;
-        int order = Dice.rollDice(1,2);
-        while (!battleIsOver()){
+        int order = Dice.rollDice(1, 2);
+        while (!battleIsOver()) {
             hasAttacked = false;
-            if(order == 1){
+            if (order == 1) {
                 addEvent(getPlayerAction());
-                if (run()){
+                if (run()) {
                     addEvent(getPlayerAction());
-                }else {
+                } else {
                     break;
                 }
-                if (run()){
+                if (run()) {
                     addEvent(getEnemyAction());
-                }else {
+                } else {
                     break;
                 }
-                if (run()){
+                if (run()) {
                     addEvent(getEnemyAction());
-                }else {
+                } else {
                     break;
                 }
-            }
-            else {
+            } else {
                 addEvent(getEnemyAction());
-                if (run()){
+                if (run()) {
                     addEvent(getEnemyAction());
-                }else {
+                } else {
                     break;
                 }
-                if (run()){
+                if (run()) {
                     addEvent(getPlayerAction());
-                }else {
+                } else {
                     break;
                 }
-                if (run()){
+                if (run()) {
                     addEvent(getPlayerAction());
-                }else {
+                } else {
                     break;
                 }
             }
@@ -74,7 +73,7 @@ public class BattleEngine {
     }
 
     public BattleEvent getEnemyAction() {
-        return new Miss();
+        return Enemy.getAction();
     }
 
     public BattleEvent getPlayerAction() {
@@ -86,9 +85,10 @@ public class BattleEngine {
 
 
         String[] temp = Actions;
-        if(hasAttacked){
+        if (hasAttacked) {
             temp = lessActions;
-        }while(true){
+        }
+        while (true) {
             switch (menu.menu(temp)) {
                 case 1:
                     return new Move(BattleGrid);
@@ -100,7 +100,7 @@ public class BattleEngine {
                 case 4:
                     System.out.println("What Weapon would you like to use?");
                     Weapon weapon = Player.Inventory.getWeapon();
-                    while (!weapon.isRanged && !BattleGrid.canMeelee()){
+                    while (!weapon.isRanged && !BattleGrid.canMeelee()) {
                         weapon = Player.Inventory.getWeapon();
                     }
                     hasAttacked = true;
@@ -108,26 +108,22 @@ public class BattleEngine {
                     if (roll == 1) {
                         System.out.println("You missed because you rolled a 1");
                         return new Miss();
-                    }else if (roll == 20) {
+                    } else if (roll == 20) {
                         System.out.println("You rolled a 20 there is a chance for a critical hit");
-                    }
-                    else if(roll > 1 && roll < 20){
+                    } else if (roll > 1 && roll < 20) {
                         if (weapon.isRanged) {
                             roll = roll + Player.Strength + Player.baseAttackBonus;
-                        }
-                        else{
+                        } else {
                             roll = roll + Player.Dexterity + Player.baseAttackBonus;
                         }
-                        if (Enemy.getArmorClass() > roll){
+                        if (Enemy.getArmorClass() > roll) {
                             System.out.println("You missed because you attacked with a " + roll + " and you enemy's armor class is " + Enemy.getArmorClass());
                             return new Miss();
-                        }
-                        else {
-                            if (!weapon.isRanged){
-                                return new Attack(Player, Enemy, (weapon.attack() + Player.Strength));
-                            }
-                            else {
-                                return new Attack(Player, Enemy, weapon.attack());
+                        } else {
+                            if (!weapon.isRanged) {
+                                return new Attack(Player, Enemy, weapon);
+                            } else {
+                                return new Attack(Player, Enemy, weapon);
                             }
                         }
                     }
@@ -138,13 +134,13 @@ public class BattleEngine {
         }
     }
 
-    private void addEvent(BattleEvent add){
+    private void addEvent(BattleEvent add) {
         BattleNode current = head;
         BattleNode Add = new BattleNode(add);
-        if(head == null){
+        if (head == null) {
             head = Add;
-        }else {
-            while (current.getNext() != null){
+        } else {
+            while (current.getNext() != null) {
                 current = current.getNext();
             }
             current.setNext(Add);
@@ -152,24 +148,22 @@ public class BattleEngine {
         }
     }
 
-
-    private boolean battleIsOver(){
-        if (Player.hitPoints <= 0){
+    private boolean battleIsOver() {
+        if (Player.hitPoints <= 0) {
             System.out.println("You died. That is the end of the game.");
             System.exit(0);
-        }
-        else if (Enemy.hitPoints <= 0){
+        } else if (Enemy.hitPoints <= 0) {
             System.out.println("You killed the" + Enemy + " and won the battle. ");
             return true;
         }
         return false;
     }
 
-    private boolean run(){
-        while (head != null){
+    private boolean run() {
+        while (head != null) {
             head.event.doEvent();
             head = head.getNext();
-            if (battleIsOver()){
+            if (battleIsOver()) {
                 return false;
             }
         }

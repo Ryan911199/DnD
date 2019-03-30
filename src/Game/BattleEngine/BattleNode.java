@@ -1,5 +1,7 @@
 package Game.BattleEngine;
 
+import Game.BattleEngine.BattleEvents.BattleEvent;
+
 public class BattleNode {
     private BattleNode last;
     private BattleNode next;

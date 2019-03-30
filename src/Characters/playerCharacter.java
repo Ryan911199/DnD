@@ -2,16 +2,15 @@ package Characters;
 
 import Game.BalancingSheet;
 import Game.Inventory;
-import Items.Armor.ArmorTypes.helmet.*;
+import Items.Armor.ArmorTypes.boots.*;
 import Items.Armor.ArmorTypes.chestplate.*;
 import Items.Armor.ArmorTypes.gauntlets.*;
+import Items.Armor.ArmorTypes.helmet.*;
 import Items.Armor.ArmorTypes.pants.*;
-import Items.Armor.ArmorTypes.boots.*;
-import Items.item;
+import Items.*;
 
 
 public abstract class playerCharacter {
-    private BalancingSheet Set = new BalancingSheet();
     public String name;
     public int age;
     public double hitPoints = 100;
@@ -32,11 +31,11 @@ public abstract class playerCharacter {
     public int fortSave;
     public int refSave;
     public int WillSave;
-    public boolean isEnemy = false;
     public Inventory Inventory = new Inventory();
+    private BalancingSheet Set = new BalancingSheet();
     public int gold = Set.PlayerGold; //TODO give gold
 
-    public void Setup(String Name, int Age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, Race PlayerRace){
+    public void Setup(String Name, int Age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, Race PlayerRace) {
         name = Name;
         age = Age;
         Strength = strength;
@@ -48,81 +47,83 @@ public abstract class playerCharacter {
         Race = PlayerRace;
     }
 
-    public void printInventory(){
+    public void printInventory() {
         Inventory.print();
     }
 
-    public boolean addInventory(item newI){
+    public boolean addInventory(item newI) {
         return Inventory.Add(newI);
     }
 
-    public boolean removeItem(item oldI){
+    public boolean removeItem(item oldI) {
         Inventory.remove(oldI);
         return true;
     }
 
-    public int abilityMod(int score){
-        if (score == 2 || score == 3){
+    public int abilityMod(int score) {
+        if (score == 2 || score == 3) {
             return -4;
         }
-        if (score == 4 || score == 5){
+        if (score == 4 || score == 5) {
             return -3;
         }
-        if (score == 6 || score == 7){
+        if (score == 6 || score == 7) {
             return -2;
         }
-        if (score == 8 || score == 9){
+        if (score == 8 || score == 9) {
             return -1;
         }
-        if (score == 10 || score == 11){
+        if (score == 10 || score == 11) {
             return 0;
         }
-        if (score == 12 || score == 13){
+        if (score == 12 || score == 13) {
             return 1;
         }
-        if (score == 14 || score == 15){
+        if (score == 14 || score == 15) {
             return 2;
         }
-        if (score == 16 || score == 17){
+        if (score == 16 || score == 17) {
             return 3;
         }
-        if (score == 18 || score == 19){
+        if (score == 18 || score == 19) {
             return 4;
         }
-        if (score == 20 || score == 21){
+        if (score == 20 || score == 21) {
             return 5;
         }
         System.out.println("there was a problem in score mod");
         return -100;
     }
 
-    public int getArmorClass(){
+    public int getArmorClass() {
         int armorclass = 0;
-        if (helmet != null){
+        if (helmet != null) {
             armorclass = armorclass + helmet.armorBonus;
         }
-        if (chestplate != null){
+        if (chestplate != null) {
             armorclass = armorclass + chestplate.armorBonus;
         }
-        if (gauntlets != null){
+        if (gauntlets != null) {
             armorclass = armorclass + gauntlets.armorBonus;
-        }if (pants != null){
+        }
+        if (pants != null) {
             armorclass = armorclass + pants.armorBonus;
         }
-        if (boots != null){
+        if (boots != null) {
             armorclass = armorclass + boots.armorBonus;
         }
         return armorclass;
     }
 
-    public void equipArmor(){
+    public void equipArmor() {
         //TODO implement equip armor
     }
 
     public abstract String toString();
 
-    public String BattleGrid(){
+    public String BattleGrid() {
         return "[ P ]";
     }
+
 }
 
