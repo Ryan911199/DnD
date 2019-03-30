@@ -14,13 +14,10 @@ public class BattleEngine {
     private BattleNode head;
     private Menu menu = new Menu();
     private boolean hasAttacked = false;
-    //private Game.BattleEngine.*;
-
 
     public BattleEngine(playerCharacter player) {
         Player = player;
         grid = new BattleGrid(Player);
-
     }
 
     public void setEnemy(Enemy enemy) {
@@ -92,7 +89,7 @@ public class BattleEngine {
                 case 1:
                     return new Move(grid);
                 case 2:
-                    return new UseItem(Player.Inventory.getItem());
+                    return new UseItem(Player.Inventory.getConsumable());
                 case 3:
                     Player.Inventory.print();
                     break;
