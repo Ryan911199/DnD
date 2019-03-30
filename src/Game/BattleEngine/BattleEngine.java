@@ -10,17 +10,17 @@ public class BattleEngine {
     private Dice Dice = new Dice();
     private playerCharacter Player;
     private Enemy Enemy;
-    private BattleGrid grid = new BattleGrid(Player);
+    private BattleGrid grid;
     private BattleNode head;
-    private String[] BasicActions = {"Attack", "Use Item", "Move", "List Inventory"};
     private Menu menu = new Menu();
     private boolean hasAttacked = false;
-    private Game.BattleEngine.BattleGrid BattleGrid;
+    //private Game.BattleEngine.*;
 
 
     public BattleEngine(playerCharacter player) {
         Player = player;
-        BattleGrid = new BattleGrid(Player);
+        grid = new BattleGrid(Player);
+
     }
 
     public void setEnemy(Enemy enemy) {
@@ -29,7 +29,7 @@ public class BattleEngine {
 
     public void Battle(Enemy enemy) {
         setEnemy(enemy);
-        BattleGrid.Setup(Enemy);
+        grid.Setup(Enemy);
         hasAttacked = false;
         int order = Dice.rollDice(1, 2);
         while (!battleIsOver()) {
@@ -80,9 +80,8 @@ public class BattleEngine {
         String[] Actions = {"Move", "Use Item", "List Inventory", "Attack"};
         String[] lessActions = {"Move", "Use Item", "List Inventory"};
         System.out.println("Battle Grid");
-        BattleGrid.printGrid();
+        grid.printGrid();
         System.out.println("What would you like to do?");
-
 
         String[] temp = Actions;
         if (hasAttacked) {
@@ -91,7 +90,7 @@ public class BattleEngine {
         while (true) {
             switch (menu.menu(temp)) {
                 case 1:
-                    return new Move(BattleGrid);
+                    return new Move(grid);
                 case 2:
                     return new UseItem();
                 case 3:
@@ -100,7 +99,7 @@ public class BattleEngine {
                 case 4:
                     System.out.println("What Weapon would you like to use?");
                     Weapon weapon = Player.Inventory.getWeapon();
-                    while (!weapon.isRanged && !BattleGrid.canMeelee()) {
+                    while (!weapon.isRanged && !grid.canMeelee()) {
                         weapon = Player.Inventory.getWeapon();
                     }
                     hasAttacked = true;
