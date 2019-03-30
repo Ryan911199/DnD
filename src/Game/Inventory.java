@@ -1,5 +1,6 @@
 package Game;
 
+import Items.Consumable;
 import Items.Weapons.Arrow;
 import Items.Weapons.ThrowingDaggers;
 import Items.Weapons.Weapon;
@@ -116,6 +117,7 @@ public class Inventory<T> {
             return false;
         }
     }
+
     public boolean getThrowingDagger(){
         if (ThrowingDaggers > 0){
             ThrowingDaggers--;
@@ -123,6 +125,22 @@ public class Inventory<T> {
         }
         else {
             return false;
+        }
+    }
+
+    public Consumable getConsumable(){
+        System.out.println("what item would you like to use?");
+        int ans = getNum();
+        while (true) {
+            Consumable temp;
+            if (Inventory.get(ans - 3) instanceof Consumable) {
+                temp = ((Consumable) Inventory.get(ans - 3));
+                Inventory.remove(ans - 3);
+                return temp;
+            }
+            System.out.println("That item is not a weapon. Please pick a weapon.");
+            print();
+            ans = getNum();
         }
     }
 
