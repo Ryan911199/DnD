@@ -50,6 +50,8 @@ public class BalancingSheet {
     public int ThrowingDaggersValue = 5;
 
     //Armor
+    public int lightLeatherChestplateValue = 10;
+
 
 
 }

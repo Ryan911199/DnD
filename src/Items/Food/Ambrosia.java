@@ -16,8 +16,8 @@ public class Ambrosia extends item implements Consumable
     }
 
     @Override
-    public void consume() {
-        //TODO implement consume
+    public int consume() {
+        return Set.AmbrosiaHeal;
     }
 
     @Override
