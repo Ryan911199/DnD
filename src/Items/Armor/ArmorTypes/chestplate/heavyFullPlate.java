@@ -4,10 +4,10 @@ public class heavyFullPlate extends chestplate
 {
     public heavyFullPlate()
     {
-        value = 10;
-        weight = 15;
-        armorBonus = 2;
-        dexBonus = 6;
+        value = 1500;
+        weight = 50;
+        armorBonus = 8;
+        dexBonus = 1;
     }
 
     @Override
