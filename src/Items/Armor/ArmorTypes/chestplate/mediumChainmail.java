@@ -4,10 +4,10 @@ public class mediumChainmail extends chestplate
 {
     mediumChainmail()
     {
-        value = 150;
-        weight = 40;
-        armorBonus = 5;
-        dexBonus = 2;
+        value = Set.mediumChainmailValue;
+        weight = Set.mediumChainmailWeight;
+        armorBonus = Set.mediumChainmailArmorBonus;
+        dexBonus = Set.mediumChainmailDexBonus;
     }
 
     @Override

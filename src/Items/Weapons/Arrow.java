@@ -2,7 +2,7 @@ package Items.Weapons;
 
 import Items.Consumable;
 
-public class Arrow extends Weapon implements Consumable {
+public class Arrow extends Weapon {
 
     public Arrow(){
         value = Set.ArrowValue;
@@ -12,17 +12,7 @@ public class Arrow extends Weapon implements Consumable {
 
     public int attack()
     {
-       consume();
         return Set.ArrowAttack;
-    }
-
-    public void consume() {
-        //TODO implement consume
-    }
-
-    @Override
-    public int health() {
-        return 0;
     }
 
     @Override

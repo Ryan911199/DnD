@@ -17,8 +17,8 @@ public class Bread extends item implements Consumable{
     }
 
     @Override
-    public void consume() {
-        //TODO implement consume
+    public int consume() {
+        return Set.BreadHeal;
     }
 
     @Override

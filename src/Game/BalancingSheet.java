@@ -49,8 +49,24 @@ public class BalancingSheet {
     public int ThrowingDaggersAttack = 20;
     public int ThrowingDaggersValue = 5;
 
-    //Armor
+    //Armor      Armor bonus max is 20
     public int lightLeatherChestplateValue = 10;
+    public int lightLeatherChestplateWeight = 15;
+    public int lightLeatherChestplateArmorBonus = 2;
+    public int lightLeatherChestplateDexBonus = 6;
+    public int mediumChainmailValue = 150;
+    public int mediumChainmailWeight = 40;
+    public int mediumChainmailArmorBonus = 5;
+    public int mediumChainmailDexBonus = 2;
+    public int heavyFullPlateValue = 1500;
+    public int heavyFullPlateWeight = 50;
+    public int heavyFullPlateArmorBonus = 8;
+    public int heavyFullPlateDexBonus = 1;
+    public int ArcaneChestplateValue = 5000;
+    public int ArcaneChestplateWeight = 15;
+    public int ArcaneChestplateArmorBonus = 10;
+    public int ArcaneChestplateDexBonus = 7;
+
 
 
 

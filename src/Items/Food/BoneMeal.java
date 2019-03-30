@@ -18,8 +18,8 @@ public class BoneMeal extends item implements Consumable
 
 
     @Override
-    public double consume() {
-        return
+    public int consume() {
+        return Set.BoneMealHeal;
     }
 
     @Override

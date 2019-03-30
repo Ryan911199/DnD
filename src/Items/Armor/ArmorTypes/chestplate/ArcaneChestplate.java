@@ -4,10 +4,10 @@ public class ArcaneChestplate extends chestplate
 {
     public ArcaneChestplate()
     {
-        value = 5000;
-        weight = 15;
-        armorBonus = 15;
-        dexBonus = 7;
+        value = Set.ArcaneChestplateValue;
+        weight = Set.ArcaneChestplateWeight;
+        armorBonus = Set.ArcaneChestplateArmorBonus;
+        dexBonus = Set.ArcaneChestplateDexBonus;
     }
     @Override
     public String toString() {
