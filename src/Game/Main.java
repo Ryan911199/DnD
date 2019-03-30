@@ -17,18 +17,11 @@ public class Main {
     public static void main(String[] args) {
         createCharacter createPlayer = new createCharacter();
         playerCharacter Player;
-        // for testing
-        Player = new wizard();
-        Player.Setup("Ryland", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
-        // for testing
-
-
-        //intro();
-        //Player = createPlayer.newPlayer();
-
+        intro();
+        Player = createPlayer.newPlayer();
 //        System.out.println("Great " + Player.name + " you made a character would you like to play the combat tutorial?");
 //        if (Yes.check()) {
-//            Start.Combat();
+//            Start.Combat(Player);
 //        }
         Game game = new Game(Player);
 
@@ -41,4 +34,9 @@ public class Main {
             Start.start();
         }
     }
+
+    // for testing
+    //Player = new wizard();
+    // Player.Setup("Ryland", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
+    // for testing
 }
