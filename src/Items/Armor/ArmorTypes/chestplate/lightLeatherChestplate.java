@@ -4,7 +4,7 @@ public class lightLeatherChestplate extends chestplate
 {
     public lightLeatherChestplate()
     {
-        value = 10;
+        value = Set.lightLeatherChestplateValue;
         weight = 15;
         armorBonus = 2;
         dexBonus = 6;
