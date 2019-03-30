@@ -1,5 +1,8 @@
 package Game;
 
+import Characters.Enemys.Goblin;
+import Characters.playerCharacter;
+import Game.BattleEngine.BattleEngine;
 import Game.Helpers.Menu;
 import Game.Helpers.YesOrNo;
 
@@ -59,7 +62,8 @@ public class Tutorial {
         System.out.println("Welcome to the Shop, here you can buy items like armor, weapons, potions and food");
         System.out.println("Everything here costs gold. To buy something just select the number corresponding to the item. If you have the money and room to hold the item then it will be added to your inventory");
     }
-    public void Combat(){
-
+    public void Combat(playerCharacter Player){
+        BattleEngine BattleEngine = new BattleEngine(Player);
+        Goblin weakgob = new Goblin("Weak Fred");
     }
 }

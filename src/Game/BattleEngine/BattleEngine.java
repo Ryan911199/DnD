@@ -92,7 +92,7 @@ public class BattleEngine {
                 case 1:
                     return new Move(grid);
                 case 2:
-                    return new UseItem();
+                    return new UseItem(Player.Inventory.getItem());
                 case 3:
                     Player.Inventory.print();
                     break;
