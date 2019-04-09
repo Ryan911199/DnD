@@ -5,5 +5,5 @@ import Game.BattleEngine.BattleEvents.BattleEvent;
 
 public abstract class Enemy extends playerCharacter {
 
-    public abstract BattleEvent getAction();
+    public abstract BattleEvent getAction(playerCharacter Target);
 }

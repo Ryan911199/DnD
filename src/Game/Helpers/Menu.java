@@ -18,7 +18,7 @@ public class Menu<T> {
             try {
                 ans = scan.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("You did not enter a matching the required parameters.");
+                System.out.println("You did not enter a number matching the required parameters.");
             }
             scan.nextLine();
         }

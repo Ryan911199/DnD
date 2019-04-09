@@ -1,6 +1,7 @@
 package Characters.Enemys;
 
 
+import Characters.playerCharacter;
 import Game.BattleEngine.BattleEvents.BattleEvent;
 import Game.BattleEngine.BattleEvents.Miss;
 
@@ -18,7 +19,8 @@ public class Goblin extends Enemy {
         return "I am a Goblin";
     }
 
-    public BattleEvent getAction(){
-        return new Miss();
+    @Override
+    public BattleEvent getAction(playerCharacter Target) {
+        return new Miss(this, Target);
     }
 }

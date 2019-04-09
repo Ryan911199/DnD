@@ -5,6 +5,9 @@ import Characters.*;
 import Game.Helpers.Dice;
 import Game.Helpers.Menu;
 import Game.Helpers.YesOrNo;
+import Items.Weapons.Arrow;
+import Items.Weapons.Bow;
+import Items.Weapons.Sword;
 
 import java.util.Scanner;
 
@@ -17,8 +20,15 @@ public class Main {
     public static void main(String[] args) {
         createCharacter createPlayer = new createCharacter();
         playerCharacter Player;
-        intro();
-        Player = createPlayer.newPlayer();
+        //intro();
+        // for testing
+        Player = new wizard();
+        Player.Setup("Ryland", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
+        Player.addInventory(new Arrow());
+        Player.addInventory(new Bow());
+        Player.addInventory(new Sword());
+        // for testing
+        //Player = createPlayer.newPlayer();
 //        System.out.println("Great " + Player.name + " you made a character would you like to play the combat tutorial?");
 //        if (Yes.check()) {
 //            Start.Combat(Player);
@@ -35,8 +45,5 @@ public class Main {
         }
     }
 
-    // for testing
-    //Player = new wizard();
-    // Player.Setup("Ryland", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
-    // for testing
+
 }

@@ -1,12 +1,14 @@
 package Characters.Enemys;
 
 
+import Characters.playerCharacter;
 import Game.BattleEngine.BattleEvents.BattleEvent;
 import Game.BattleEngine.BattleEvents.Miss;
 
 public class StarterEnemy extends Enemy {
     public StarterEnemy(String Name){
         name = Name;
+        //hitPoints = 10;
     }
 
     public String BattleGrid(){
@@ -18,7 +20,8 @@ public class StarterEnemy extends Enemy {
         return "I am a the Tutorial Enemy";
     }
 
-    public BattleEvent getAction(){
-        return new Miss();
+    @Override
+    public BattleEvent getAction(playerCharacter Target) {
+        return new Miss(this, Target);
     }
 }
