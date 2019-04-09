@@ -87,24 +87,21 @@ public class Inventory<T> {
 
     public Weapon getWeapon() {
         Weapon temp;
-        print();
-        int ans = getNum();
         while (true) {
+            print();
+            int ans = getNum();
             if (ans == 1) {
-                Arrow--;
-                return new Arrow();
+                System.out.println("You cant attack with an arrow please pick a different item");
             }
-            if (ans == 2) {
+            else if (ans == 2) {
                 return new ThrowingDaggers();
             }
-            if (Inventory.get(ans - 3) instanceof Weapon) {
+            else if (Inventory.get(ans - 3) instanceof Weapon) {
                 temp = ((Weapon) Inventory.get(ans - 3));
                 //Inventory.remove(ans - 3);
                 return temp;
             }
-            System.out.println("That item is not a weapon. Please pick a weapon.");
-            print();
-            ans = getNum();
+            else{System.out.println("That item is not a weapon. Please pick a weapon.");}
         }
     }
 
@@ -130,6 +127,7 @@ public class Inventory<T> {
 
     public Consumable getConsumable(){
         System.out.println("what item would you like to use?");
+        print();
         int ans = getNum();
         while (true) {
             Consumable temp;

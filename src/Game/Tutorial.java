@@ -1,6 +1,7 @@
 package Game;
 
 import Characters.Enemys.Goblin;
+import Characters.Enemys.StarterEnemy;
 import Characters.Race;
 import Characters.playerCharacter;
 import Game.BattleEngine.BattleEngine;
@@ -65,7 +66,7 @@ public class Tutorial {
     }
     public void Combat(playerCharacter Player){
         BattleEngine BattleEngine = new BattleEngine(Player);
-        Goblin weakgob = new Goblin("Weak Fred");
+        StarterEnemy weakgob = new StarterEnemy("Weak Fred");
         weakgob.Setup("Weak Fred", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
         System.out.println("Welcome " + Player.name+ " to the combat tutorial. In this we will walk you through how to fight Fred The Weak. (Fred is a goblin");
         BattleEngine.Battle(weakgob);

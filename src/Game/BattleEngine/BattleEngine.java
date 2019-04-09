@@ -70,7 +70,7 @@ public class BattleEngine {
     }
 
     public BattleEvent getEnemyAction() {
-        return Enemy.getAction();
+        return Enemy.getAction(Player);
     }
 
     public BattleEvent getPlayerAction() {
@@ -97,16 +97,21 @@ public class BattleEngine {
                     System.out.println("What Weapon would you like to use?");
                     Weapon weapon = Player.Inventory.getWeapon();
                     while (!weapon.isRanged && !grid.canMeelee()) {
+                        System.out.println("You picked a Melee weapon and you are not close enough to Melee ");
                         weapon = Player.Inventory.getWeapon();
                     }
                     hasAttacked = true;
                     int roll = Dice.rollDice(1, 20);
+                    System.out.print("You rolled a " + roll);
                     if (roll == 1) {
-                        System.out.println("You missed because you rolled a 1");
-                        return new Miss();
+                        System.out.print(" there for you aromatically missed");
+                        System.out.println();
+                        return new Miss(Player, Enemy);
                     } else if (roll == 20) {
-                        System.out.println("You rolled a 20 there is a chance for a critical hit");
+                        System.out.print(" so there is a chance for a critical hit");
+                        System.out.println();
                     } else if (roll > 1 && roll < 20) {
+                        System.out.println();
                         if (weapon.isRanged) {
                             roll = roll + Player.Strength + Player.baseAttackBonus;
                         } else {
@@ -114,7 +119,7 @@ public class BattleEngine {
                         }
                         if (Enemy.getArmorClass() > roll) {
                             System.out.println("You missed because you attacked with a " + roll + " and you enemy's armor class is " + Enemy.getArmorClass());
-                            return new Miss();
+                            return new Miss(Player, Enemy);
                         } else {
                             if (!weapon.isRanged) {
                                 return new Attack(Player, Enemy, weapon);

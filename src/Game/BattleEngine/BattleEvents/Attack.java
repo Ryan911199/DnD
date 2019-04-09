@@ -30,7 +30,7 @@ public class Attack extends BattleEvent {
                 }
             }
         }
-
+        Attack();
     }
     private void Attack(){
         System.out.println(Owner.name + " Attacked " + Target.name + " for " + weapon.attack() + " damage");
