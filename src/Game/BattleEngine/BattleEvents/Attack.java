@@ -5,10 +5,12 @@ import Items.Weapons.*;
 
 public class Attack extends BattleEvent {
     private Weapon weapon;
-    public Attack(playerCharacter owner, playerCharacter target, Weapon useerWeapon){
+    boolean Critical;
+    public Attack(playerCharacter owner, playerCharacter target, Weapon useerWeapon, boolean critical){
         Owner = owner;
         Target = target;
         weapon = useerWeapon;
+        Critical = critical;
     }
     @Override
     public void doEvent() {

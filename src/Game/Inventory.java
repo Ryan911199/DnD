@@ -14,7 +14,7 @@ public class Inventory<T> {
     public int ThrowingDaggers = 0;
     private Scanner scan = new Scanner(System.in);
     private int numOfItems = 0;
-    private ArrayList<item> Inventory = new ArrayList<item>();
+    private item[] Inventory = new item[20];
 
     public Inventory() {
         Arrow = 0;
@@ -24,11 +24,14 @@ public class Inventory<T> {
     public void print() {
         int y = 3;
         System.out.println("BackPack:");
-        System.out.print("1. Arrows (" + Arrow + ") ");
-        System.out.print("2. Throwing Daggers (" + ThrowingDaggers + ") ");
-        for (int x = 0; x < Inventory.size(); x++) {
+        if (Arrow > 0){
+            System.out.print("1. Arrows (" + Arrow + ") ");
+        }
+        if (ThrowingDaggers > 0){
+            System.out.print("2. Throwing Daggers (" + ThrowingDaggers + ") ");
+        }
+        for (int x = 0; x < Inventory.length; x++) {
             System.out.print((x + 3) + ". " + Inventory.get(x) + " ");
-
         }
         System.out.println();
     }
