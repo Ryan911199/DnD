@@ -24,9 +24,6 @@ public class Main {
         // for testing
         Player = new wizard();
         Player.Setup("Ryland", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
-        Player.addInventory(new Arrow());
-        Player.addInventory(new Bow());
-        Player.addInventory(new Sword());
         // for testing
         //Player = createPlayer.newPlayer();
 //        System.out.println("Great " + Player.name + " you made a character would you like to play the combat tutorial?");
