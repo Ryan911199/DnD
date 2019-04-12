@@ -5,19 +5,24 @@ import Characters.Enemys.Goblin;
 import Characters.Race;
 import Characters.*;
 import Game.BattleEngine.BattleEngine;
-import Game.BattleEngine.BattleGrid;
 import Game.Helpers.Menu;
+import Game.Story.End;
+import Game.Story.StoryList;
+import Game.Story.StoryNode;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
     private String[] playerOptions;
+    private Shop shop;
     private Menu menu = new Menu();
     private Scanner scan = new Scanner(System.in);
     private Tutorial Start = new Tutorial(scan);
     private BattleEngine BattleEngine;
     private Enemy Enemy;
     private playerCharacter Player;
+    private StoryList Story = new StoryList();
 
     public Game(playerCharacter player) {
         Player = player;
@@ -27,12 +32,17 @@ public class Game {
         Enemy = new Goblin("Fred the Goblin");
         Enemy.Setup("Fred the Goblin", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
         //Testing
+        shop = new Shop(Player);
         while (true){
             playGame();
         }
     }
     private void playGame(){
-        Shop shop = new Shop(Player);
+        StoryNode temp = Story.getStory();
+        temp.Story(Player);
+        if (temp instanceof End){
+            System.exit(0);
+        }
         System.out.println();
         switch (menu.menu((playerOptions))) {
             case 1:

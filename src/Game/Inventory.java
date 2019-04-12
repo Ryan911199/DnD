@@ -14,7 +14,7 @@ public class Inventory<T> {
     public int ThrowingDaggers = 0;
     private Scanner scan = new Scanner(System.in);
     private int numOfItems = 0;
-    private item[] Inventory = new item[20];
+    private ArrayList<item> Inventory = new ArrayList<item>();
 
     public Inventory() {
         Arrow = 0;
@@ -30,7 +30,7 @@ public class Inventory<T> {
         if (ThrowingDaggers > 0){
             System.out.print("2. Throwing Daggers (" + ThrowingDaggers + ") ");
         }
-        for (int x = 0; x < Inventory.length; x++) {
+        for (int x = 0; x < Inventory.size(); x++) {
             System.out.print((x + 3) + ". " + Inventory.get(x) + " ");
         }
         System.out.println();
