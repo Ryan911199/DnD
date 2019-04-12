@@ -7,6 +7,7 @@ import Items.Weapons.Weapon;
 import Items.item;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Inventory<T> {
@@ -14,7 +15,7 @@ public class Inventory<T> {
     public int ThrowingDaggers = 0;
     private Scanner scan = new Scanner(System.in);
     private int numOfItems = 0;
-    private item[] Inventory = new item[20];
+    private ArrayList<item> Inventory = new ArrayList<item>();
 
     public Inventory() {
         Arrow = 0;
@@ -30,8 +31,9 @@ public class Inventory<T> {
         if (ThrowingDaggers > 0){
             System.out.print("2. Throwing Daggers (" + ThrowingDaggers + ") ");
         }
-        for (int x = 0; x < Inventory.length; x++) {
+        for (int x = 0; x < Inventory.size(); x++) {
             System.out.print((x + 3) + ". " + Inventory.get(x) + " ");
+
         }
         System.out.println();
     }
@@ -97,7 +99,13 @@ public class Inventory<T> {
                 System.out.println("You cant attack with an arrow please pick a different item");
             }
             else if (ans == 2) {
-                return new ThrowingDaggers();
+                if (ThrowingDaggers > 0 ){
+                    ThrowingDaggers--;
+                    return new ThrowingDaggers();
+                }
+                else {
+                    System.out.println("you dont have any Throwing Daggers");
+                }
             }
             else if (Inventory.get(ans - 3) instanceof Weapon) {
                 temp = ((Weapon) Inventory.get(ans - 3));
@@ -149,7 +157,12 @@ public class Inventory<T> {
         int ans = scan.nextInt();
         while (ans <= 0 || ans > (Inventory.size() + 2)) {
             System.out.println("Please enter a valid number");
-            ans = scan.nextInt();
+            try {
+                ans = scan.nextInt();
+            }
+            catch (InputMismatchException e) {
+                System.out.println("You did not enter a number matching the required parameters.");
+            }
 
         }
         return ans;
