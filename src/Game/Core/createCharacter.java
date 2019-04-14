@@ -1,4 +1,4 @@
-package Game;
+package Game.Core;
 
 import Characters.*;
 import Characters.PlayerClasses.*;

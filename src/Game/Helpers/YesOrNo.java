@@ -1,7 +1,5 @@
 package Game.Helpers;
 
-import Game.Game;
-
 import java.util.Scanner;
 
 public class YesOrNo {

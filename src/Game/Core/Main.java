@@ -1,13 +1,9 @@
-package Game;
+package Game.Core;
 
 import Characters.PlayerClasses.*;
 import Characters.*;
-import Game.Helpers.Dice;
 import Game.Helpers.Menu;
 import Game.Helpers.YesOrNo;
-import Items.Weapons.Arrow;
-import Items.Weapons.Bow;
-import Items.Weapons.Sword;
 
 import java.util.Scanner;
 
