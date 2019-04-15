@@ -4,14 +4,14 @@ public class lightBoots extends boots
 {
     public lightBoots()
     {
-        value = 10;
-        weight = 15;
-        armorBonus = 2;
-        dexBonus = 6;
+        value = Set.lightBootsValue;
+        weight = Set.lightBootsWeight;
+        armorBonus = Set.lightBootsArmorBonus;
+        dexBonus = Set.lightBootsDexBonus;
     }
 
     @Override
     public String toString() {
-        return null;
+        return "light boots";
     }
 }
