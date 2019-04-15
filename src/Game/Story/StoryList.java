@@ -7,6 +7,7 @@ public class StoryList {
     private int current = 0;
     public StoryList(){
         Story.add(new Begining());
+
         Story.add(new End());
     }
     public StoryNode getStory(){
