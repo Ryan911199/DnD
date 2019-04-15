@@ -28,7 +28,7 @@ public class Game {
     public Game(playerCharacter player) {
         Player = player;
         BattleEngine = new BattleEngine(Player);
-        playerOptions = new String[]{"Go To Shop", "Go TO Battle", "Run Tutorial", "Quit"};
+        playerOptions = new String[]{"Go To Shop", "Go TO Battle", "Run Tutorial", " Equip Armor", "Quit"};
         shop = new Shop(Player);
         playGame();
     }
@@ -59,6 +59,8 @@ public class Game {
                     System.out.println("Thanks for playing our game. Feel free to come back and play again");
                     System.exit(0);
                     break;
+                case 5:
+                    Player.equipArmor();
                 default:
                     System.out.println("There was a problem most likely in menu or \"game\" to catastrophically mess up");
                     System.exit(1);

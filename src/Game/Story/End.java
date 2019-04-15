@@ -1,5 +1,6 @@
 package Game.Story;
 
+import Characters.Enemys.Enemy;
 import Characters.playerCharacter;
 
 public class End extends StoryNode{
@@ -11,5 +12,15 @@ public class End extends StoryNode{
     @Override
     void giveItems(playerCharacter Player) {
 
+    }
+
+    @Override
+    public boolean hasEnemy() {
+        return false;
+    }
+
+    @Override
+    public Enemy getEnemy() {
+        return null;
     }
 }

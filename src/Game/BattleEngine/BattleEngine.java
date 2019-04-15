@@ -30,6 +30,9 @@ public class BattleEngine {
         setEnemy(enemy);
         grid.Setup(Enemy);
         hasAttacked = false;
+        System.out.println("You are entering a battle with " + Enemy.name);
+        System.out.println(Enemy.name + " has " + Enemy.hitPoints + "health and an armor class of " + Enemy.getArmorClass());
+
         int order = Dice.rollDice(1, 2);
         while (!battleIsOver()) {
             hasAttacked = false;
@@ -89,6 +92,7 @@ public class BattleEngine {
                     Player.Inventory.print();
                     break;
                 case 6:
+
                     printStats();
                     break;
                 case 7:
@@ -169,8 +173,8 @@ public class BattleEngine {
         if (temp2 < 0){
             temp2 = 0;
         }
-        System.out.println(Player.name + " has " + temp1 + " health reaming");
-        System.out.println(Enemy.name + " has " + temp2 + " health reaming (E)");
+        System.out.println(Player.name + " has an armor class of " + Player.getArmorClass()+ " and " +temp1 + " health reaming");
+        System.out.println(Enemy.name + " has an armor class of " + Enemy.getArmorClass()+ " and " + temp2 + " health reaming (E)");
         scan.nextLine();
     }
 }

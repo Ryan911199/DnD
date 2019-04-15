@@ -2,6 +2,8 @@ package Characters;
 
 import Game.Core.BalancingSheet;
 import Game.Core.Inventory;
+import Game.Helpers.YesOrNo;
+import Items.Armor.Armor;
 import Items.Armor.ArmorTypes.boots.*;
 import Items.Armor.ArmorTypes.chestplate.*;
 import Items.Armor.ArmorTypes.gauntlets.*;
@@ -33,6 +35,7 @@ public abstract class playerCharacter {
     public int WillSave;
     public Inventory Inventory = new Inventory();
     private BalancingSheet Set = new BalancingSheet();
+    private YesOrNo yes = new YesOrNo();
     public int gold = Set.PlayerGold; //TODO give gold
 
     public void Setup(String Name, int Age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, Race PlayerRace) {
@@ -116,7 +119,62 @@ public abstract class playerCharacter {
     }
 
     public void equipArmor() {
-        //TODO implement equip armor
+        Armor temp = Inventory.getArmor();
+        Armor C;
+        if (temp instanceof boots){
+            C = boots;
+            if (equipArmorHelper(C, temp)){
+                boots = ((boots) temp);
+                System.out.println(C + " was equipped");
+            }
+            System.out.println("nothing was equipped");
+        }
+        if (temp instanceof chestplate){
+            C = chestplate;
+            if (equipArmorHelper(C, temp)){
+                boots = ((boots) temp);
+                System.out.println(C + " was equipped");
+            }
+            System.out.println("nothing was equipped");
+        }
+        if (temp instanceof gauntlets){
+            C = gauntlets;
+            if (equipArmorHelper(C, temp)){
+                boots = ((boots) temp);
+                System.out.println(C + " was equipped");
+            }
+            System.out.println("nothing was equipped");
+        }
+        if (temp instanceof helmet){
+            C = helmet;
+            if (equipArmorHelper(C, temp)){
+                boots = ((boots) temp);
+                System.out.println(C + " was equipped");
+            }
+            System.out.println("nothing was equipped");
+        }
+        if (temp instanceof pants){
+            C = pants;
+            if (equipArmorHelper(C, temp)){
+                boots = ((boots) temp);
+                System.out.println(C + " was equipped");
+            }
+            System.out.println("nothing was equipped");
+        }
+    }
+
+    private boolean equipArmorHelper(Armor Current, Armor temp){
+        if (Current == null){
+            return true;
+        }
+        else {
+            System.out.println("You currently have " + Current + " equipped which has an armor bonus of " + Current.armorBonus);
+            System.out.println("Would you like to equip " + temp + " instead? (" + temp + " has armor bonus of " +temp.armorBonus + ")");
+            if (yes.check()){
+                return true;
+            }
+            return false;
+        }
     }
 
     public abstract String toString();
