@@ -24,14 +24,15 @@ public class Inventory<T> {
     }
 
     public void print() {
-        int y = 3;
+        int temp = 3;
         System.out.println("BackPack:");
         System.out.print("1. Arrows (" + Arrow + ") ");
         System.out.print("2. Throwing Daggers (" + ThrowingDaggers + ") ");
         for (int x = 0; x < Inventory.size(); x++) {
             System.out.print((x + 3) + ". " + Inventory.get(x) + " ");
-
+            temp = x +3;
         }
+        System.out.println(temp + ". Cancel");
         System.out.println();
     }
 
@@ -85,6 +86,10 @@ public class Inventory<T> {
         if (ans == 2) {
             return new ThrowingDaggers();
         }
+        else if (ans-2 == Inventory.size()){
+            System.out.println("Canceled");
+            return null;
+        }
         return Inventory.get(ans);
     }
 
@@ -103,6 +108,10 @@ public class Inventory<T> {
                 else {
                     System.out.println("you dont have any Throwing Daggers");
                 }
+            }
+            else if (ans-2 == Inventory.size()){
+                System.out.println("Canceled");
+                return null;
             }
             else if (Inventory.get(ans - 3) instanceof Weapon) {
                 return ((Weapon) Inventory.get(ans - 3));
@@ -141,8 +150,11 @@ public class Inventory<T> {
                 System.out.println("That item is not a consumable. Please pick a consumable.");
                 print();
                 ans = getNum();
+            } else if (ans-2 == Inventory.size()){
+                System.out.println("Canceled");
+                return null;
             }
-            if (Inventory.get(ans - 3) instanceof Consumable) {
+            else if (Inventory.get(ans - 3) instanceof Consumable) {
                 temp = ((Consumable) Inventory.get(ans - 3));
                 Inventory.remove(ans - 3);
                 return temp;
@@ -158,10 +170,14 @@ public class Inventory<T> {
         print();
         int ans = getNum();
         while (true) {
-            if (ans< 3){
+            if (ans < 3){
                 System.out.println("That item is not Armor. Please pick a piece of Armor.");
                 print();
                 ans = getNum();
+            }
+            else if (ans-2 == Inventory.size()){
+                System.out.println("Canceled");
+                return null;
             }
             else if (Inventory.get(ans - 3) instanceof Armor){
                 return ((Armor) Inventory.get(ans - 3));
