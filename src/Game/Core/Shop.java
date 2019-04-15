@@ -2,6 +2,11 @@ package Game.Core;
 
 import Game.Helpers.Menu;
 import Game.Helpers.YesOrNo;
+import Items.Armor.ArmorTypes.boots.lightBoots;
+import Items.Armor.ArmorTypes.chestplate.ArcaneChestplate;
+import Items.Armor.ArmorTypes.chestplate.heavyFullPlate;
+import Items.Armor.ArmorTypes.chestplate.lightLeatherChestplate;
+import Items.Armor.ArmorTypes.chestplate.mediumChainmail;
 import Items.Food.*;
 import Items.Weapons.*;
 import Characters.*;
@@ -11,7 +16,7 @@ import java.util.Scanner;
 
 public class Shop {
     private int gold;
-    public item[] items = {new Arrow(), new Ambrosia(), new axe(), new BoneMeal(), new Bow(), new Bread(), new BroadSword(), new CatSoup(), new Club(), new ElvinBread(), new Knife(), new LegofLamb(), new Sword(), new ThrowingDaggers()};
+    public item[] items = {new Arrow(), new Ambrosia(), new axe(), new BoneMeal(), new Bow(), new Bread(), new BroadSword(), new CatSoup(), new Club(), new ElvinBread(), new Knife(), new LegofLamb(), new Sword(), new ThrowingDaggers(), new lightBoots(), new ArcaneChestplate(), new heavyFullPlate(), new lightLeatherChestplate(), new mediumChainmail()};
     private Menu menu = new Menu();
     private YesOrNo Yes = new YesOrNo();
     private playerCharacter Player;
