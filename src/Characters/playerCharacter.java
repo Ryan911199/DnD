@@ -179,9 +179,6 @@ public abstract class playerCharacter {
 
     public abstract String toString();
 
-    public String BattleGrid() {
-        return "[ P ]";
-    }
 
 }
 

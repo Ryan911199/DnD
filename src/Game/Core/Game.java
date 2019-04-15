@@ -56,11 +56,12 @@ public class Game {
                     Start.start();
                     break;
                 case 4:
+                    Player.equipArmor();
+                    break;
+                case 5:
                     System.out.println("Thanks for playing our game. Feel free to come back and play again");
                     System.exit(0);
                     break;
-                case 5:
-                    Player.equipArmor();
                 default:
                     System.out.println("There was a problem most likely in menu or \"game\" to catastrophically mess up");
                     System.exit(1);
