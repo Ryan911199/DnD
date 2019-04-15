@@ -2,7 +2,7 @@ package Items.Armor.ArmorTypes.chestplate;
 import Items.Armor.Armor;
 public class mediumChainmail extends chestplate
 {
-    mediumChainmail()
+    public mediumChainmail()
     {
         value = Set.mediumChainmailValue;
         weight = Set.mediumChainmailWeight;
