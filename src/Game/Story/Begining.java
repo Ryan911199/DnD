@@ -4,6 +4,7 @@ import Characters.Enemys.Enemy;
 import Characters.Enemys.Goblin;
 import Characters.Race;
 import Characters.playerCharacter;
+import Items.Armor.ArmorTypes.chestplate.lightLeatherChestplate;
 import Items.Weapons.Arrow;
 import Items.Weapons.Bow;
 import Items.Weapons.Sword;
@@ -45,6 +46,7 @@ public class Begining extends StoryNode{
         Player.Inventory.Add(new Arrow());
         Player.Inventory.Add(new Arrow());
         Player.Inventory.Add(new Sword());
+        Player.Inventory.Add(new lightLeatherChestplate());
     }
 
     private void Note(){

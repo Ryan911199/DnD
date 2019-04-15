@@ -1,6 +1,6 @@
 package Items.Weapons;
 
-public class Cancel extends Weapon {
+public class Cancel_Weapon extends Weapon {
     @Override
     public int attack() {
         return 0;

@@ -83,4 +83,8 @@ public class Shop {
     private void setGold(int Gold){
         gold = Gold;
     }
+
+    private void sell(){
+
+    }
 }

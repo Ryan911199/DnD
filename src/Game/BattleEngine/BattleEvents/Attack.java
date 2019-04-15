@@ -26,14 +26,7 @@ public class Attack extends BattleEvent {
                     System.out.println("You do not have any Arrows. That means you missed.");
                 }
             }
-            if (weapon instanceof ThrowingDaggers){
-                if(Owner.Inventory.getThrowingDagger()){
-                    Attack();
-                    return;
-                }else {
-                    System.out.println("You do not have any Throwing Daggers. That means you missed.");
-                }
-            }
+
         }
         Attack();
     }

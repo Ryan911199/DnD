@@ -33,6 +33,7 @@ public class Game {
         playGame();
     }
     private void playGame(){
+        getStory();
         while (true){
             System.out.println();
             switch (menu.menu((playerOptions))) {

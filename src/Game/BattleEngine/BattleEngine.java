@@ -4,7 +4,7 @@ import Characters.Enemys.*;
 import Characters.playerCharacter;
 import Game.BattleEngine.BattleEvents.*;
 import Game.Helpers.*;
-import Items.Weapons.Cancel;
+import Items.Weapons.Cancel_Weapon;
 import Items.Weapons.Weapon;
 import java.util.Scanner;
 
@@ -110,17 +110,17 @@ public class BattleEngine {
                     }
                     System.out.println(" What Weapon would you like to use?");
                     Weapon weapon = Player.Inventory.getWeapon();
-                    if(weapon instanceof Cancel){
+                    if(weapon instanceof Cancel_Weapon){
                         break;
                     }
                     while (!weapon.isRanged && !grid.canMeelee()) {
                         System.out.println("You picked a Melee weapon and you are not close enough to Melee ");
                         weapon = Player.Inventory.getWeapon();
-                        if(weapon instanceof Cancel){
+                        if(weapon instanceof Cancel_Weapon){
                             break;
                         }
                     }
-                    if(weapon instanceof Cancel){
+                    if(weapon instanceof Cancel_Weapon){
                         break;
                     }
                     hasAttacked = true;

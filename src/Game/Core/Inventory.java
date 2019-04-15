@@ -1,8 +1,11 @@
 package Game.Core;
 
 import Items.Armor.Armor;
+import Items.Cancel;
+import Items.Cancel_Armor;
 import Items.Consumable;
 import Items.Weapons.Arrow;
+import Items.Weapons.Cancel_Weapon;
 import Items.Weapons.ThrowingDaggers;
 import Items.Weapons.Weapon;
 import Items.item;
@@ -12,39 +15,51 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Inventory<T> {
-    public int Arrow = 0;
-    public int ThrowingDaggers = 0;
+    private int Arrow;
     private Scanner scan = new Scanner(System.in);
     private int numOfItems = 0;
     private ArrayList<item> Inventory = new ArrayList<item>();
+    private ArrayList<Armor> ArmorInventory  = new ArrayList<>();
+    private ArrayList<Weapon> WeaponInventory = new ArrayList<Weapon>();
+    private ArrayList<Consumable> ConsumableInventory = new ArrayList<Consumable>();
 
     public Inventory() {
         Arrow = 0;
-        ThrowingDaggers = 0;
+        Inventory.add(new Cancel());
+        WeaponInventory.add(new Cancel_Weapon());
+        item Cancel = new Cancel();
+        ArmorInventory.add((Armor) Cancel);
     }
 
     public void print() {
-        int temp = 3;
         System.out.println("BackPack:");
-        System.out.print("1. Arrows (" + Arrow + ") ");
-        System.out.print("2. Throwing Daggers (" + ThrowingDaggers + ") ");
+        System.out.print("Arrows (" + Arrow + ") ");
         for (int x = 0; x < Inventory.size(); x++) {
-            System.out.print((x + 3) + ". " + Inventory.get(x) + " ");
-            temp = x +3;
+            System.out.print((x + 1) + ". " + Inventory.get(x) + " ");
         }
-        System.out.println(temp + ". Cancel");
         System.out.println();
     }
 
     public Boolean Add(item add) {
+        item Cancel = new Cancel();
         if (add instanceof Arrow) {
             Arrow++;
             return true;
-        } else if (add instanceof ThrowingDaggers) {
-            ThrowingDaggers++;
-            return true;
-        } else if (numOfItems < 20) {
+        }
+        else if (numOfItems < 20) {
+            if (add instanceof Armor) {
+                ArmorInventory.remove(ArmorInventory.size()-1);
+                ArmorInventory.add((Armor) add);
+                ArmorInventory.add((Armor) Cancel);
+            }
+            if (add instanceof Weapon) {
+                WeaponInventory.remove(WeaponInventory.size()-1);
+                WeaponInventory.add((Weapon) add);
+                WeaponInventory.add(new Cancel_Weapon());
+            }
+            Inventory.remove(Inventory.size()-1);
             Inventory.add(add);
+            Inventory.add(new Cancel());
             numOfItems++;
             return true;
         }
@@ -60,13 +75,6 @@ public class Inventory<T> {
             return false;
         }
 
-        if (remove instanceof ThrowingDaggers && ThrowingDaggers > 0) {
-            ThrowingDaggers--;
-            return true;
-        } else if (remove instanceof ThrowingDaggers && ThrowingDaggers < 0) {
-            System.out.println("You do not have any Throwing Daggers");
-            return false;
-        }
         if (Inventory.contains(remove)) {
             Inventory.remove(remove);
             return true;
@@ -100,15 +108,7 @@ public class Inventory<T> {
             if (ans == 1) {
                 System.out.println("You cant attack with an arrow please pick a different item");
             }
-            else if (ans == 2) {
-                if (ThrowingDaggers > 0 ){
-                    ThrowingDaggers--;
-                    return new ThrowingDaggers();
-                }
-                else {
-                    System.out.println("you dont have any Throwing Daggers");
-                }
-            }
+
             else if (ans-2 == Inventory.size()){
                 System.out.println("Canceled");
                 return null;
@@ -130,15 +130,6 @@ public class Inventory<T> {
         }
     }
 
-    public boolean getThrowingDagger(){
-        if (ThrowingDaggers > 0){
-            ThrowingDaggers--;
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
 
     public Consumable getConsumable(){
         System.out.println("what item would you like to use?");
