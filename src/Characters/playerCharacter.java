@@ -50,19 +50,6 @@ public abstract class playerCharacter {
         Race = PlayerRace;
     }
 
-    public void printInventory() {
-        Inventory.print();
-    }
-
-    public boolean addInventory(item newI) {
-        return Inventory.Add(newI);
-    }
-
-    public boolean removeItem(item oldI) {
-        Inventory.remove(oldI);
-        return true;
-    }
-
     public int abilityMod(int score) {
         if (score == 2 || score == 3) {
             return -4;

@@ -45,7 +45,7 @@ public class Game {
             switch (menu.menu((playerOptions))) {
                 case 1:
                     shop.openShop(Player.gold);
-                    Player.printInventory();
+                    Player.Inventory.print();
                     break;
                 case 2:
                     BattleEngine.Battle(Enemy);

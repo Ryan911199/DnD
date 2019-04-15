@@ -40,11 +40,11 @@ public class Begining extends StoryNode{
     }
 
     void giveItems(playerCharacter Player){
-        Player.addInventory(new Bow());
-        Player.addInventory(new Arrow());
-        Player.addInventory(new Arrow());
-        Player.addInventory(new Arrow());
-        Player.addInventory(new Sword());
+        Player.Inventory.Add(new Bow());
+        Player.Inventory.Add(new Arrow());
+        Player.Inventory.Add(new Arrow());
+        Player.Inventory.Add(new Arrow());
+        Player.Inventory.Add(new Sword());
     }
 
     private void Note(){

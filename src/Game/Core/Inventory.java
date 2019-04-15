@@ -137,6 +137,11 @@ public class Inventory<T> {
         int ans = getNum();
         while (true) {
             Consumable temp;
+            if (ans< 3){
+                System.out.println("That item is not a consumable. Please pick a consumable.");
+                print();
+                ans = getNum();
+            }
             if (Inventory.get(ans - 3) instanceof Consumable) {
                 temp = ((Consumable) Inventory.get(ans - 3));
                 Inventory.remove(ans - 3);
@@ -153,13 +158,19 @@ public class Inventory<T> {
         print();
         int ans = getNum();
         while (true) {
-            Armor temp;
-            if (Inventory.get(ans - 3) instanceof Armor){
+            if (ans< 3){
+                System.out.println("That item is not Armor. Please pick a piece of Armor.");
+                print();
+                ans = getNum();
+            }
+            else if (Inventory.get(ans - 3) instanceof Armor){
                 return ((Armor) Inventory.get(ans - 3));
             }
-            System.out.println("That item is not Armor. Please pick a piece of Armor.");
-            print();
-            ans = getNum();
+            else {
+                System.out.println("That item is not Armor. Please pick a piece of Armor.");
+                print();
+                ans = getNum();
+            }
         }
     }
 

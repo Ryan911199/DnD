@@ -63,7 +63,7 @@ public class Shop {
         int amount = scan.nextInt(); //TODO protect input to make sure it is an int
         if(gold > (items[x].value * amount)) {
             for (int d = 0; d < amount; d++){
-                if(Player.addInventory(items[x])){
+                if(Player.Inventory.Add(items[x])){
                     Player.gold = Player.gold - items[x].value;
                     gold = gold - items[x].value;
                 }else {
