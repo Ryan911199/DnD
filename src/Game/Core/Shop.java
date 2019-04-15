@@ -7,6 +7,8 @@ import Items.Armor.ArmorTypes.chestplate.ArcaneChestplate;
 import Items.Armor.ArmorTypes.chestplate.heavyFullPlate;
 import Items.Armor.ArmorTypes.chestplate.lightLeatherChestplate;
 import Items.Armor.ArmorTypes.chestplate.mediumChainmail;
+import Items.Armor.ArmorTypes.helmet.lightHelmet;
+import Items.Armor.ArmorTypes.pants.lightPants;
 import Items.Food.*;
 import Items.Weapons.*;
 import Characters.*;
@@ -16,7 +18,7 @@ import java.util.Scanner;
 
 public class Shop {
     private int gold;
-    public item[] items = {new Arrow(), new Ambrosia(), new axe(), new BoneMeal(), new Bow(), new Bread(), new BroadSword(), new CatSoup(), new Club(), new ElvinBread(), new Knife(), new LegofLamb(), new Sword(), new ThrowingDaggers(), new lightBoots(), new ArcaneChestplate(), new heavyFullPlate(), new lightLeatherChestplate(), new mediumChainmail()};
+    public item[] items = {new Arrow(), new Ambrosia(), new axe(), new BoneMeal(), new Bow(), new Bread(), new BroadSword(), new CatSoup(), new Club(), new ElvinBread(), new Knife(), new LegofLamb(), new Sword(), new ThrowingDaggers(), new lightBoots(), new ArcaneChestplate(), new heavyFullPlate(), new lightLeatherChestplate(), new mediumChainmail(), new lightPants(), new lightHelmet(), new lightHelmet()};
     private Menu menu = new Menu();
     private YesOrNo Yes = new YesOrNo();
     private playerCharacter Player;
