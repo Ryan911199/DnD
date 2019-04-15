@@ -28,19 +28,12 @@ public class Game {
     public Game(playerCharacter player) {
         Player = player;
         BattleEngine = new BattleEngine(Player);
-        playerOptions = new String[]{"Go To Shop", "Go TO Battle", "Run Tutorial", " Equip Armor", "Quit"};
+        playerOptions = new String[]{"Go To Shop", "Go TO Battle", "Run Tutorial", "Equip Armor", "Continue Story", "Quit"};
         shop = new Shop(Player);
         playGame();
     }
     private void playGame(){
         while (true){
-            StoryNode temp = Story.getStory();
-            temp.Story(Player);
-            if (temp instanceof End){
-                System.exit(0);
-            }
-
-
             System.out.println();
             switch (menu.menu((playerOptions))) {
                 case 1:
@@ -59,13 +52,24 @@ public class Game {
                     Player.equipArmor();
                     break;
                 case 5:
+                    getStory();
+                    break;
+                case 6:
                     System.out.println("Thanks for playing our game. Feel free to come back and play again");
                     System.exit(0);
                     break;
                 default:
                     System.out.println("There was a problem most likely in menu or \"game\" to catastrophically mess up");
                     System.exit(1);
+                    break;
             }
+        }
+    }
+    private void getStory(){
+        StoryNode temp = Story.getStory();
+        temp.Story(Player);
+        if (temp instanceof End){
+            System.exit(0);
         }
     }
 

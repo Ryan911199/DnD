@@ -55,6 +55,7 @@ public class Shop {
                 default:
                     System.out.println("There was a problem most likely in shop to catastrophically mess up");
                     System.exit(1);
+                    break;
             }
         }
 
