@@ -66,7 +66,22 @@ public class BalancingSheet {
     public int ArcaneChestplateWeight = 15;
     public int ArcaneChestplateArmorBonus = 10;
     public int ArcaneChestplateDexBonus = 7;
-
+    public int lightBootsValue = 10;
+    public int lightBootsWeight = 2;
+    public int lightBootsArmorBonus = 1;
+    public int lightBootsDexBonus = 1;
+    public int lightGauntletsValue = 10;
+    public int lightGauntletsWeight = 7;
+    public int lightGauntletsArmorBonus = 1;
+    public int lightGauntletsDexBonus = 1;
+    public int lightHelmetValue = 10;
+    public int lightHelmetWeight = 7;
+    public int lightHelmetArmorBonus = 2;
+    public int lightHelmetDexBonus = 1;
+    public int lightPantsValue = 10;
+    public int lightPantsWeight = 3;
+    public int lightPantsArmorBonus = 1;
+    public int lightPantsDexBonus = 1;
 
 
 
