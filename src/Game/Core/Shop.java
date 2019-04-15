@@ -1,4 +1,4 @@
-package Game;
+package Game.Core;
 
 import Game.Helpers.Menu;
 import Game.Helpers.YesOrNo;

@@ -1,6 +1,6 @@
 package Items;
 
-import Game.BalancingSheet;
+import Game.Core.BalancingSheet;
 
 public abstract class item
 {

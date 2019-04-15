@@ -1,4 +1,4 @@
-package Game;
+package Game.Sound;
 
 //import java.io.*;
 //import javax.sound.sampled.*;

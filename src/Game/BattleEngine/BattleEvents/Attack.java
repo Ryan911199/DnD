@@ -3,8 +3,11 @@ package Game.BattleEngine.BattleEvents;
 import Characters.playerCharacter;
 import Items.Weapons.*;
 
+import java.util.Scanner;
+
 public class Attack extends BattleEvent {
     private Weapon weapon;
+    private Scanner scan = new Scanner(System.in);
     boolean Critical;
     public Attack(playerCharacter owner, playerCharacter target, Weapon useerWeapon, boolean critical){
         Owner = owner;
@@ -35,7 +38,8 @@ public class Attack extends BattleEvent {
         Attack();
     }
     private void Attack(){
-        System.out.println(Owner.name + " Attacked " + Target.name + " for " + weapon.attack() + " damage");
+        System.out.println(Owner.name + " Attacked " + Target.name + " for " + weapon.attack() + " damage (E)");
         Target.hitPoints = Target.hitPoints - weapon.attack();
+        scan.nextLine();
     }
 }

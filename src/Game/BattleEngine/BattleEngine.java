@@ -6,6 +6,7 @@ import Game.BattleEngine.BattleEvents.*;
 import Game.Helpers.*;
 import Items.Weapons.Cancel;
 import Items.Weapons.Weapon;
+import java.util.Scanner;
 
 public class BattleEngine {
     private Dice Dice = new Dice();
@@ -14,13 +15,14 @@ public class BattleEngine {
     private BattleGrid grid;
     private Menu menu = new Menu();
     private boolean hasAttacked = false;
+    private Scanner scan = new Scanner(System.in);
 
     public BattleEngine(playerCharacter player) {
         Player = player;
         grid = new BattleGrid(Player);
     }
 
-    public void setEnemy(Enemy enemy) {
+    private void setEnemy(Enemy enemy) {
         Enemy = enemy;
     }
 
@@ -55,7 +57,7 @@ public class BattleEngine {
                 }
             }
         }
-        System.out.println("You killed the" + Enemy + " and won the battle. ");
+        System.out.println("You killed " + Enemy.name + " and won the battle. ");
     }
 
     private BattleEvent getEnemyAction() {
@@ -63,8 +65,8 @@ public class BattleEngine {
     }
 
     private BattleEvent getPlayerAction() {
-        String[] Actions = {"Wait", "Run", "Move", "Use Item", "List Inventory", "Attack"};
-        String[] lessActions = {"Wait", "Move", "Use Item", "List Inventory",};
+        String[] Actions = {"Wait (a give up turn)", "Run From Battle ", "Move", "Use Item", "List Inventory", "Print Battle Stats", "Attack"};
+        String[] lessActions = {"Wait (a give up turn)", "Run From Battle ", "Move", "Use Item", "List Inventory", "Print Battle Stats"};
         System.out.println("Battle Grid");
         grid.printGrid();
         System.out.println("What would you like to do?");
@@ -87,6 +89,9 @@ public class BattleEngine {
                     Player.Inventory.print();
                     break;
                 case 6:
+                    printStats();
+                    break;
+                case 7:
                     int roll = Dice.rollDice(1, 20);
                     boolean Critical = false;
                     System.out.print("You rolled a " + roll);
@@ -99,7 +104,7 @@ public class BattleEngine {
                         System.out.print(" so there is a chance for a critical hit");
                         System.out.println();
                     }
-                    System.out.println("What Weapon would you like to use?");
+                    System.out.println(" What Weapon would you like to use?");
                     Weapon weapon = Player.Inventory.getWeapon();
                     if(weapon instanceof Cancel){
                         break;
@@ -146,10 +151,26 @@ public class BattleEngine {
 
     private boolean run(BattleEvent event) {
             event.doEvent();
+            if (event instanceof Attack || event instanceof Heal || event instanceof UseItem){
+                printStats();
+            }
             if (battleIsOver()) {
                 return false;
             }
-
         return true;
+    }
+
+    private void printStats(){
+        double temp1 = Player.hitPoints;
+        double temp2 = Enemy.hitPoints;
+        if (temp1 < 0){
+            temp1 = 0;
+        }
+        if (temp2 < 0){
+            temp2 = 0;
+        }
+        System.out.println(Player.name + " has " + temp1 + " health reaming");
+        System.out.println(Enemy.name + " has " + temp2 + " health reaming (E)");
+        scan.nextLine();
     }
 }

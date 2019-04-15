@@ -1,6 +1,5 @@
-package Game;
+package Game.Core;
 
-import Characters.Enemys.Goblin;
 import Characters.Enemys.StarterEnemy;
 import Characters.Race;
 import Characters.playerCharacter;

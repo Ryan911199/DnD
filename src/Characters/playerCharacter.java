@@ -1,7 +1,7 @@
 package Characters;
 
-import Game.BalancingSheet;
-import Game.Inventory;
+import Game.Core.BalancingSheet;
+import Game.Core.Inventory;
 import Items.Armor.ArmorTypes.boots.*;
 import Items.Armor.ArmorTypes.chestplate.*;
 import Items.Armor.ArmorTypes.gauntlets.*;
