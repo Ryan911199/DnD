@@ -5,7 +5,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu<T> {
-    public Scanner scan = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in);
+    private YesOrNo Yes = new YesOrNo();
 
     public int menu(T[] input) {
         int length = input.length;
@@ -15,14 +16,23 @@ public class Menu<T> {
         }
         while (ans <= 0 || ans > length) {
             System.out.println("Please enter a number between 1 and " + length);
-
             try {
-                ans = scan.nextInt();
-            } catch (InputMismatchException e) {
+                String temp = scan.nextLine();
+                if(temp.equalsIgnoreCase("quit")){
+                    Quit();
+                }
+                ans = Integer.parseInt(temp);
+            } catch (NumberFormatException e) {
                 System.out.println("You did not enter a number matching the required parameters.");
             }
-            scan.nextLine();
         }
         return ans;
+    }
+    private void Quit(){
+        System.out.println("Are you sure you want to quit?");
+        if (Yes.check()){
+            System.out.println("Thanks for playing our game. Feel free to come back and play again");
+            System.exit(0);
+        }
     }
 }

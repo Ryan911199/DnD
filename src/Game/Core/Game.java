@@ -12,6 +12,7 @@ import Game.Story.End;
 import Game.Story.StoryList;
 import Game.Story.StoryNode;
 
+import javax.swing.text.html.Option;
 import java.util.Scanner;
 
 public class Game {
@@ -24,46 +25,50 @@ public class Game {
     private Enemy Enemy;
     private playerCharacter Player;
     private StoryList Story = new StoryList();
+    private String[] Option1;
+    private String[] Option2;
 
     public Game(playerCharacter player) {
         Player = player;
         BattleEngine = new BattleEngine(Player);
-        playerOptions = new String[]{"Go To Shop", "Go TO Battle", "Run Tutorial", "Equip Armor", "Continue Story", "Quit"};
+        Option1 = new String[]{"Go To Shop", "Run Tutorial", "Equip Armor", "Continue Story", "Go TO Battle"};
+        Option2 = new String[]{"Go To Shop", "Run Tutorial", "Equip Armor", "Continue Story"};
         shop = new Shop(Player);
         playGame();
     }
-    private void playGame(){
+
+    private void playGame() {
         getStory();
-        while (true){
+        while (true) {
             System.out.println();
+            if (Enemy == null) {
+                playerOptions = Option2;
+            } else {
+                playerOptions = Option1;
+            }
             switch (menu.menu((playerOptions))) {
                 case 1:
                     shop.openShop(Player.gold);
                     Player.Inventory.print();
                     break;
                 case 2:
-                    if(Enemy != null){
-                        BattleEngine.Battle(Enemy);
-                        Enemy = null;
-                    }
-                    else {
-                        System.out.println("There is no one to fight");
-                    }
-                    break;
-                case 3:
                     System.out.println("What tutorial would you like to play?");
                     scan.nextLine(); //Todo implement tutorial options
                     Start.start();
                     break;
-                case 4:
+                case 3:
                     Player.equipArmor();
                     break;
-                case 5:
+                case 4:
                     getStory();
                     break;
-                case 6:
-                    System.out.println("Thanks for playing our game. Feel free to come back and play again");
-                    System.exit(0);
+                case 5:
+                    if (Enemy != null) {
+                        BattleEngine.Battle(Enemy);
+                        Enemy = null;
+                    } else {
+                        System.out.println("There is no one to fight");
+                    }
                     break;
                 default:
                     System.out.println("There was a problem most likely in menu or \"game\" to catastrophically mess up");
@@ -71,19 +76,22 @@ public class Game {
                     break;
             }
         }
+
     }
-    private void getStory(){
+
+    private void getStory() {
         StoryNode temp = Story.getStory();
         temp.Story(Player);
-        if (temp.hasEnemy()){
+        if (temp.hasEnemy()) {
             Enemy = temp.getEnemy();
         }
-        if (temp instanceof End){
+        if (temp instanceof End) {
             System.exit(0);
         }
     }
 
-    private void setEnemy(Enemy enemy){
+    private void setEnemy(Enemy enemy) {
         Enemy = enemy;
     }
+
 }

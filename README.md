@@ -1,27 +1,4 @@
-# DnD-game
-items 
-    consumable items
-        food
-            //consume is something to be done
-            bread //done
-            
-            cat soup //done
-            
-            bone meal //done
-            
-            leg of lamb //done
-            
-            elvin bread //done
-            
-            ambrosia //done
-        
-        potions
-        
-        ammo 
-            throwing daggers //done
-            
-            arrows //done
-    
+# DnD-game  
     wepons 
         ranged
             //need to add ammo to ranged weapons
@@ -31,86 +8,31 @@ items
             
             cross bow
             
-            throwing daggers ability 
             
+Tutorial 
+    combat tutorial
+        tell them about stats
         
-        melee
-            sword
-                broad sword //done
-                reg sword //done
-                                
-            knife //done
-            
-            axe //done
-            
-            club //done
-            
-            
-    armor //create armor class
-        boots 
-        
-        chest plate
-        
-        helmet
-        
-        pants
-        
-        gauntlets
-        
-
+        implement fake fight with dummy 
+Story 
+    Do all of it
 
 magic 
     //todo read hand book
 
-combat 
-    Movement grid
-
-
-art         (shaun)
-
-
-dice
-    Done
+combat
+    art         (shaun)
+    
+    refinment to battle system 
+    
+    saving throws
 
 character
-    character creation 
-        pick race 
-            done
-            
-        pick class
-            dnoe
-            
-        roll ability scores
-             done 
-             
-                abilities
-                    Strength 
-                    
-                    Dexterity
-                    
-                    Constitution
-                    
-                    Intelligence
-                    
-                    Wisdom
-                    
-                    Charisma
-                
-            reroll ability 
-                if play wants to (ask them)
-                    done 
+    character creation         
+            reroll ability
                 if modifyer scores (added) are less than or == 0
                 
                 if your highest score is less then 13 
-        
-        assing and ajust ability scores
-        
-        pick equipment  
-        
-        set name gender and age (done by player) //there are only 2 genders
-   
-
-game
 
 
 enemies 
