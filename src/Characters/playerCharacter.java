@@ -16,7 +16,7 @@ import Items.*;
 public abstract class playerCharacter {
     public String name;
     public int age;
-    public double hitPoints = 100;
+    public int hitPoints = 100;
     public int magicPoints;
     public int Strength;
     public int Dexterity;

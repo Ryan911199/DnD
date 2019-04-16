@@ -5,6 +5,7 @@ import Characters.Enemys.Goblin;
 import Characters.Race;
 import Characters.playerCharacter;
 import Items.Armor.ArmorTypes.chestplate.lightLeatherChestplate;
+import Items.Food.Bread;
 import Items.Weapons.Arrow;
 import Items.Weapons.Bow;
 import Items.Weapons.Sword;
@@ -38,6 +39,7 @@ public class Begining extends StoryNode{
         System.out.println(Player.name + " Was given a 3 Arrows");
         System.out.println(Player.name + " Was given a New Sword" );
         System.out.println(Player.name + " Was given a New Leather Chestplate" );
+        System.out.println(Player.name + " Was given a loaf of Bread");
         giveItems(Player);
     }
 
@@ -48,6 +50,7 @@ public class Begining extends StoryNode{
         Player.Inventory.Add(new Arrow());
         Player.Inventory.Add(new Sword());
         Player.Inventory.Add(new lightLeatherChestplate());
+        Player.Inventory.Add(new Bread());
     }
 
     private void Note(){

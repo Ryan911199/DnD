@@ -54,7 +54,7 @@ public class Inventory {
             }
             if (add instanceof Consumable) {
                 ConsumableInventory.remove(ConsumableInventory.size()-1);
-                ConsumableInventory.add(new Cancel_food());
+                ConsumableInventory.add((Consumable) add);
                 ConsumableInventory.add(new Cancel_food());
             }
             Inventory.remove(Inventory.size()-1);
@@ -130,7 +130,6 @@ public class Inventory {
                 System.out.println("Please enter a number between 1 and " + length);
                 ans = scan.nextInt();
                 ans = ans - 1;
-                System.out.println(ans);
             } catch (InputMismatchException e) {
                 System.out.println("You did not enter a number matching the required parameters.");
             }
