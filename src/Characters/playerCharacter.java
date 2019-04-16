@@ -2,6 +2,7 @@ package Characters;
 
 import Game.Core.BalancingSheet;
 import Game.Core.Inventory;
+import Game.Helpers.Dice;
 import Game.Helpers.YesOrNo;
 import Items.Armor.Armor;
 import Items.Armor.ArmorTypes.boots.*;
@@ -24,18 +25,19 @@ public abstract class playerCharacter {
     public int Wisdom;
     public int Charisma;
     public Race Race;
-    public helmet helmet;
-    public chestplate chestplate;
-    public gauntlets gauntlets;
-    public pants pants;
-    public boots boots;
+    private helmet helmet;
+    private chestplate chestplate;
+    private gauntlets gauntlets;
+    private pants pants;
+    private boots boots;
     public int baseAttackBonus;
-    public int fortSave;
-    public int refSave;
-    public int WillSave;
+    protected int fortSave;
+    protected int refSave;
+    protected int WillSave;
     public Inventory Inventory = new Inventory();
     private BalancingSheet Set = new BalancingSheet();
     private YesOrNo yes = new YesOrNo();
+    private Dice dice = new Dice();
     public int gold = Set.PlayerGold; //TODO give gold
 
     public void Setup(String Name, int Age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, Race PlayerRace) {
@@ -102,6 +104,7 @@ public abstract class playerCharacter {
         if (boots != null) {
             armorclass = armorclass + boots.armorBonus;
         }
+        armorclass = armorclass + abilityMod(Dexterity);
         return armorclass;
     }
 
@@ -181,6 +184,16 @@ public abstract class playerCharacter {
 
     public abstract String toString();
 
+    public int getFortSave() {
+        return dice.rollDice(1,20) + fortSave + Constitution;
+    }
 
+    public int getRefSave() {
+        return dice.rollDice(1,20) + refSave + Dexterity;
+    }
+
+    public int getWillSave() {
+        return dice.rollDice(1,20) + WillSave + Wisdom;
+    }
 }
 

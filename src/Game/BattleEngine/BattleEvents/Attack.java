@@ -9,10 +9,10 @@ public class Attack extends BattleEvent {
     private Weapon weapon;
     private Scanner scan = new Scanner(System.in);
     boolean Critical;
-    public Attack(playerCharacter owner, playerCharacter target, Weapon useerWeapon, boolean critical){
+    public Attack(playerCharacter owner, playerCharacter target, Weapon userWeapon, boolean critical){
         Owner = owner;
         Target = target;
-        weapon = useerWeapon;
+        weapon = userWeapon;
         Critical = critical;
     }
     @Override
@@ -32,7 +32,7 @@ public class Attack extends BattleEvent {
     }
     private void Attack(){
         System.out.println(Owner.name + " Attacked " + Target.name + " for " + weapon.attack() + " damage (E)");
-        Target.hitPoints = Target.hitPoints - weapon.attack();
+        Target.hitPoints = Target.hitPoints - (weapon.attack() + Owner.abilityMod(Owner.Strength));
         scan.nextLine();
     }
 }

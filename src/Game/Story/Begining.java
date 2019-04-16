@@ -37,6 +37,7 @@ public class Begining extends StoryNode{
         System.out.println(Player.name + " Was given a New Bow");
         System.out.println(Player.name + " Was given a 3 Arrows");
         System.out.println(Player.name + " Was given a New Sword" );
+        System.out.println(Player.name + " Was given a New Leather Chestplate" );
         giveItems(Player);
     }
 

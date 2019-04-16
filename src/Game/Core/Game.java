@@ -42,7 +42,13 @@ public class Game {
                     Player.Inventory.print();
                     break;
                 case 2:
-                    BattleEngine.Battle(Enemy);
+                    if(Enemy != null){
+                        BattleEngine.Battle(Enemy);
+                        Enemy = null;
+                    }
+                    else {
+                        System.out.println("There is no one to fight");
+                    }
                     break;
                 case 3:
                     System.out.println("What tutorial would you like to play?");
@@ -69,6 +75,9 @@ public class Game {
     private void getStory(){
         StoryNode temp = Story.getStory();
         temp.Story(Player);
+        if (temp.hasEnemy()){
+            Enemy = temp.getEnemy();
+        }
         if (temp instanceof End){
             System.exit(0);
         }

@@ -125,9 +125,9 @@ public class BattleEngine {
                     hasAttacked = true;
                     System.out.println();
                     if (weapon.isRanged) {
-                        roll = roll + Player.Strength + Player.baseAttackBonus;
+                        roll = roll + Player.abilityMod(Player.Strength) + Player.baseAttackBonus;
                     } else {
-                        roll = roll + Player.Dexterity + Player.baseAttackBonus;
+                        roll = roll + Player.abilityMod(Player.Dexterity) + Player.baseAttackBonus;
                     }
                     if (Enemy.getArmorClass() > roll) {
                         System.out.println("You missed because you attacked with a " + roll + " and you enemy's armor class is " + Enemy.getArmorClass());
