@@ -37,7 +37,9 @@ public class BattleEngine {
         while (!battleIsOver()) {
             hasAttacked = false;
             if (order == 1) {
-                run(getPlayerAction());
+                if (!run(getPlayerAction())) {
+                    break;
+                }
                 if (!run(getPlayerAction())) {
                     break;
                 }
@@ -48,7 +50,9 @@ public class BattleEngine {
                     break;
                 }
             } else {
-                run(getEnemyAction());
+                if (!run(getEnemyAction())) {
+                    break;
+                }
                 if (!run(getEnemyAction())) {
                     break;
                 }
@@ -60,7 +64,15 @@ public class BattleEngine {
                 }
             }
         }
-        System.out.println("You killed " + Enemy.name + " and won the battle. ");
+        if (battleIsOver()) {
+            System.out.println("You killed " + Enemy.name + " and won the battle. ");
+        }
+        else {
+            System.out.println("You lost 75% of your gold");
+            System.out.println(Player.gold);
+            Player.gold = (Player.gold / 4);
+            System.out.println(Player.gold);
+        }
     }
     private BattleEvent getEnemyAction() {
         return Enemy.getAction(Player);
@@ -155,6 +167,9 @@ public class BattleEngine {
             event.doEvent();
             if (event instanceof Attack || event instanceof Heal || event instanceof UseItem){
                 printStats();
+            }
+            if (event instanceof Run){
+                return false;
             }
             if (battleIsOver()) {
                 return false;
