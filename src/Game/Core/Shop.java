@@ -2,11 +2,8 @@ package Game.Core;
 
 import Game.Helpers.Menu;
 import Game.Helpers.YesOrNo;
-import Items.Armor.ArmorTypes.boots.lightBoots;
-import Items.Armor.ArmorTypes.chestplate.ArcaneChestplate;
-import Items.Armor.ArmorTypes.chestplate.heavyFullPlate;
-import Items.Armor.ArmorTypes.chestplate.lightLeatherChestplate;
-import Items.Armor.ArmorTypes.chestplate.mediumChainmail;
+import Items.Armor.ArmorTypes.boots.*;
+import Items.Armor.ArmorTypes.chestplate.*;
 import Items.Armor.ArmorTypes.gauntlets.lightGauntlets;
 import Items.Armor.ArmorTypes.helmet.lightHelmet;
 import Items.Armor.ArmorTypes.pants.lightPants;
@@ -19,7 +16,7 @@ import java.util.Scanner;
 
 public class Shop {
     private int gold;
-    public item[] items = {new Arrow(), new Ambrosia(), new axe(), new BoneMeal(), new Bow(), new Bread(), new BroadSword(), new CatSoup(), new Club(), new ElvinBread(), new Knife(), new LegofLamb(), new Sword(), new ThrowingDaggers(), new lightBoots(), new ArcaneChestplate(), new heavyFullPlate(), new lightLeatherChestplate(), new mediumChainmail(), new lightPants(), new lightHelmet(), new lightGauntlets()};
+    public item[] items = {new Arrow(), new Ambrosia(), new axe(), new BoneMeal(), new Bow(), new Bread(), new BroadSword(), new CatSoup(), new Club(), new ElvinBread(), new Knife(), new LegofLamb(), new Sword(), new lightBoots(), new ArcaneChestplate(), new heavyFullPlate(), new lightLeatherChestplate(), new mediumChainmail(), new lightPants(), new lightHelmet(), new lightGauntlets()};
     private Menu menu = new Menu();
     private YesOrNo Yes = new YesOrNo();
     private playerCharacter Player;

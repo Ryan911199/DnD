@@ -1,20 +1,16 @@
 package Game.Core;
 
-import Items.Armor.Armor;
-import Items.Cancel;
-import Items.Cancel_Armor;
+import Items.Armor.*;
+import Items.Cancel_pac.*;
+import Items.Weapons.*;
 import Items.Consumable;
-import Items.Weapons.Arrow;
-import Items.Weapons.Cancel_Weapon;
-import Items.Weapons.ThrowingDaggers;
-import Items.Weapons.Weapon;
 import Items.item;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Inventory<T> {
+public class Inventory {
     private int Arrow;
     private Scanner scan = new Scanner(System.in);
     private int numOfItems = 0;
@@ -25,23 +21,22 @@ public class Inventory<T> {
 
     public Inventory() {
         Arrow = 0;
-        Inventory.add(new Cancel());
+        Inventory.add(new Cancel_item());
         WeaponInventory.add(new Cancel_Weapon());
-        item Cancel = new Cancel();
-        ArmorInventory.add((Armor) Cancel);
+        ArmorInventory.add(new Cancel_Armor());
+        ConsumableInventory.add(new Cancel_food());
     }
 
     public void print() {
         System.out.println("BackPack:");
         System.out.print("Arrows (" + Arrow + ") ");
-        for (int x = 0; x < Inventory.size(); x++) {
-            System.out.print((x + 1) + ". " + Inventory.get(x) + " ");
+        for (int x = 0; x < Inventory.size()-1; x++) {
+            System.out.print((x + 1) + "." + Inventory.get(x) + " ");
         }
         System.out.println();
     }
 
     public Boolean Add(item add) {
-        item Cancel = new Cancel();
         if (add instanceof Arrow) {
             Arrow++;
             return true;
@@ -50,16 +45,21 @@ public class Inventory<T> {
             if (add instanceof Armor) {
                 ArmorInventory.remove(ArmorInventory.size()-1);
                 ArmorInventory.add((Armor) add);
-                ArmorInventory.add((Armor) Cancel);
+                ArmorInventory.add(new Cancel_Armor());
             }
             if (add instanceof Weapon) {
                 WeaponInventory.remove(WeaponInventory.size()-1);
                 WeaponInventory.add((Weapon) add);
                 WeaponInventory.add(new Cancel_Weapon());
             }
+            if (add instanceof Consumable) {
+                ConsumableInventory.remove(ConsumableInventory.size()-1);
+                ConsumableInventory.add(new Cancel_food());
+                ConsumableInventory.add(new Cancel_food());
+            }
             Inventory.remove(Inventory.size()-1);
             Inventory.add(add);
-            Inventory.add(new Cancel());
+            Inventory.add(new Cancel_item());
             numOfItems++;
             return true;
         }
@@ -84,42 +84,6 @@ public class Inventory<T> {
         }
     }
 
-    public item getItem() {
-        System.out.println("what item would you like to use?");
-        print();
-        int ans = getNum();
-        if (ans == 1) {
-            return new Arrow();
-        }
-        if (ans == 2) {
-            return new ThrowingDaggers();
-        }
-        else if (ans-2 == Inventory.size()){
-            System.out.println("Canceled");
-            return null;
-        }
-        return Inventory.get(ans);
-    }
-
-    public Weapon getWeapon() {
-        while (true) {
-            print();
-            int ans = getNum();
-            if (ans == 1) {
-                System.out.println("You cant attack with an arrow please pick a different item");
-            }
-
-            else if (ans-2 == Inventory.size()){
-                System.out.println("Canceled");
-                return null;
-            }
-            else if (Inventory.get(ans - 3) instanceof Weapon) {
-                return ((Weapon) Inventory.get(ans - 3));
-            }
-            else{System.out.println("That item is not a weapon. Please pick a weapon.");}
-        }
-    }
-
     public boolean getArrow(){
         if (Arrow > 0){
             Arrow--;
@@ -130,68 +94,47 @@ public class Inventory<T> {
         }
     }
 
-
+    public Weapon getWeapon() {
+            System.out.println("Weapons:");
+            System.out.print("Arrows (" + Arrow + ") ");
+            for (int x = 0; x < WeaponInventory.size(); x++) {
+                System.out.print((x + 1) + "." + WeaponInventory.get(x) + " ");
+            }
+            System.out.println();
+            int ans = getNum(WeaponInventory.size());
+            return (WeaponInventory.get(ans));
+    }
     public Consumable getConsumable(){
-        System.out.println("what item would you like to use?");
-        print();
-        int ans = getNum();
-        while (true) {
-            Consumable temp;
-            if (ans< 3){
-                System.out.println("That item is not a consumable. Please pick a consumable.");
-                print();
-                ans = getNum();
-            } else if (ans-2 == Inventory.size()){
-                System.out.println("Canceled");
-                return null;
+            System.out.println("Items:");
+            for (int x = 0; x < ConsumableInventory.size(); x++) {
+                System.out.print((x + 1) + "." + ConsumableInventory.get(x) + " ");
             }
-            else if (Inventory.get(ans - 3) instanceof Consumable) {
-                temp = ((Consumable) Inventory.get(ans - 3));
-                Inventory.remove(ans - 3);
-                return temp;
-            }
-            System.out.println("That item is not a consumable. Please pick a consumable.");
-            print();
-            ans = getNum();
-        }
+            System.out.println();
+            int ans = getNum(ConsumableInventory.size());
+            return (ConsumableInventory.get(ans));
     }
-
     public Armor getArmor(){
-        System.out.println("what Armor would you like to equip?");
-        print();
-        int ans = getNum();
-        while (true) {
-            if (ans < 3){
-                System.out.println("That item is not Armor. Please pick a piece of Armor.");
-                print();
-                ans = getNum();
+            System.out.println("Armor:");
+            for (int x = 0; x < ArmorInventory.size(); x++) {
+                System.out.print((x + 1) + "." + ArmorInventory.get(x) + " ");
             }
-            else if (ans-2 == Inventory.size()){
-                System.out.println("Canceled");
-                return null;
-            }
-            else if (Inventory.get(ans - 3) instanceof Armor){
-                return ((Armor) Inventory.get(ans - 3));
-            }
-            else {
-                System.out.println("That item is not Armor. Please pick a piece of Armor.");
-                print();
-                ans = getNum();
-            }
-        }
+            System.out.println();
+            int ans = getNum(ArmorInventory.size());
+            return (ArmorInventory.get(ans));
     }
 
-    private int getNum() {
-        int ans = scan.nextInt();
-        while (ans <= 0 || ans > (Inventory.size() + 2)) {
-            System.out.println("Please enter a valid number");
+    private int getNum(int length) {
+        int ans = -1;
+        while (ans < 0 || ans > length - 1){
             try {
+                System.out.println("Please enter a number between 1 and " + length);
                 ans = scan.nextInt();
-            }
-            catch (InputMismatchException e) {
+                ans = ans - 1;
+                System.out.println(ans);
+            } catch (InputMismatchException e) {
                 System.out.println("You did not enter a number matching the required parameters.");
             }
-
+            scan.nextLine();
         }
         return ans;
     }

@@ -106,48 +106,63 @@ public abstract class playerCharacter {
     }
 
     public void equipArmor() {
+        System.out.println("What would you like to equip?");
         Armor temp = Inventory.getArmor();
         Armor C;
         if (temp instanceof boots){
             C = boots;
             if (equipArmorHelper(C, temp)){
                 boots = ((boots) temp);
-                System.out.println(C + " was equipped");
+                System.out.println(boots + " was equipped");
             }
-            System.out.println("nothing was equipped");
+            else {
+                System.out.println("nothing was equipped");
+            }
         }
-        if (temp instanceof chestplate){
+        else if (temp instanceof chestplate){
             C = chestplate;
             if (equipArmorHelper(C, temp)){
-                boots = ((boots) temp);
-                System.out.println(C + " was equipped");
+                chestplate = ((chestplate) temp);
+                System.out.println(chestplate + " was equipped");
             }
-            System.out.println("nothing was equipped");
+            else {
+                System.out.println("nothing was equipped");
+            }
         }
-        if (temp instanceof gauntlets){
+        else if (temp instanceof gauntlets){
             C = gauntlets;
             if (equipArmorHelper(C, temp)){
-                boots = ((boots) temp);
-                System.out.println(C + " was equipped");
+                gauntlets = ((gauntlets) temp);
+                System.out.println(gauntlets + " was equipped");
             }
-            System.out.println("nothing was equipped");
+            else {
+                System.out.println("nothing was equipped");
+            }
         }
-        if (temp instanceof helmet){
+        else if (temp instanceof helmet){
             C = helmet;
             if (equipArmorHelper(C, temp)){
-                boots = ((boots) temp);
-                System.out.println(C + " was equipped");
+                helmet = ((helmet) temp);
+                System.out.println(helmet + " was equipped");
             }
-            System.out.println("nothing was equipped");
+            else {
+                System.out.println("nothing was equipped");
+            }
         }
-        if (temp instanceof pants){
+        else if (temp instanceof pants){
             C = pants;
             if (equipArmorHelper(C, temp)){
-                boots = ((boots) temp);
-                System.out.println(C + " was equipped");
+                pants = ((pants) temp);
+                System.out.println(pants + " was equipped");
             }
-            System.out.println("nothing was equipped");
+            else {
+                System.out.println("nothing was equipped");
+            }
         }
+        else {
+            System.out.println("Cancled, your armor bonus is still " + getArmorClass());
+        }
+        System.out.println("Your armor bonus is now " + getArmorClass());
     }
 
     private boolean equipArmorHelper(Armor Current, Armor temp){
