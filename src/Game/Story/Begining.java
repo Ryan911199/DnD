@@ -21,6 +21,16 @@ public class Begining extends StoryNode{
     }
 
     @Override
+    public boolean mustFight() {
+        return false;
+    }
+
+    @Override
+    public boolean fightNow() {
+        return false;
+    }
+
+    @Override
     public Enemy getEnemy() {
         Enemy enemy = new Goblin("Fred the Goblin");
         enemy.Setup("Fred the Goblin", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
