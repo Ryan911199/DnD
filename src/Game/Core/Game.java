@@ -84,7 +84,7 @@ public class Game {
         temp.Story(Player);
         if (temp.hasEnemy()) {
             Enemy = temp.getEnemy();
-            if()
+            //if()
         }
         if (temp instanceof End) {
             System.exit(0);
