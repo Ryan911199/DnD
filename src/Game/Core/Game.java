@@ -84,7 +84,11 @@ public class Game {
         temp.Story(Player);
         if (temp.hasEnemy()) {
             Enemy = temp.getEnemy();
-            //if()
+            if(temp.mustFight()){
+                if (temp.fightNow()){
+                    BattleEngine.Battle(Enemy);
+                }
+            }
         }
         if (temp instanceof End) {
             System.exit(0);
