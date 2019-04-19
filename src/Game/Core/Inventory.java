@@ -66,22 +66,10 @@ public class Inventory {
         return false;
     }
 
-    public boolean remove(item remove) {
-        if (remove instanceof Arrow && Arrow > 0) {
-            Arrow--;
-            return true;
-        } else if (remove instanceof Arrow && Arrow < 0) {
-            System.out.println("You do not have any Arrows");
-            return false;
-        }
-
-        if (Inventory.contains(remove)) {
-            Inventory.remove(remove);
-            return true;
-        } else {
-            System.out.println("You do not have that item");
-            return false;
-        }
+    public int Sell(item remove) {
+        System.out.println("What would you like to sell?");
+        print();
+        return 0;
     }
 
     public boolean getArrow(){

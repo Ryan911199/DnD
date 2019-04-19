@@ -12,6 +12,7 @@ import Items.Weapons.*;
 import Characters.*;
 import Items.item;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Shop {
@@ -61,7 +62,7 @@ public class Shop {
 
     private void get(int x){
         System.out.println("How Many would you like to buy");
-        int amount = scan.nextInt(); //TODO protect input to make sure it is an int
+        int amount = getnum(); //TODO protect input to make sure it is an int
         if(gold > (items[x].value * amount)) {
             for (int d = 0; d < amount; d++){
                 if(Player.Inventory.Add(items[x])){
@@ -83,5 +84,18 @@ public class Shop {
 
     private void sell(){
 
+    }
+    private int getnum(){
+        int ans = -1;
+        while (ans < 0) {
+            System.out.println("Please enter a number");
+            try {
+                ans = scan.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("You did not enter a number matching the required parameters.");
+            }
+            scan.nextLine();
+        }
+        return ans;
     }
 }
