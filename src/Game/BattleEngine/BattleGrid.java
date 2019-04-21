@@ -128,4 +128,7 @@ public class BattleGrid {
         System.out.println("You tried to move outside the battle field. Please pick again");
         return false;
     }
+    public Boolean enemyMove(){
+        return true;
+    }
 }

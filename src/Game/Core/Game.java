@@ -27,6 +27,7 @@ public class Game {
     private StoryList Story = new StoryList();
     private String[] Option1;
     private String[] Option2;
+    private boolean mustFight = false;
 
     public Game(playerCharacter player) {
         Player = player;
@@ -60,12 +61,17 @@ public class Game {
                     Player.equipArmor();
                     break;
                 case 4:
-                    getStory();
+                    if (!mustFight) {
+                        getStory();
+                    }else {
+                        System.out.println("You must fight " + Enemy.name + " Before you can move on in the story");
+                    }
                     break;
                 case 5:
                     if (Enemy != null) {
                         BattleEngine.Battle(Enemy);
                         Enemy = null;
+                        mustFight = false;
                     } else {
                         System.out.println("There is no one to fight");
                     }
@@ -87,16 +93,14 @@ public class Game {
             if(temp.mustFight()){
                 if (temp.fightNow()){
                     BattleEngine.Battle(Enemy);
+                }else {
+                    mustFight = true;
                 }
             }
         }
         if (temp instanceof End) {
             System.exit(0);
         }
-    }
-
-    private void setEnemy(Enemy enemy) {
-        Enemy = enemy;
     }
 
 }

@@ -75,7 +75,7 @@ public class BattleEngine {
         }
     }
     private BattleEvent getEnemyAction() {
-        return Enemy.getAction(Player);
+        return Enemy.getAction(Player, grid);
     }
 
     private BattleEvent getPlayerAction() {

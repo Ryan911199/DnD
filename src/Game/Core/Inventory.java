@@ -66,10 +66,16 @@ public class Inventory {
         return false;
     }
 
-    public int Sell(item remove) {
+    public int Sell() {
         System.out.println("What would you like to sell?");
         print();
-        return 0;
+        int ans = getNum(Inventory.size());
+        if(Inventory.get(ans) instanceof Cancel){
+            return -1;
+        }
+        int temp = Inventory.get(ans).value;
+        Inventory.remove(ans);
+        return temp;
     }
 
     public boolean getArrow(){
@@ -110,7 +116,6 @@ public class Inventory {
             int ans = getNum(ArmorInventory.size());
             return (ArmorInventory.get(ans));
     }
-
     private int getNum(int length) {
         int ans = -1;
         while (ans < 0 || ans > length - 1){
@@ -124,5 +129,19 @@ public class Inventory {
             scan.nextLine();
         }
         return ans;
+    }
+
+    //this is only for the Enemy
+    public item getItemEnemy(){
+        if (Inventory.size() > 1){
+            return Inventory.get(0);
+        }
+        return null;
+    }
+    public boolean getItemEnemyCheck(){
+        if (Inventory.size() > 1){
+            return true;
+        }
+        return false;
     }
 }

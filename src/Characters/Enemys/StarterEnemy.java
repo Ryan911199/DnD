@@ -4,6 +4,7 @@ package Characters.Enemys;
 import Characters.playerCharacter;
 import Game.BattleEngine.BattleEvents.BattleEvent;
 import Game.BattleEngine.BattleEvents.Miss;
+import Game.BattleEngine.BattleGrid;
 
 public class StarterEnemy extends Enemy {
     public StarterEnemy(String Name){
@@ -21,7 +22,7 @@ public class StarterEnemy extends Enemy {
     }
 
     @Override
-    public BattleEvent getAction(playerCharacter Target) {
-        return new Miss(this, Target);
+    public BattleEvent getAction(playerCharacter Target, BattleGrid grid) {
+        return null;
     }
 }

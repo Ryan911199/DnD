@@ -16,24 +16,10 @@ public class Begining extends StoryNode{
     private Scanner scan = new Scanner(System.in);
 
     @Override
-    public boolean hasEnemy() {
-        return true;
-    }
-
-    @Override
-    public boolean mustFight() {
-        return false;
-    }
-
-    @Override
-    public boolean fightNow() {
-        return false;
-    }
-
-    @Override
     public Enemy getEnemy() {
-        Enemy enemy = new Goblin("Fred the Goblin");
-        enemy.Setup("Fred the Goblin", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
+        Enemy enemy = new Goblin(null,null); //TODO give goblin weapon
+        enemy.Setup("Fred the Goblin", 13, 13,
+                13, 13, 13, 13, 13, Race.halfelf);
         return enemy;
     }
 
@@ -81,5 +67,17 @@ public class Begining extends StoryNode{
         System.out.println("|                                                               |");
         System.out.println("|                              (E)                              |");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    }
+
+    public boolean hasEnemy() {
+        return true;
+    }
+
+    public boolean mustFight() {
+        return false;
+    }
+
+    public boolean fightNow() {
+        return false;
     }
 }

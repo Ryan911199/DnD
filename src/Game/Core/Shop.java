@@ -7,6 +7,7 @@ import Items.Armor.ArmorTypes.chestplate.*;
 import Items.Armor.ArmorTypes.gauntlets.lightGauntlets;
 import Items.Armor.ArmorTypes.helmet.lightHelmet;
 import Items.Armor.ArmorTypes.pants.lightPants;
+import Items.Cancel_pac.Cancel;
 import Items.Food.*;
 import Items.Weapons.*;
 import Characters.*;
@@ -42,7 +43,13 @@ public class Shop {
                     get(menu.menu(items) - 1);
                     break;
                 case 2:
-                    //TODO implement sell in shop
+                    System.out.println("What would you like to Sell?");
+                    int temp = Player.Inventory.Sell();
+                    if (temp == -1){
+                        System.out.println("Canceled");
+                        break;
+                    }
+                    Player.gold = Player.gold - temp;
                     break;
                 case 3:
                     tutorial.theShop();

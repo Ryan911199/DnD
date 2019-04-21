@@ -22,7 +22,7 @@ public class Main {
         Player.Setup("Ryland", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
         // for testing
         //Player = createPlayer.newPlayer();
-//        System.out.println("Great " + Player.name + " you made a character would you like to play the combat tutorial?");
+        System.out.println("Great " + Player.name + " you made a character would you like to play the combat tutorial?");
 //        if (Yes.check()) {
 //            Start.Combat(Player);
 //        }
