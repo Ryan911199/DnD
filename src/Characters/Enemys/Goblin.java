@@ -37,7 +37,7 @@ public class Goblin extends Enemy {
         }
         if (Ranged == null){
             if (!grid.canMeelee()){
-                return new Move(grid);
+                return new Move(grid, this);
             }
             weapon = Melee;
         }

@@ -96,7 +96,7 @@ public class BattleEngine {
                 case 2:
                     return new Run();
                 case 3:
-                    return new Move(grid);
+                    return new Move(grid, Player);
                 case 4:
                     return new UseItem(Player.Inventory.getConsumable(), Player);
                 case 5:
