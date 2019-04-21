@@ -25,7 +25,7 @@ public class Begining extends StoryNode{
 
     public void Story(playerCharacter Player) {
         System.out.println("You walk in to a room and there is your grandfather laying on the ground");
-        System.out.println("He has been killed by (insert something)");
+        System.out.println("He has been killed by a Demogorgon");
         System.out.println("in his had he is holding a note (E)");
         scan.nextLine();
         System.out.println("You bend down pick up the note and read it");
@@ -52,16 +52,16 @@ public class Begining extends StoryNode{
     private void Note(){
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("|                             Note                              |");
-        System.out.println("|     d                                                         |");
+        System.out.println("|                If your reading this                           |");
         System.out.println("|                                                               |");
+        System.out.println("|                     I am most likely dead                     |");
         System.out.println("|                                                               |");
+        System.out.println("|                There are many people, monsters and            |");
+        System.out.println("|              other things that would want me dead             |");
         System.out.println("|                                                               |");
+        System.out.println("|             So I leave with you your inheritance              |");
         System.out.println("|                                                               |");
-        System.out.println("|                                                               |");
-        System.out.println("|                                                               |");
-        System.out.println("|                                                               |");
-        System.out.println("|                                                               |");
-        System.out.println("|                                                               |");
+        System.out.println("|            And all I ask is that you avenge me                |");
         System.out.println("|                                                               |");
         System.out.println("|                                                               |");
         System.out.println("|                                                               |");
