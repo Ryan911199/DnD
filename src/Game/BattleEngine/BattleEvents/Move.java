@@ -7,8 +7,9 @@ import Game.BattleEngine.BattleGrid;
 public class Move extends BattleEvent {
     private Game.BattleEngine.BattleGrid BattleGrid;
 
-    public Move(BattleGrid battleGrid, playerCharacter Owner) {
+    public Move(BattleGrid battleGrid, playerCharacter owner) {
         super();
+        Owner = owner;
         BattleGrid = battleGrid;
     }
 
@@ -16,7 +17,9 @@ public class Move extends BattleEvent {
     public void doEvent() {
         if (Owner instanceof Enemy){
             BattleGrid.enemyMove();
+        }else {
+            BattleGrid.playerMove();
         }
-        BattleGrid.playerMove();
+        scan.nextLine();
     }
 }

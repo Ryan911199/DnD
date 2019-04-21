@@ -10,5 +10,6 @@ public class Heal extends BattleEvent {
     @Override
     public void doEvent() {
         System.out.println("Heal");
+        scan.nextLine();
     }
 }
