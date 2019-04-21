@@ -129,6 +129,39 @@ public class BattleGrid {
         return false;
     }
     public Boolean enemyMove(){
-        return true;
+        int temp = enemyPosition[0];
+        try{
+            if (playerPosition[0] != enemyPosition[0]){
+                if (playerPosition[0] - enemyPosition[0] > 0){
+                    enemyPosition[0] = enemyPosition[0] + 1;
+                }
+                else {
+                    enemyPosition[0] = enemyPosition[0] - 1;
+                }
+                BattleGrid[enemyPosition[0]][enemyPosition[1]].setOccupant(Enemy);
+                BattleGrid[temp][enemyPosition[1]].setOccupant(null);
+                return true;
+            }
+        }
+        catch (IndexOutOfBoundsException e){
+            enemyPosition[0] = temp;
+        }
+        temp = enemyPosition[1];
+        try{
+            if (playerPosition[1] != enemyPosition[1]){
+                if (playerPosition[1] - enemyPosition[1] > 0){
+                    enemyPosition[1] = enemyPosition[1] + 1;
+                }else {
+                    enemyPosition[1] = enemyPosition[1] - 1;
+                }
+                BattleGrid[enemyPosition[0]][enemyPosition[1]].setOccupant(Enemy);
+                BattleGrid[temp][enemyPosition[1]].setOccupant(null);
+                return true;
+            }
+        }
+        catch (IndexOutOfBoundsException e){
+            enemyPosition[0] = temp;
+        }
+        return false;
     }
 }
