@@ -4,6 +4,10 @@ import Characters.Enemys.Enemy;
 import Characters.Enemys.Goblin;
 import Characters.Race;
 import Characters.playerCharacter;
+import Game.Graphics.AxeAttack;
+import Game.Graphics.swordAttack;
+import Game.Graphics.bowAndArrowAttack;
+import Game.Graphics.broadSwordAttack;
 import Items.Armor.ArmorTypes.chestplate.lightLeatherChestplate;
 import Items.Food.Bread;
 import Items.Weapons.Arrow;
@@ -24,8 +28,9 @@ public class Begining extends StoryNode{
     }
 
     public void Story(playerCharacter Player) {
+        new broadSwordAttack();
         System.out.println("You walk in to a room and there is your grandfather laying on the ground");
-        System.out.println("He has been killed by a Demogorgon");
+        System.out.println("He has been killed by the Demogorgon");
         System.out.println("in his had he is holding a note (E)");
         scan.nextLine();
         System.out.println("You bend down pick up the note and read it");
