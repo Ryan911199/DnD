@@ -1,6 +1,6 @@
 package Items.Food;
 
-import Items.*;
+        import Items.*;
 
 public class CatSoup extends item implements Consumable{
 
