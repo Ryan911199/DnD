@@ -6,6 +6,7 @@ import Game.BattleEngine.BattleEvents.*;
 import Game.Helpers.*;
 import Items.Cancel_pac.Cancel_Weapon;
 import Items.Weapons.Weapon;
+
 import java.util.Scanner;
 
 public class
@@ -17,6 +18,7 @@ BattleEngine {
     private Menu menu = new Menu();
     private boolean hasAttacked = false;
     private Scanner scan = new Scanner(System.in);
+    private YesOrNo Yes = new YesOrNo();
 
     public BattleEngine(playerCharacter player) {
         Player = player;
@@ -32,49 +34,33 @@ BattleEngine {
         grid.Setup(Enemy);
         hasAttacked = false;
         System.out.println("You are entering a battle with " + Enemy.name);
-        System.out.println(Enemy.name + " has " + Enemy.hitPoints + " health and an armor class of " + Enemy.getArmorClass());
-
+        printStats();
         int order = Dice.rollDice(1, 2);
         while (!battleIsOver()) {
             hasAttacked = false;
-            if (order == 1) {
-                if (!run(getPlayerAction())) {
-                    break;
-                }
-                if (!run(getPlayerAction())) {
-                    break;
-                }
-                if (!run(getEnemyAction())) {
-                    break;
-                }
-                if (!run(getEnemyAction())) {
-                    break;
-                }
-            } else {
-                if (!run(getEnemyAction())) {
-                    break;
-                }
-                if (!run(getEnemyAction())) {
-                    break;
-                }
-                if (!run(getPlayerAction())) {
-                    break;
-                }
-                if (!run(getPlayerAction())) {
-                    break;
-                }
+            if (!run(getPlayerAction())) {
+                break;
+            }
+            if (!run(getPlayerAction())) {
+                break;
+            }
+            if (!run(getEnemyAction())) {
+                break;
+            }
+            if (!run(getEnemyAction())) {
+                break;
             }
         }
         if (battleIsOver()) {
             System.out.println("You killed " + Enemy.name + " and won the battle. ");
-        }
-        else {
+        } else {
             System.out.println("You lost 75% of your gold");
             System.out.println(Player.gold);
             Player.gold = (Player.gold / 4);
             System.out.println(Player.gold);
         }
     }
+
     private BattleEvent getEnemyAction() {
         return Enemy.getAction(Player, grid);
     }
@@ -121,17 +107,17 @@ BattleEngine {
                     }
                     System.out.println(" What Weapon would you like to use?");
                     Weapon weapon = Player.Inventory.getWeapon();
-                    if(weapon instanceof Cancel_Weapon){
+                    if (weapon instanceof Cancel_Weapon) {
                         break;
                     }
                     while (!weapon.isRanged && !grid.canMeelee()) {
                         System.out.println("You picked a Melee weapon and you are not close enough to Melee ");
                         weapon = Player.Inventory.getWeapon();
-                        if(weapon instanceof Cancel_Weapon){
+                        if (weapon instanceof Cancel_Weapon) {
                             break;
                         }
                     }
-                    if(weapon instanceof Cancel_Weapon){
+                    if (weapon instanceof Cancel_Weapon) {
                         break;
                     }
                     hasAttacked = true;
@@ -164,32 +150,32 @@ BattleEngine {
         return false;
     }
 
-    //h
     private boolean run(BattleEvent event) {
-            event.doEvent();
-            if (event instanceof Attack || event instanceof Heal || event instanceof UseItem){
-                printStats();
-            }
-            if (event instanceof Run){
-                return false;
-            }
-            if (battleIsOver()) {
-                return false;
-            }
+        event.doEvent();
+        if (event instanceof Attack || event instanceof Heal || event instanceof UseItem) {
+            printStats();
+        }
+        if (event instanceof Run) {
+            System.out.println("Are you sure you want to run from the battle? you lose 75% of your gold");
+            return !Yes.check();
+        }
+        if (battleIsOver()) {
+            return false;
+        }
         return true;
     }
 
-    private void printStats(){
+    private void printStats() {
         double temp1 = Player.hitPoints;
         double temp2 = Enemy.hitPoints;
-        if (temp1 < 0){
+        if (temp1 < 0) {
             temp1 = 0;
         }
-        if (temp2 < 0){
+        if (temp2 < 0) {
             temp2 = 0;
         }
-        System.out.println(Player.name + " has an armor class of " + Player.getArmorClass()+ " and " +temp1 + " health remaining ");
-        System.out.println(Enemy.name + " has an armor class of " + Enemy.getArmorClass()+ " and " + temp2 + " health remaining (E)");
+        System.out.println(Player.name + " has an armor class of " + Player.getArmorClass() + " and " + temp1 + " health remaining ");
+        System.out.println(Enemy.name + " has an armor class of " + Enemy.getArmorClass() + " and " + temp2 + " health remaining (E)");
         scan.nextLine();
     }
 }
