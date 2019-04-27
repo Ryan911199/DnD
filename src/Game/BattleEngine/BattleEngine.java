@@ -158,6 +158,7 @@ BattleEngine {
         if (event instanceof Run) {
             System.out.println("Are you sure you want to run from the battle? you lose 75% of your gold");
             return !Yes.check();
+            //check
         }
         if (battleIsOver()) {
             return false;
