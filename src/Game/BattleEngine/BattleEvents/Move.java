@@ -20,6 +20,6 @@ public class Move extends BattleEvent {
         }else {
             BattleGrid.playerMove();
         }
-        scan.nextLine();
+
     }
 }

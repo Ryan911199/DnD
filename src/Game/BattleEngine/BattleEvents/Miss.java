@@ -10,7 +10,7 @@ public class Miss extends BattleEvent {
 
     @Override
     public void doEvent() {
-        System.out.println(Owner.name + " tried to attack " + Target.name + " but missed");
+        System.out.println(Owner.name + " tried to attack " + Target.name + " but missed (E)");
         scan.nextLine();
     }
 }

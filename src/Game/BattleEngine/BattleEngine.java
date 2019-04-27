@@ -8,7 +8,8 @@ import Items.Cancel_pac.Cancel_Weapon;
 import Items.Weapons.Weapon;
 import java.util.Scanner;
 
-public class BattleEngine {
+public class
+BattleEngine {
     private Dice Dice = new Dice();
     private playerCharacter Player;
     private Enemy Enemy;
