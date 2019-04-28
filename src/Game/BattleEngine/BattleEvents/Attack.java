@@ -33,6 +33,6 @@ public class Attack extends BattleEvent {
     }
     private void Attack(){
         System.out.println(Owner.name + " Attacked " + Target.name + " for " + weapon.attack() + " damage (E)");
-        Target.hitPoints = Target.hitPoints - Math.ce(weapon.attack() + Owner.abilityMod(Owner.Strength));
+        Target.hitPoints = Target.hitPoints - (weapon.attack() + Owner.abilityMod(Owner.Strength));
     }
 }
