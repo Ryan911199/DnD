@@ -25,7 +25,7 @@ public class Trail extends StoryNode
         scan.nextLine();
         System.out.println("As you are setting up camp after a long days travel along the Plains of Stelphi");
         System.out.println("You hear a rustling in the bushes");
-        System.out.println("Do you go check in out?");
+        System.out.println("Do you go check in out? (Y/N)");
         if (Yes.check())
         {
             System.out.println("As you approach the bushes a goblin leaps out and is ready to attack you");
