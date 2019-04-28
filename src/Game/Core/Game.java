@@ -93,6 +93,7 @@ public class Game {
             if(temp.mustFight()){
                 if (temp.fightNow()){
                     BattleEngine.Battle(Enemy);
+                    Enemy = null;
                 }else {
                     mustFight = true;
                 }
