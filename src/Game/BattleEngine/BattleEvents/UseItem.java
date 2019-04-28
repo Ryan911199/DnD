@@ -13,5 +13,6 @@ public class UseItem extends BattleEvent {
     @Override
     public void doEvent() {
         Owner.hitPoints = (Owner.hitPoints + Item.health());
+		Owner.Inventory.remove((item) Item);
     }
 }

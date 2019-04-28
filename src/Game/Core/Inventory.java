@@ -74,8 +74,21 @@ public class Inventory {
             return -1;
         }
         int temp = Inventory.get(ans).value;
-        Inventory.remove(ans);
+        remove(Inventory.get(ans));
         return temp;
+    }
+
+    public void remove(item r) {
+        if (r instanceof Weapon) {
+            WeaponInventory.remove(r);
+        }
+        if (r instanceof Consumable) {
+            ConsumableInventory.remove(r);
+        }
+        if (r instanceof Armor) {
+            ArmorInventory.remove(r);
+        }
+        Inventory.remove(r);
     }
 
     public boolean getArrow(){
