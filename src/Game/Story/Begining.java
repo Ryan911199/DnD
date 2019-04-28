@@ -45,6 +45,7 @@ public class Begining extends StoryNode{
         Player.Inventory.Add(new Sword());
         Player.Inventory.Add(new lightLeatherChestplate());
         Player.Inventory.Add(new Bread());
+        Player.gold = 100;
     }
 
     private void Note(){
