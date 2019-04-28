@@ -11,7 +11,7 @@ public class Merchant extends StoryNode {
     }
 
     void giveItems(playerCharacter Player) {
-//test
+        //give the razor of the infernal (demogorgon slayer))
     }
 
     public boolean hasEnemy() {
