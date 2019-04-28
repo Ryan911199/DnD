@@ -1,7 +1,7 @@
 package Game.Core;
 
 public class BalancingSheet {
-    public int PlayerGold = 10000;
+    public int PlayerGold = 0;
 
     //Food
     public int AmbrosiaValue = 25;

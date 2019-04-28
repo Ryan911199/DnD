@@ -3,6 +3,7 @@ package Game.Core;
 import Characters.*;
 import Characters.PlayerClasses.*;
 import Game.Helpers.Dice;
+import Game.Helpers.GetnumAns;
 import Game.Helpers.Menu;
 import Game.Helpers.YesOrNo;
 
@@ -19,7 +20,8 @@ public class createCharacter {
     public int Charisma;
     public Race playerRace;
     public int age;
-    YesOrNo Yes = new YesOrNo();
+    private YesOrNo Yes = new YesOrNo();
+    private GetnumAns getNum = new GetnumAns();
 
     public createCharacter() {
         name = "Tom";
@@ -145,8 +147,7 @@ public class createCharacter {
     }
 
     public int inArray(int[] arr, Scanner scan) {
-        int ans = scan.nextInt();
-        scan.nextLine();
+        int ans = getNum.getNum();
         while (true) {
             for (int i = 0; i < 6; i++) {
                 if (arr[i] == ans) {
