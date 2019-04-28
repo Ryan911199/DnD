@@ -12,14 +12,14 @@ import java.util.Scanner;
 
 public class createCharacter {
     public String name;
-    public int Strength;
-    public int Dexterity;
-    public int Constitution;
-    public int Intelligence;
-    public int Wisdom;
-    public int Charisma;
-    public Race playerRace;
-    public int age;
+    private int Strength;
+    private int Dexterity;
+    private int Constitution;
+    private int Intelligence;
+    private int Wisdom;
+    private int Charisma;
+    private Race playerRace;
+    private int age;
     private YesOrNo Yes = new YesOrNo();
     private GetnumAns getNum = new GetnumAns();
 
@@ -165,7 +165,7 @@ public class createCharacter {
         }
     }
 
-    public void raceAjustments(){
+    private void raceAjustments() {
         if (playerRace == Characters.Race.halforc){
             Intelligence = Intelligence - 2;
             Strength = Strength + 2;

@@ -105,6 +105,9 @@ public abstract class playerCharacter {
             armorclass = armorclass + boots.armorBonus;
         }
         armorclass = armorclass + abilityMod(Dexterity);
+        if (armorclass < 0) {
+            armorclass = 0;
+        }
         return armorclass;
     }
 
