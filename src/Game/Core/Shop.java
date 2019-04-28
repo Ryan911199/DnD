@@ -1,5 +1,6 @@
 package Game.Core;
 
+import Game.Helpers.GetnumAns;
 import Game.Helpers.Menu;
 import Game.Helpers.YesOrNo;
 import Items.Armor.ArmorTypes.boots.*;
@@ -26,6 +27,7 @@ public class Shop {
     private Scanner scan = new Scanner(System.in);
     private String[] Actions = {"Buy", "Sell", "Ask how the shop works", "leave"};
     private Tutorial tutorial = new Tutorial(scan);
+    private GetnumAns getNum = new GetnumAns();
     public Shop(playerCharacter player){
         Player = player;
     }
@@ -40,16 +42,10 @@ public class Shop {
                 case 1:
                     System.out.println("You have " + gold +" gold remaining");
                     System.out.println("What would you like to buy?");
-                    get(menu.menu(items) - 1);
+                    get(menu.shop(items) - 1);
                     break;
                 case 2:
-                    System.out.println("What would you like to Sell?");
-                    int temp = Player.Inventory.Sell();
-                    if (temp == -1){
-                        System.out.println("Canceled");
-                        break;
-                    }
-                    Player.gold = Player.gold - temp;
+                    sell();
                     break;
                 case 3:
                     tutorial.theShop();
@@ -69,7 +65,7 @@ public class Shop {
 
     private void get(int x){
         System.out.println("How Many would you like to buy");
-        int amount = getnum(); //TODO protect input to make sure it is an int
+        int amount = getnum();
         if(gold > (items[x].value * amount)) {
             for (int d = 0; d < amount; d++){
                 if(Player.Inventory.Add(items[x])){
@@ -90,14 +86,21 @@ public class Shop {
     }
 
     private void sell(){
-
+        System.out.println("when you sell something you get half its value in gold");
+        int temp = Player.Inventory.Sell();
+        if (temp == -1) {
+            System.out.println("Canceled");
+            return;
+        }
+        Player.gold = Player.gold + (temp / 2);
+        System.out.println("You have " + Player.gold + " gold");
     }
     private int getnum(){
         int ans = -1;
         while (ans < 0) {
             System.out.println("Please enter a number");
             try {
-                ans = scan.nextInt();
+                ans = getNum.getNum();
             } catch (InputMismatchException e) {
                 System.out.println("You did not enter a number matching the required parameters.");
             }

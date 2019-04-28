@@ -79,8 +79,7 @@ public class createCharacter {
         System.out.println("Now it is time to pick a name. what would you like to be called?");
         name = scan.nextLine();
         System.out.println("How old are you?");
-        age = scan.nextInt();
-        scan.nextLine();
+        age = getNum.getNum();
         raceAjustments();
         player.Setup(name, age, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, playerRace);
         return player;

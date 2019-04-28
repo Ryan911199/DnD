@@ -8,16 +8,18 @@ public class GetnumAns {
     private int ans;
 
     public int getNum() {
-        try {
-            String temp = scan.nextLine();
-            if (temp.equalsIgnoreCase("quit")) {
-                Quit();
+        while (true) {
+            try {
+                String temp = scan.nextLine();
+                if (temp.equalsIgnoreCase("quit")) {
+                    Quit();
+                }
+                ans = Integer.parseInt(temp);
+            } catch (NumberFormatException e) {
+                System.out.println("You did not enter a number matching the required parameters.");
             }
-            ans = Integer.parseInt(temp);
-        } catch (NumberFormatException e) {
-            System.out.println("You did not enter a number matching the required parameters.");
+            return ans;
         }
-        return ans;
     }
 
     private void Quit() {
