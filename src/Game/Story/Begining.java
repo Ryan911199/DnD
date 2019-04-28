@@ -9,6 +9,7 @@ import Items.Armor.ArmorTypes.chestplate.lightLeatherChestplate;
 import Items.Food.Bread;
 import Items.Weapons.Arrow;
 import Items.Weapons.Bow;
+import Items.Weapons.Knife;
 import Items.Weapons.Sword;
 
 import java.util.Scanner;
@@ -35,7 +36,7 @@ public class Begining extends StoryNode{
         scan.nextLine();
         //System.out.println(Player.name + " Was given a New Bow");
         //System.out.println(Player.name + " Was given a 3 Arrows");
-        System.out.println(Player.name + " Was given a New Sword" );
+        System.out.println(Player.name + " Was given a New Knife");
         System.out.println(Player.name + " Was given a New Leather Chestplate" );
         System.out.println(Player.name + " Was given a loaf of Bread");
         System.out.println(Player.name + " Was given a 100 Gold");
@@ -43,7 +44,7 @@ public class Begining extends StoryNode{
     }
 
     void giveItems(playerCharacter Player){
-        Player.Inventory.Add(new Sword());
+        Player.Inventory.Add(new Knife());
         Player.Inventory.Add(new lightLeatherChestplate());
         Player.Inventory.Add(new Bread());
         Player.gold = 100;

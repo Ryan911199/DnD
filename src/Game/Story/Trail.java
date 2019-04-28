@@ -10,6 +10,7 @@ import Items.Armor.ArmorTypes.chestplate.lightLeatherChestplate;
 import Items.Food.Bread;
 import Items.Weapons.Arrow;
 import Items.Weapons.Bow;
+import Items.Weapons.Knife;
 import Items.Weapons.Sword;
 
 import java.util.Scanner;
@@ -23,10 +24,6 @@ public class Trail extends StoryNode
         super(story);
     }
 
-    //private StoryList StoryList;
-//    public Trail(StoryList list){
-//        StoryList = list;
-//    }
     @Override
     public void Story(playerCharacter Player) {
         System.out.println("You realize you must travel to the Demogorgon lair in the northern region of Anokara");
@@ -69,10 +66,11 @@ public class Trail extends StoryNode
 
     @Override
     public Enemy getEnemy() {
-        Enemy enemy = new Goblin(null, new Sword());
+        Enemy enemy = new Goblin(null, new Knife());
         enemy.Inventory.Add(new Bread());
         enemy.Setup("Fred the Goblin", 40, 13,
                 13, 13, 2, 13, 13, Race.halfelf);
+        enemy.setHealth(35);
         return enemy;
     }
 }

@@ -25,4 +25,9 @@ public class StarterEnemy extends Enemy {
     public BattleEvent getAction(playerCharacter Target, BattleGrid grid, boolean Attacked) {
         return null;
     }
+
+    @Override
+    public void Equipped() {
+
+    }
 }

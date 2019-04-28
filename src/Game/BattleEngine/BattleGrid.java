@@ -58,7 +58,7 @@ public class BattleGrid {
                     }
                     else if(enemyPosition[0] == playerPosition[0] + 1  && enemyPosition[1] == playerPosition[1]){
                         System.out.println("You can not move on top of the enemy please pick again");
-                        return false;
+                        //return false;
                     }
                     else {movethere();}
                     break;
@@ -71,7 +71,7 @@ public class BattleGrid {
                     }
                     else if(enemyPosition[0] == (playerPosition[0] - 1) && enemyPosition[1] == playerPosition[1]){
                         System.out.println("You can not move on top of the enemy please pick again");
-                        return false;
+                        //return false;
                     }
                     else {movethere();}
                     break;
@@ -84,7 +84,7 @@ public class BattleGrid {
                     }
                     else if(enemyPosition[0] == playerPosition[0] && enemyPosition[1] == playerPosition[1] - 1){
                         System.out.println("You can not move on top of the enemy please pick again");
-                        return false;
+                        //return false;
                     }
                     else {movethere();}
                     break;
@@ -97,7 +97,7 @@ public class BattleGrid {
                     }
                     else if(enemyPosition[0] == playerPosition[0] && enemyPosition[1] == playerPosition[1] + 1){
                         System.out.println("You can not move on top of the enemy please pick again");
-                        return false;
+                        //return false;
                     }
                     else {movethere();}
                     break;

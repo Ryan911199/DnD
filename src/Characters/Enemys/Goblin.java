@@ -69,4 +69,33 @@ public class Goblin extends Enemy {
         }
     }
 
+    public void Equipped() {
+        String temp = "";
+        if (Melee != null) {
+            System.out.print("A " + Melee);
+        }
+        if (Ranged != null) {
+            System.out.print(", and " + Ranged);
+        }
+        if (helmet != null || chestplate != null || gauntlets != null || pants != null || boots != null) {
+            System.out.println();
+            if (helmet != null) {
+                temp = temp + " " + helmet;
+            }
+            if (chestplate != null) {
+                temp = temp + " " + chestplate;
+            }
+            if (gauntlets != null) {
+                temp = temp + " " + gauntlets;
+            }
+            if (pants != null) {
+                temp = temp + " " + pants;
+            }
+            if (boots != null) {
+                temp = temp + " " + boots;
+            }
+            System.out.print("They also have a " + temp + " equipped");
+        }
+        System.out.println(" (E)");
+    }
 }

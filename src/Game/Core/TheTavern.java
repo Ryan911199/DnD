@@ -2,6 +2,7 @@ package Game.Core;
 
 import Characters.Enemys.Enemy;
 import Characters.Enemys.Goblin;
+import Characters.Race;
 import Characters.playerCharacter;
 import Game.BattleEngine.BattleEngine;
 import Game.Helpers.*;
@@ -61,17 +62,17 @@ public class TheTavern {
 				}
 				break;
 			case 3:
-				Weapon temp1 = Meelee[dice.rollDice(1, 4)];
-				Weapon temp2 = Ranged[dice.rollDice(1, 4)];
+				Weapon temp1 = Meelee[dice.rollDice(1, 4) - 1];
+				Weapon temp2 = Ranged[dice.rollDice(1, 4) - 1];
 				Enemy Enemy = new Goblin(temp2, temp1);
 				for (int x = 0; x < 4; x++) {
-					item temp = items[dice.rollDice(1, 9)];
+					item temp = items[dice.rollDice(1, 9) - 1];
 					if (temp != null) {
 						Enemy.Inventory.Add(temp);
 					}
 				}
 				for (int y = 0; y < 4; y++) {
-					Armor tempa = Armor[dice.rollDice(1, 20)];
+					Armor tempa = Armor[dice.rollDice(1, 20) - 1];
 					if (tempa != null) {
 						if (tempa instanceof boots) {
 							Enemy.boots = (boots) tempa;
@@ -90,6 +91,11 @@ public class TheTavern {
 						}
 					}
 				}
+				Enemy.Setup(Names[dice.rollDice(1, 7) - 1], dice.rollDice(1, 100),
+						dice.rollDice(1, 20), dice.rollDice(1, 20), dice.rollDice(1, 20),
+						dice.rollDice(1, 20), dice.rollDice(1, 20), dice.rollDice(1, 20),
+						Race.halfelf);
+
 				Engine.Battle(Enemy);
 				int gold = dice.rollDice(3, 50);
 				if (dice.rollDice(1, 100) == 69) {

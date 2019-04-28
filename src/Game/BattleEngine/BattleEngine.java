@@ -40,6 +40,9 @@ BattleEngine {
 		}
         hasAttacked = false;
         System.out.println("You are entering a battle with " + Enemy.name);
+        System.out.println(Enemy.name + " is " + Enemy.age + " old and is equipped with");
+        Enemy.Equipped();
+        scan.nextLine();
         printStats();
         int order = Dice.rollDice(1, 2);
         while (!battleIsOver()) {

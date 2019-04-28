@@ -2,6 +2,7 @@ package Game.Core;
 
 import Characters.PlayerClasses.*;
 import Characters.*;
+import Game.BattleEngine.BattleEngine;
 import Game.Helpers.Menu;
 import Game.Helpers.YesOrNo;
 
@@ -22,7 +23,7 @@ public class Main {
 			Player = createPlayer.newPlayer();
 		} else {
 			Player = new wizard();
-			Player.Setup("Ryland", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
+			Player.Setup("Tom", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
 		}
 
         //System.out.println("Great " + Player.name + " you made a character would you like to play the combat tutorial?");
@@ -33,9 +34,10 @@ public class Main {
 		if (Yes.check()) {
 			Game game = new Game(Player);
 		} else {
-			System.out.println("Would you just like to battle?");
+			System.out.println("Would you just like to go to the Tavern?");
 			if (Yes.check()) {
-				System.out.println("This has not been implemented yet");
+				TheTavern Tavern = new TheTavern(Player);
+				Tavern.Tavern(new BattleEngine(Player));
 				System.exit(0);
 			}
 		}

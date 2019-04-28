@@ -45,4 +45,16 @@ public class Demogorgon extends Enemy {
 		return new Heal(this, 50);
 	}
 
+	public void Equipped() {
+		System.out.println("The Demogorgon does not have a weapon it uses magic");
+		System.out.println("but it is wearing ");
+		String temp = "";
+		temp = temp + " " + helmet;
+		temp = temp + " " + chestplate;
+		temp = temp + " " + gauntlets;
+		temp = temp + " " + pants;
+		temp = temp + " " + boots;
+		System.out.print(temp);
+		System.out.println("        (E)");
+	}
 }

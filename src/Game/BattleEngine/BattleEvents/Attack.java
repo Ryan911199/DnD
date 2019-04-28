@@ -33,7 +33,7 @@ public class Attack extends BattleEvent {
         scan.nextLine();
     }
     private void Attack(){
-        System.out.println(Owner.name + " Attacked " + Target.name + " with a " + weapon);
+        System.out.println(Owner.name + " Attacked " + Target.name + " with a " + weapon + " it did " + weapon.attack() + " damage");
         if (weapon instanceof Sword) {
             new swordAttack();
         } else if (weapon instanceof Knife) {
