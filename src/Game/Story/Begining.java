@@ -18,10 +18,7 @@ public class Begining extends StoryNode{
 
     @Override
     public Enemy getEnemy() {
-        Enemy enemy = new Goblin(null, new Sword()); //TODO give goblin weapon
-        enemy.Setup("Fred the Goblin", 13, 13,
-                13, 13, 13, 13, 13, Race.halfelf);
-        return enemy;
+        return null;
     }
 
     public void Story(playerCharacter Player) {
@@ -71,7 +68,7 @@ public class Begining extends StoryNode{
     }
 
     public boolean hasEnemy() {
-        return true;
+        return false;
     }
 
     public boolean mustFight() {

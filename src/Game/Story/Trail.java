@@ -18,6 +18,11 @@ public class Trail extends StoryNode
 {
     private static YesOrNo Yes = new YesOrNo();
     private Scanner scan = new Scanner(System.in);
+
+    //private StoryList StoryList;
+//    public Trail(StoryList list){
+//        StoryList = list;
+//    }
     @Override
     public void Story(playerCharacter Player) {
         System.out.println("You realize you must travel to the Demogorgon lair in the northern region of Anokara");
@@ -26,15 +31,9 @@ public class Trail extends StoryNode
         System.out.println("As you are setting up camp after a long days travel along the Plains of Stelphi");
         System.out.println("You hear a rustling in the bushes");
         System.out.println("Do you go check in out?");
-        if (Yes.check())
-        {
+        if (Yes.check()) {
             System.out.println("As you approach the bushes a goblin leaps out and is ready to attack you");
-            //que fight with frederick the goblin
-            System.out.println("After defeating Fred the Goblin you get much needed rest to continue your adventure (E)");
-            scan.nextLine();
-        }
-        else
-        {
+        } else {
             System.out.println("You choose to not check the ominous and strange rumbling of the bushes so you sleep for the night");
             System.out.println("but you never wake up since a goblin was hiding in the bushes to assassinate you");
             System.out.println("and to steal of of your belongings");
@@ -50,21 +49,24 @@ public class Trail extends StoryNode
 
     @Override
     public boolean hasEnemy() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean mustFight() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean fightNow() {
-        return false;
+        return true;
     }
 
     @Override
     public Enemy getEnemy() {
-        return null;
+        Enemy enemy = new Goblin(null, new Sword()); //TODO give goblin weapon
+        enemy.Setup("Fred the Goblin", 40, 13,
+                13, 13, 2, 13, 13, Race.halfelf);
+        return enemy;
     }
 }
