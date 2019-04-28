@@ -30,34 +30,42 @@ public class Goblin extends Enemy {
         return "I am a Goblin";
     }
 
-    public BattleEvent getAction(playerCharacter Player, BattleGrid grid) {
+    public BattleEvent getAction(playerCharacter Player, BattleGrid grid, boolean attacked) {
         Weapon weapon = Ranged;
         if (hitPoints < 25 && this.Inventory.getItemEnemyCheck()){
             return new UseItem((Consumable) this.Inventory.getItemEnemy(), this);
         }
-        if (Ranged == null){
-            if (!grid.canMeelee()){
-                return new Move(grid, this);
+        if (!attacked) {
+            if (Ranged == null) {
+                if (!grid.canMeelee()) {
+                    return new Move(grid, this);
+                }
+                weapon = Melee;
             }
-            weapon = Melee;
+            int roll = dice.rollDice(1, 20);
+            boolean Critical = false;
+            //System.out.print("You rolled a " + roll);
+            if (roll == 1) {
+                return new Miss(this, Player);
+            } else if (roll == 20) {
+                Critical = true;
+            }
+
+            if (weapon.isRanged) {
+                roll = roll + this.abilityMod(this.Strength) + this.baseAttackBonus;
+            } else {
+                roll = roll + this.abilityMod(this.Dexterity) + this.baseAttackBonus;
+            }
+            if (Player.getArmorClass() > roll) {
+                return new Miss(this, Player);
+            } else {
+                return new Attack(this, Player, weapon, Critical);
+            }
         }
-        int roll = dice.rollDice(1,20);
-        boolean Critical = false;
-        //System.out.print("You rolled a " + roll);
-        if (roll == 1) {
-            return new Miss(this, Player);
-        } else if (roll == 20) {
-            Critical = true;
-        }
-        if (weapon.isRanged) {
-            roll = roll + this.abilityMod(this.Strength) + this.baseAttackBonus;
+        if (this.Inventory.getItemEnemyCheck()) {
+            return new UseItem((Consumable) this.Inventory.getItemEnemy(), this);
         } else {
-            roll = roll + this.abilityMod(this.Dexterity) + this.baseAttackBonus;
-        }
-        if (Player.getArmorClass() > roll) {
-            return new Miss(this, Player);
-        } else {
-            return new Attack(this, Player, weapon, Critical);
+            return new Wait(this.name + "chose to wait this turn");
         }
     }
 
