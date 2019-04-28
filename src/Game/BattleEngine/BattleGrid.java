@@ -118,7 +118,7 @@ public class BattleGrid {
         if (enemyPosition[0] == playerPosition[0] && enemyPosition[1] == (playerPosition[1]+1) || enemyPosition[1] == (playerPosition[1]-1)) {
             return true;
         }
-        if (enemyPosition[1] == (playerPosition[1]) && enemyPosition[0] == (playerPosition[0]+1) || enemyPosition[0] == (playerPosition[0]-1)){
+        if (enemyPosition[1] == (playerPosition[1]) && enemyPosition[0] == (playerPosition[0] + 1) || enemyPosition[1] == (playerPosition[1]) && enemyPosition[0] == (playerPosition[0] - 1)) {
             return true;
         }
         return false;
@@ -155,7 +155,7 @@ public class BattleGrid {
                     enemyPosition[1] = enemyPosition[1] - 1;
                 }
                 BattleGrid[enemyPosition[0]][enemyPosition[1]].setOccupant(Enemy);
-                BattleGrid[temp][enemyPosition[1]].setOccupant(null);
+                BattleGrid[enemyPosition[0]][temp].setOccupant(null);
                 return true;
             }
         }

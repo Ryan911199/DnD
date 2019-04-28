@@ -18,7 +18,7 @@ public class Begining extends StoryNode{
 
     @Override
     public Enemy getEnemy() {
-        Enemy enemy = new Goblin(null,null); //TODO give goblin weapon
+        Enemy enemy = new Goblin(null, new Sword()); //TODO give goblin weapon
         enemy.Setup("Fred the Goblin", 13, 13,
                 13, 13, 13, 13, 13, Race.halfelf);
         return enemy;

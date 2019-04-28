@@ -16,9 +16,10 @@ public class Move extends BattleEvent {
     @Override
     public void doEvent() {
         if (Owner instanceof Enemy){
+            BattleGrid.enemyMove();
+            BattleGrid.printGrid();
             System.out.println(Owner.name + " Moved (E)");
             scan.nextLine();
-            BattleGrid.enemyMove();
         }else {
             BattleGrid.playerMove();
         }
