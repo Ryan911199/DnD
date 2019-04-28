@@ -31,12 +31,12 @@ public class BattleoftheKeeperoftheInnerCrypt extends StoryNode
 
     @Override
     public boolean hasEnemy() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean mustFight() {
-        return false;
+        return true;
     }
 
     @Override

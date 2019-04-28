@@ -7,7 +7,11 @@ public class StoryList {
     private int current = 0;
     public StoryList(){
         Story.add(new Begining());
-
+        Story.add(new Trail());
+        Story.add(new Merchant());
+        //Story.add(new Damsel in distress());
+        Story.add(new BattleoftheKeeperoftheInnerCrypt());
+        Story.add(new BattleoftheDemogorgon());
         Story.add(new End());
     }
     public StoryNode getStory(){
@@ -17,5 +21,9 @@ public class StoryList {
             return temp;
         }
         return null;
+    }
+
+    public void add(StoryNode A) {
+        Story.add(A);
     }
 }
