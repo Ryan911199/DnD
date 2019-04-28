@@ -45,9 +45,10 @@ public class BalancingSheet {
     public int SwordWeight = 10;
     public int SwordValue = 10;
     public int SwordAttack = 20;
-    public int ThrowingDaggersWeight = 0;
-    public int ThrowingDaggersAttack = 20;
-    public int ThrowingDaggersValue = 5;
+    public int KnifeoftheInfernalWeight = 5;
+    public int KnifeoftheInfernalValue = 5000;
+    public int KnifeoftheInfernalregAttack = 45;
+    public int KnifeoftheInfernalDemogorgonAttack = 999;
 
     //Armor      Armor bonus max is 20
     public int lightLeatherChestplateValue = 10;
