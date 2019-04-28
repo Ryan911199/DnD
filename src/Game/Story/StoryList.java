@@ -9,7 +9,7 @@ public class StoryList {
         Story.add(new Begining());
         Story.add(new Trail());
         Story.add(new Merchant());
-        Story.add(new Damselindistress());
+        Story.add(new DamselinDistressBattle());
         Story.add(new BattleoftheKeeperoftheInnerCrypt());
         Story.add(new BattleoftheDemogorgon());
         Story.add(new End());
