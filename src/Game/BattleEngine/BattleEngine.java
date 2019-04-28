@@ -17,6 +17,7 @@ BattleEngine {
     private BattleGrid grid;
     private Menu menu = new Menu();
     private boolean hasAttacked = false;
+    private boolean enemyHasAttacked = false;
     private Scanner scan = new Scanner(System.in);
     private YesOrNo Yes = new YesOrNo();
 
@@ -44,6 +45,7 @@ BattleEngine {
             if (!run(getPlayerAction())) {
                 break;
             }
+            enemyHasAttacked = false;
             if (!run(getEnemyAction())) {
                 break;
             }
@@ -62,7 +64,7 @@ BattleEngine {
     }
 
     private BattleEvent getEnemyAction() {
-        return Enemy.getAction(Player, grid);
+        return Enemy.getAction(Player, grid, enemyHasAttacked);
     }
 
     private BattleEvent getPlayerAction() {
@@ -154,6 +156,9 @@ BattleEngine {
         event.doEvent();
         if (event instanceof Attack || event instanceof Heal || event instanceof UseItem) {
             printStats();
+            if (event.Owner instanceof Enemy && event instanceof Attack) {
+                enemyHasAttacked = true;
+            }
         }
         if (event instanceof Run) {
             System.out.println("Are you sure you want to run from the battle? you lose 75% of your gold");
