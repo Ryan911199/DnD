@@ -18,7 +18,9 @@ public class DamselinDistressBattle extends StoryNode
 
     @Override
     public void Story(playerCharacter Player) {
-        System.out.println("");
+        System.out.println("You dash towards the source of the screaming, down into a chasm of granite");
+        System.out.println("You stumble down the stairs of rock to find the woman");
+        System.out.println("You witness");
     }
 
     @Override
