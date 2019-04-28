@@ -24,7 +24,7 @@ public class Begining extends StoryNode{
     public void Story(playerCharacter Player) {
         System.out.println("You walk in to a room and there is your grandfather laying on the ground");
         System.out.println("He has been killed by the Demogorgon");
-        System.out.println("in his had he is holding a note (E)");
+        System.out.println("in his had he is holding a note written in his own blood(E)");
         scan.nextLine();
         System.out.println("You bend down pick up the note and read it");
         Note();

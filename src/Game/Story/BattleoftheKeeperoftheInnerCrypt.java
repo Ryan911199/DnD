@@ -23,8 +23,43 @@ public class BattleoftheKeeperoftheInnerCrypt extends StoryNode
     public void Story(playerCharacter Player) {
         System.out.println("You approach the cave that is home the Demogorgon");
         System.out.println("Skeletons and remains of other adventurers are next to your every step as you venture down");
-        System.out.println("the only thing to light your path are the blood of other  past warriors illuminated by arrant fire cast by  fallen wizards");
-        
+        System.out.println(" ---.----.__..----.----| _|_||___||___||___||___||___||___||_|_ |\n" +
+                "    |        |    |    | -.-..---..---..---..---..---..---..-.- |--.-\n" +
+                " ---'--.-----'----'--.-|  | ||   ||   ||   ||   ||   ||   || |  | `|\n" +
+                "       |:           (| |  | ||   ||   ||   ||   ||   ||   || |  |--'-\n" +
+                "       |:.           | | _|_||___||___||___||___||___||___||_|_ |\n" +
+                " ------'----.-.,----.'-| -.-..---..---..---..---..---..---..-.- |-.--\n" +
+                "        ,/) |       |  |  | ||   ||   ||   ||   ||   ||   || |  | |`\n" +
+                " ----.---8--'--.----'--|  | ||   ||   ||   ||   ||   ||   || |  | |\n" +
+                "     |   8     |:      | _|_||___||___||___||___||___||___||_|_ |-'--\n" +
+                "     | ,)//    |:.     | -.-..---..---..---..---..---..---..-.- |:.\n" +
+                " ----'-`=;'--.-'-.----.|  | ||   ||   ||   ||   ||   ||   || |  |--.-\n" +
+                "       //   /_ _( \\    |  | ||   ||   ||   ||   ||   ||   || |  | /|\n" +
+                " ---.-//----)/\\,'_/----| _|_||___||___||___||___||___||___||_|_ | `|\n" +
+                "    |/|     `;=.(      | -.-..---..---..---..---..---..---..-.- |--'-\n" +
+                " (  |`.`.   |`,-/      |,-'-||---||---||---||---||---||---||-'-.|\n" +
+                " -`-'-.`.`-.';'=`.-..--'-.--------.-------------.--.-------.----'--.-\n" +
+                "      |  `-./.}{-'\\.)    |        )             |   `)     |       \\\n" +
+                "      |    :`-}{-''||    |:.      |   ,_        |          |:.     |\n" +
+                " ---'`'-.--|`-}{-'||)----'-.------'--'.,`--.----'--------.-'-------'-\n" +
+                "        |  :`-`'-'/)|      |               |:.           |\n" +
+                " -.-----'--;`.}{,`.||----,-'--------.------'---.--------,'--.,-------\n" +
+                "  |:     ,'/.`..'_(/(    |:         |          |             \\\n" +
+                "  |:.  ,',' |`--`.('))   |:.        |          |             |:\n" +
+                " -'--,' <.._|__,. >`,----'----------'--------.,'-------------'----SSt\n" +
+                "     ``----....(','\n" +
+                "            _,'>'\n" +
+                "            )/\n" +
+                "            `'");
+        System.out.println("the only thing to light your path are the blood of other  past warriors illuminated by arrant fire cast by  fallen wizards. (E)");
+        scan.nextLine();
+        System.out.println("You finally arrive an the Doors of Death, the mythical lair of the Demogorgon");
+        System.out.println("The crypt is guarded by the fabled Keeper of the Inner Crypt.");
+        System.out.println("An undead warrior who's sole purpose is to be the physical barrier from the inner crypt to the outside world");
+        System.out.println("You lift up your sword and ready yourself for the attack. (E)");
+        scan.nextLine();
+        //keeper battle
+
     }
 
     @Override
