@@ -2,6 +2,7 @@ package Characters;
 
 import Game.Core.BalancingSheet;
 import Game.Core.Inventory;
+import Game.Graphics.*;
 import Game.Helpers.Dice;
 import Game.Helpers.YesOrNo;
 import Items.Armor.Armor;
@@ -130,6 +131,9 @@ public abstract class playerCharacter {
             if (equipArmorHelper(C, temp)){
                 chestplate = ((chestplate) temp);
                 System.out.println(chestplate + " was equipped");
+				if (C instanceof ArcaneChestplate) {
+					new arcaneArmorArt();
+				}
             }
             else {
                 System.out.println("nothing was equipped");
@@ -150,6 +154,7 @@ public abstract class playerCharacter {
             if (equipArmorHelper(C, temp)){
                 helmet = ((helmet) temp);
                 System.out.println(helmet + " was equipped");
+				new helmetArt();
             }
             else {
                 System.out.println("nothing was equipped");

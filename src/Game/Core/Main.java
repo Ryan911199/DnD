@@ -17,7 +17,7 @@ public class Main {
         createCharacter createPlayer = new createCharacter();
         playerCharacter Player;
         intro();
-		System.out.println("Now that we have that out of the way would you like to create a character?");
+		System.out.println("Okay, next would you like to create a character?");
 		if (Yes.check()) {
 			Player = createPlayer.newPlayer();
 		} else {
@@ -29,7 +29,17 @@ public class Main {
 //        if (Yes.check()) {
 //            Start.Combat(Player);
 //        }
-        Game game = new Game(Player);
+		System.out.println("Would you like to play the story?");
+		if (Yes.check()) {
+			Game game = new Game(Player);
+		} else {
+			System.out.println("Would you just like to battle?");
+			if (Yes.check()) {
+				System.out.println("This has not been implemented yet");
+				System.exit(0);
+			}
+		}
+		System.exit(0);
 
     }
 

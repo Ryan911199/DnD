@@ -1,6 +1,7 @@
 package Game.BattleEngine.BattleEvents;
 
 import Characters.playerCharacter;
+import Game.Graphics.*;
 import Items.Weapons.*;
 
 import java.util.Scanner;
@@ -32,7 +33,20 @@ public class Attack extends BattleEvent {
         scan.nextLine();
     }
     private void Attack(){
-        System.out.println(Owner.name + " Attacked " + Target.name + " for " + weapon.attack() + " damage (E)");
+        System.out.println(Owner.name + " Attacked " + Target.name + " with a " + weapon);
+        if (weapon instanceof Sword) {
+            new swordAttack();
+        } else if (weapon instanceof Knife) {
+            new knifeAttack();
+        } else if (weapon instanceof Club) {
+            new clubAttack();
+        } else if (weapon instanceof Bow) {
+            new bowAndArrowAttack();
+        } else if (weapon instanceof BroadSword) {
+            new broadSwordAttack();
+        } else if (weapon instanceof axe) {
+            new AxeAttack();
+        }
         Target.hitPoints = Target.hitPoints - (weapon.attack() + Owner.abilityMod(Owner.Strength));
         Target.hitPoints++;
     }

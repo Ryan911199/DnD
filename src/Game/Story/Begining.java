@@ -24,24 +24,21 @@ public class Begining extends StoryNode{
     public void Story(playerCharacter Player) {
         System.out.println("You walk in to a room and there is your grandfather laying on the ground");
         System.out.println("He has been killed by the Demogorgon");
-        System.out.println("in his had he is holding a note written in his own blood(E)");
+        System.out.println("in his had he is holding a note written in his own blood (E)");
         scan.nextLine();
         System.out.println("You bend down pick up the note and read it");
         Note();
         scan.nextLine();
-        System.out.println(Player.name + " Was given a New Bow");
-        System.out.println(Player.name + " Was given a 3 Arrows");
+        //System.out.println(Player.name + " Was given a New Bow");
+        //System.out.println(Player.name + " Was given a 3 Arrows");
         System.out.println(Player.name + " Was given a New Sword" );
         System.out.println(Player.name + " Was given a New Leather Chestplate" );
         System.out.println(Player.name + " Was given a loaf of Bread");
+        System.out.println(Player.name + " Was given a 100 Gold");
         giveItems(Player);
     }
 
     void giveItems(playerCharacter Player){
-        Player.Inventory.Add(new Bow());
-        Player.Inventory.Add(new Arrow());
-        Player.Inventory.Add(new Arrow());
-        Player.Inventory.Add(new Arrow());
         Player.Inventory.Add(new Sword());
         Player.Inventory.Add(new lightLeatherChestplate());
         Player.Inventory.Add(new Bread());

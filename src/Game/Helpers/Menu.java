@@ -36,7 +36,7 @@ public class Menu<T> {
         int length = input.length;
         int ans = -1;
         for (int x = 0; x < length; x++) {
-            System.out.println((x + 1) + ". " + input[x] + " (" + input[x].value + "gold)");
+			System.out.println((x + 1) + ". " + input[x] + " (" + input[x].value + " gold)");
         }
         while (ans <= 0 || ans > length) {
             System.out.println("Please enter a number between 1 and " + length);
