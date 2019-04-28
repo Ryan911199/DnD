@@ -6,13 +6,13 @@ public class StoryList {
     private ArrayList<StoryNode> Story = new ArrayList<StoryNode>();
     private int current = 0;
     public StoryList(){
-        Story.add(new Begining());
-        Story.add(new Trail());
-        Story.add(new Merchant());
-        Story.add(new DamselinDistressBattle());
-        Story.add(new BattleoftheKeeperoftheInnerCrypt());
-        Story.add(new BattleoftheDemogorgon());
-        Story.add(new End());
+		Story.add(new Begining(this));
+		Story.add(new Trail(this));
+		Story.add(new Merchant(this));
+		//Story.add(new DamselinDistressBattle(this));
+		//Story.add(new BattleoftheKeeperoftheInnerCrypt(this));
+		//Story.add(new BattleoftheDemogorgon(this));
+		//Story.add(new End());
     }
     public StoryNode getStory(){
         if (Story.get(0) != null){

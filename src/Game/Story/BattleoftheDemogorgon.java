@@ -1,9 +1,18 @@
 package Game.Story;
 
+import Characters.Enemys.Demogorgon;
 import Characters.Enemys.Enemy;
+import Characters.Enemys.Goblin;
+import Characters.Race;
 import Characters.playerCharacter;
+import Items.Food.Bread;
+import Items.Weapons.Sword;
 
 public class BattleoftheDemogorgon extends StoryNode {
+    public BattleoftheDemogorgon(StoryList story) {
+        super(story);
+    }
+
     @Override
     public void Story(playerCharacter Player) {
         System.out.println("As the keeper has fallen, the doors to the Demogorgon lair opens");
@@ -57,6 +66,7 @@ public class BattleoftheDemogorgon extends StoryNode {
                 "X#,,'`                        `',         ,'`                        `',,###X\n" +
                 "|'  spb                          ~~-----~~                               `' |\n" +
                 "X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X");
+        Story.add(new End(Story));
     }
 
     void giveItems(playerCharacter Player) {
@@ -76,6 +86,10 @@ public class BattleoftheDemogorgon extends StoryNode {
     }
 
     public Enemy getEnemy() {
-        return null;
+
+        Enemy enemy = new Demogorgon();
+        enemy.Setup("Demogorgon", 4000, 21,
+                21, 21, 21, 21, 21, Race.halfelf);
+        return enemy;
     }
 }

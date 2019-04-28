@@ -19,6 +19,10 @@ public class BattleoftheKeeperoftheInnerCrypt extends StoryNode
 {
     private Scanner scan = new Scanner(System.in);
 
+    public BattleoftheKeeperoftheInnerCrypt(StoryList story) {
+        super(story);
+    }
+
     @Override
     public void Story(playerCharacter Player) {
         System.out.println("You approach the cave that is home the Demogorgon");
@@ -59,7 +63,7 @@ public class BattleoftheKeeperoftheInnerCrypt extends StoryNode
         System.out.println("You lift up your sword and ready yourself for the attack. (E)");
         scan.nextLine();
         //keeper battle
-
+        Story.add(new BattleoftheDemogorgon(Story));
     }
 
     @Override

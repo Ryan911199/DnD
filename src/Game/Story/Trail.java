@@ -19,6 +19,10 @@ public class Trail extends StoryNode
     private static YesOrNo Yes = new YesOrNo();
     private Scanner scan = new Scanner(System.in);
 
+    public Trail(StoryList story) {
+        super(story);
+    }
+
     //private StoryList StoryList;
 //    public Trail(StoryList list){
 //        StoryList = list;

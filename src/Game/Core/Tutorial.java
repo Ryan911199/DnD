@@ -42,6 +42,7 @@ public class Tutorial {
         System.out.println("Now lets talk about some of the game mechanics ");
         Mechanics();
     }
+
     public void Mechanics(){
         System.out.println("the first thing you will do after this tutorial is create a character");
         System.out.println("this character can be any of the 7 major DnD races");
@@ -58,6 +59,10 @@ public class Tutorial {
         System.out.println("Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma,");
         System.out.println("Each category has an affect on how your player plays");
 
+    }
+
+    public void TavernTutorial() {
+        System.out.println("Welcome to the Tavern, ");//TODO tell them about the tavern
     }
     public void theShop(){
         System.out.println("Welcome to the Shop, here you can buy items like armor, weapons, potions and food");

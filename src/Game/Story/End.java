@@ -4,9 +4,15 @@ import Characters.Enemys.Enemy;
 import Characters.playerCharacter;
 
 public class End extends StoryNode{
+    public End(StoryList story) {
+        super(story);
+    }
+
     @Override
     public void Story(playerCharacter Player) {
-        System.out.println("Thanks for playing our game have a good day");
+        System.out.println("That is amazing. You beat the Demogorgon");
+        System.out.println("Thanks for playing our game. Fell free to come back and play again.");
+        System.out.println("Have a good day");
     }
 
     @Override

@@ -26,11 +26,11 @@ public abstract class playerCharacter {
     public int Wisdom;
     public int Charisma;
     public Race Race;
-    private helmet helmet;
-    private chestplate chestplate;
-    private gauntlets gauntlets;
-    private pants pants;
-    private boots boots;
+    public helmet helmet;
+    public chestplate chestplate;
+    public gauntlets gauntlets;
+    public pants pants;
+    public boots boots;
     public int baseAttackBonus;
     protected int fortSave;
     protected int refSave;

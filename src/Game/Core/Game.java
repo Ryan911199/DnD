@@ -17,10 +17,9 @@ import java.util.Scanner;
 
 public class Game {
     private String[] playerOptions;
-    private Shop shop;
     private Menu menu = new Menu();
     private Scanner scan = new Scanner(System.in);
-    private Tutorial Start = new Tutorial(scan);
+    private Tutorial tutorial = new Tutorial(scan);
     private BattleEngine BattleEngine;
     private Enemy Enemy;
     private playerCharacter Player;
@@ -28,13 +27,16 @@ public class Game {
     private String[] Option1;
     private String[] Option2;
     private boolean mustFight = false;
+    private TheTavern Tavern;
+    private boolean hasGoneToTavern = false;
+    private String[] tutorialOptions = new String[]{"Tavern Tutorial", "Beginning Tutorial", "Mechanics Tutorial"};
 
     public Game(playerCharacter player) {
         Player = player;
         BattleEngine = new BattleEngine(Player);
-        Option1 = new String[]{"Go To Shop", "Run Tutorial", "Equip Armor", "Continue Story", "Go TO Battle"};
-        Option2 = new String[]{"Go To Shop", "Run Tutorial", "Equip Armor", "Continue Story"};
-        shop = new Shop(Player);
+        Tavern = new TheTavern(Player);
+        Option1 = new String[]{"Go To the Tavern", "Run Tutorial", "Equip Armor", "Continue Story", "Go TO Battle"};
+        Option2 = new String[]{"Go To the Tavern", "Run Tutorial", "Equip Armor", "Continue Story"};
         playGame();
     }
 
@@ -49,13 +51,25 @@ public class Game {
             }
             switch (menu.menu((playerOptions))) {
                 case 1:
-                    shop.openShop(Player.gold);
-                    Player.Inventory.print();
+                    if (!hasGoneToTavern) {
+                        tutorial.TavernTutorial();
+                        hasGoneToTavern = true;
+                    }
+                    Tavern.Tavern(BattleEngine);
                     break;
                 case 2:
                     System.out.println("What tutorial would you like to play?");
-                    scan.nextLine(); //Todo implement tutorial options
-                    Start.start();
+                    switch (menu.menu((tutorialOptions))) {
+                        case 1:
+                            tutorial.TavernTutorial();
+                            break;
+                        case 2:
+                            tutorial.start();
+                            break;
+                        case 3:
+                            tutorial.Mechanics();
+                            break;
+                    }
                     break;
                 case 3:
                     Player.equipArmor();
@@ -93,6 +107,10 @@ public class Game {
             if(temp.mustFight()){
                 if (temp.fightNow()){
                     BattleEngine.Battle(Enemy);
+                    if (Enemy.name.equalsIgnoreCase("Fred the Goblin's Son")) {
+                        System.out.println("'Thank you' cried the Damsel 'Here is a token of my gratitude'");
+                        System.out.println("The damsel plants a kiss on your cheek and continue on her merrily way ");
+                    }
                     Enemy = null;
                 }else {
                     mustFight = true;

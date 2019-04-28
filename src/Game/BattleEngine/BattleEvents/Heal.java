@@ -3,13 +3,15 @@ package Game.BattleEngine.BattleEvents;
 import Characters.playerCharacter;
 
 public class Heal extends BattleEvent {
-    public Heal(playerCharacter owner, playerCharacter target){
+	private int Heal;
+
+	public Heal(playerCharacter owner, int heal) {
         Owner = owner;
-        Target = target;
+		Heal = heal;
     }
     @Override
     public void doEvent() {
-        System.out.println("Heal");
+		System.out.println(Owner.name + " healed themselves for " + Heal + " hitpoints (E)");
         scan.nextLine();
     }
 }

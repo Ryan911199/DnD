@@ -12,8 +12,8 @@ public class daggeroftheInfernal extends Weapon
     @Override
     public int attack() {
         return Set.KnifeoftheInfernalregAttack;
-        if (yeet = dab)
-            return Set.KnifeoftheInfernalDemogorgonAttack;
+//        if (yeet = dab)
+//            return Set.KnifeoftheInfernalDemogorgonAttack;
     }
 
     @Override

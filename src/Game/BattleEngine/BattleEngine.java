@@ -33,6 +33,11 @@ BattleEngine {
     public void Battle(Enemy enemy) {
         setEnemy(enemy);
         grid.Setup(Enemy);
+		if (Enemy.name.equalsIgnoreCase("Fred the Goblin")) {
+			grid.enemyMove();
+			grid.enemyMove();
+			grid.enemyMove();
+		}
         hasAttacked = false;
         System.out.println("You are entering a battle with " + Enemy.name);
         printStats();

@@ -16,6 +16,10 @@ import java.util.Scanner;
 public class Begining extends StoryNode{
     private Scanner scan = new Scanner(System.in);
 
+	public Begining(StoryList story) {
+		super(story);
+	}
+
     @Override
     public Enemy getEnemy() {
         return null;
