@@ -60,7 +60,7 @@ public class Begining extends StoryNode{
         System.out.println("|                There are many people, monsters and            |");
         System.out.println("|              other things that would want me dead             |");
         System.out.println("|                                                               |");
-        System.out.println("|             So I leave with you your inheritance              |");
+        System.out.println("|             So I leave with you, your inheritance             |");
         System.out.println("|                                                               |");
         System.out.println("|            And all I ask is that you avenge me                |");
         System.out.println("|                                                               |");
