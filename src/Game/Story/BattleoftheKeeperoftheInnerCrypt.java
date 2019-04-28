@@ -23,7 +23,8 @@ public class BattleoftheKeeperoftheInnerCrypt extends StoryNode
     public void Story(playerCharacter Player) {
         System.out.println("You approach the cave that is home the Demogorgon");
         System.out.println("Skeletons and remains of other adventurers are next to your every step as you venture down");
-        System.out.println("yeet");
+        System.out.println("the only thing to light your path are the blood of other  past warriors illuminated by arrant fire cast by  fallen wizards");
+        
     }
 
     @Override
