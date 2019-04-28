@@ -11,7 +11,7 @@ public class Merchant extends StoryNode {
     }
 
     void giveItems(playerCharacter Player) {
-
+//test
     }
 
     public boolean hasEnemy() {
