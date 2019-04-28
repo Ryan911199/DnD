@@ -65,7 +65,7 @@ public class Trail extends StoryNode
 
     @Override
     public Enemy getEnemy() {
-        Enemy enemy = new Goblin(null, new Sword()); //TODO give goblin weapon
+        Enemy enemy = new Goblin(null, new Sword());
         enemy.Setup("Fred the Goblin", 40, 13,
                 13, 13, 2, 13, 13, Race.halfelf);
         return enemy;

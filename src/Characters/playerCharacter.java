@@ -38,7 +38,7 @@ public abstract class playerCharacter {
     private BalancingSheet Set = new BalancingSheet();
     private YesOrNo yes = new YesOrNo();
     private Dice dice = new Dice();
-    public int gold = Set.PlayerGold; //TODO give gold
+    public int gold = Set.PlayerGold;
 
     public void Setup(String Name, int Age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, Race PlayerRace) {
         name = Name;

@@ -31,7 +31,7 @@ public class Inventory {
         System.out.println("BackPack:");
         System.out.print("Arrows (" + Arrow + ") ");
         for (int x = 0; x < Inventory.size()-1; x++) {
-            System.out.print((x + 1) + "." + Inventory.get(x) + " ");
+            System.out.print((x + 1) + "." + Inventory.get(x) + " (" + Inventory.get(x).value + "gold)  ");
         }
         System.out.println();
     }
