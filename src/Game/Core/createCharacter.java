@@ -60,8 +60,8 @@ public class createCharacter {
 		abilityRoll(scan);
 		System.out.println("now it is time for you to pick you race ");
 		System.out.println("Each race has a their strengths and weaknesses");
-		System.out.println("for example if you pick dwarf ");
-		switch (menu.menu(races)) { //TODO add race benefits to abilities
+		System.out.println("for example if you pick dwarf you get +2 Constitution and -2 Charisma");
+		switch (menu.menu(races)) {
 			case 1:
 				playerRace = Race.human;
 				break;
@@ -77,15 +77,22 @@ public class createCharacter {
 				break;
 			case 4:
 				playerRace = Race.gnome;
+				Constitution = +2;
+				Strength = -2;
 				break;
 			case 5:
 				playerRace = Race.halflings;
+				Dexterity = +2;
+				Strength = -2;
 				break;
 			case 6:
 				playerRace = Race.halfelf;
 				break;
 			case 7:
 				playerRace = Race.halforc;
+				Strength = +2;
+				Intelligence = -2;
+				Charisma = -2;
 				break;
 		}
 		System.out.println("great, next lets pick a class type for your character");//TODO tell player the benefits of each class

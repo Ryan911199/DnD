@@ -27,7 +27,7 @@ public class TheTavern {
 	private Tutorial tutorial = new Tutorial(scan);
 	private String[] Options = new String[]{"Go To Shop", "Run Tutorial", "Get In A Fight", "Buy A Drink"};
 	private playerCharacter Player;
-	private String[] Names = new String[]{"Tim", "Chuck", "Alfred", "Dominican"};
+	private String[] Names = new String[]{"Tim", "Chuck", "Alfred", "Dominican", "Ethan", "Teopayohnia", "Sagu", "Derrick"};
 	private Weapon[] Meelee = {new axe(), new BroadSword(), new Knife(), new Sword()};
 	private Weapon[] Ranged = {new Bow(), null, null, null};
 	private item[] items = {new Ambrosia(), new BoneMeal(), new Bread(), new CatSoup(), new ElvinBread(), new LegofLamb(), null, null, null};

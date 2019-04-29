@@ -77,7 +77,7 @@ public class Shop {
                     break;
                 }
             }
-
+            System.out.println("You have " + Player.gold + " gold");
         }
         else {System.out.println("You dont have enough gold for this item");}
     }
