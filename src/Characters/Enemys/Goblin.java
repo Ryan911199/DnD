@@ -20,7 +20,6 @@ public class Goblin extends Enemy {
             this.Inventory.Add(new Arrow());
         }
     }
-
     public String BattleGrid(){
         return "[ E ]";
     }
@@ -65,7 +64,7 @@ public class Goblin extends Enemy {
         if (this.Inventory.getItemEnemyCheck()) {
             return new UseItem((Consumable) this.Inventory.getItemEnemy(), this);
         } else {
-            return new Wait(this.name + "chose to wait this turn");
+			return new Wait(this.name + " chose to wait this turn (E)");
         }
     }
 

@@ -70,7 +70,7 @@ public class Trail extends StoryNode
         enemy.Inventory.Add(new Bread());
         enemy.Setup("Fred the Goblin", 40, 13,
                 13, 13, 2, 13, 13, Race.halfelf);
-        enemy.setHealth(35);
+        enemy.setHealth(5);
         return enemy;
     }
 }

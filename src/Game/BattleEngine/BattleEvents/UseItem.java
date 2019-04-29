@@ -12,6 +12,8 @@ public class UseItem extends BattleEvent {
     }
     @Override
     public void doEvent() {
+        System.out.println(Owner.name + " ate " + Item + " which healed them " + Item.health() + "(E)");
+        scan.nextLine();
         Owner.hitPoints = (Owner.hitPoints + Item.health());
 		Owner.Inventory.remove((item) Item);
     }

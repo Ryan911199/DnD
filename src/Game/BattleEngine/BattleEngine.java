@@ -91,7 +91,11 @@ BattleEngine {
                 case 1:
                     return new Wait();
                 case 2:
-                    return new Run();
+                    if (Enemy instanceof Demogorgon) {
+                        System.out.println("You can no run from this fight");
+                    } else {
+                        return new Run();
+                    }
                 case 3:
                     return new Move(grid, Player);
                 case 4:
@@ -107,7 +111,7 @@ BattleEngine {
                     boolean Critical = false;
                     System.out.print("You rolled a " + roll);
                     if (roll == 1) {
-                        System.out.print(" there for you aromatically missed");
+                        System.out.print(" there for you automatically missed");
                         System.out.println();
                         return new Miss(Player, Enemy);
                     } else if (roll == 20) {
@@ -167,6 +171,9 @@ BattleEngine {
             if (event.Owner instanceof Enemy && event instanceof Attack) {
                 enemyHasAttacked = true;
             }
+        }
+        if (event instanceof Miss) {
+            hasAttacked = true;
         }
         if (event instanceof Run) {
             System.out.println("Are you sure you want to run from the battle? you lose 75% of your gold");

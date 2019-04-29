@@ -1,14 +1,22 @@
 package Game.Story;
 
 import Characters.Enemys.Enemy;
+import Characters.Enemys.Goblin;
+import Characters.Race;
 import Characters.playerCharacter;
 import Game.Helpers.YesOrNo;
+import Items.Food.Bread;
+import Items.Weapons.Sword;
+
 import java.util.Scanner;
 
 public class Merchant extends StoryNode {
 
     private static YesOrNo Yes = new YesOrNo();
     private Scanner scan = new Scanner(System.in);
+    private boolean hasEnemy = false;
+    private boolean mustFight = false;
+    private boolean fightNow = false;
 
     public Merchant(StoryList story) {
         super(story);
@@ -22,27 +30,20 @@ public class Merchant extends StoryNode {
         System.out.println("but you also spot a unique looking dagger tucked away in the back of his shop");
         System.out.println("Do you ask if it is for sale? (Y/N)");
         if (Yes.check()) {
-            System.out.println("the merchant say the dagger is not for sale");//TODO add Demogorgon knife
-            System.out.println("Would you like to try and forcefully take the knife?");
+            System.out.println("the merchant says the dagger is not for sale");//TODO add Demogorgon knife
+            System.out.println("Would you like to try and forcefully take the knife? (Y/N)");
             if (Yes.check()) {
-                Story.add(new BattleoftheMerchant(Story));
+                hasEnemy = true;
+                mustFight = true;
+                fightNow = true;
+                Story.add(new DamselinDistressBattle(Story));
             } else {
                 System.out.println("You say thank you to the merchant and continue on down the path");
-                System.out.println("While walking down the path you hear a screaming of a damsel in distress do you help save her? (Y/N)");
-                if (Yes.check()) {
-                    Story.add(new DamselinDistressBattle(Story));
-                } else {
-                    Story.add(new BattleoftheKeeperoftheInnerCrypt(Story));
-                }
+                Story.add(new DamselinDistressBattle(Story));
             }
         } else {
             System.out.println("You say thank you to the merchant and continue on down the path");
-            System.out.println("While walking down the path you hear a screaming of a damsel in distress do you help save her? (Y/N)");
-            if (Yes.check()) {
-                Story.add(new DamselinDistressBattle(Story));
-            } else {
-                Story.add(new BattleoftheKeeperoftheInnerCrypt(Story));
-            }
+            Story.add(new DamselinDistressBattle(Story));
         }
     }
 
@@ -51,18 +52,23 @@ public class Merchant extends StoryNode {
     }
 
     public boolean hasEnemy() {
-        return false;
+        return hasEnemy;
     }
 
     public boolean mustFight() {
-        return false;
+        return mustFight;
     }
 
     public boolean fightNow() {
-        return false;
+        return fightNow;
     }
 
     public Enemy getEnemy() {
-        return null;
+        Enemy enemy = new Goblin(null, new Sword());
+        enemy.Inventory.Add(new Bread());
+        enemy.Setup("The Merchant", 40, 17,
+                15, 13, 18, 13, 13, Race.halfelf);
+        enemy.setHealth(5);
+        return enemy;
     }
 }

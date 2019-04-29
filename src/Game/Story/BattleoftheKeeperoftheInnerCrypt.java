@@ -10,6 +10,7 @@ import Items.Armor.ArmorTypes.chestplate.lightLeatherChestplate;
 import Items.Food.Bread;
 import Items.Weapons.Arrow;
 import Items.Weapons.Bow;
+import Items.Weapons.Knife;
 import Items.Weapons.Sword;
 
 import java.util.Scanner;
@@ -81,6 +82,12 @@ public class BattleoftheKeeperoftheInnerCrypt extends StoryNode
 
     @Override
     public Enemy getEnemy() {
-        return null;
+        Enemy enemy = new Goblin(null, new Knife());
+        enemy.Inventory.Add(new Bread());
+        enemy.Setup("Fred the Goblin", 40, 13,
+                13, 13, 2, 13, 13, Race.halfelf);
+        enemy.setHealth(5);
+        return enemy;
+        //TODO implement keeper stats
     }
 }

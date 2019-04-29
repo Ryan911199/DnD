@@ -62,17 +62,22 @@ public class Tutorial {
     }
 
     public void TavernTutorial() {
-        System.out.println("Welcome to the Tavern, ");//TODO tell them about the tavern
+        System.out.println("Welcome to the Tavern, let us show you around a little.");
+        System.out.println("Here in the Tavern you can go to the shop, buy drinks and get in fights. (E)");
+        scan.nextLine();
+        System.out.println("The shop is where you can buy things like weapons, armor, and food.");
+        System.out.println("Buying drinks sometimes results in random events you never know what might happen while sitting at the bar.");
+        System.out.println("Getting in fights allows you to practice fighting with out going up against the big bosses in " +
+                "the story and if you win you get the gold form the loser (E)");
+        scan.nextLine();
+        System.out.println("That is the majority of what you need to know about the Tavern have fun.");
+        System.out.println();
     }
     public void theShop(){
         System.out.println("Welcome to the Shop, here you can buy items like armor, weapons, potions and food");
         System.out.println("Everything here costs gold. To buy something just select the number corresponding to the item. If you have the money and room to hold the item then it will be added to your inventory");
     }
     public void Combat(playerCharacter Player){
-        BattleEngine BattleEngine = new BattleEngine(Player);
-        StarterEnemy weakgob = new StarterEnemy("Weak Fred");
-        weakgob.Setup("Weak Fred", 13, 13, 13, 13, 13, 13, 13, Race.halfelf);
-        System.out.println("Welcome " + Player.name+ " to the combat tutorial. In this we will walk you through how to fight Fred The Weak. (Fred is a goblin)");
-        BattleEngine.Battle(weakgob);
+        System.out.println("Welcome tp the combat tutorial. This is where things get a little tricky so please read carefully.");
     }
 }

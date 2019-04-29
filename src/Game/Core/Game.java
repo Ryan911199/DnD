@@ -7,10 +7,13 @@ import Characters.*;
 import Game.BattleEngine.BattleEngine;
 import Game.Core.Shop;
 import Game.Core.Tutorial;
+import Game.Helpers.Dice;
 import Game.Helpers.Menu;
+import Game.Helpers.YesOrNo;
 import Game.Story.End;
 import Game.Story.StoryList;
 import Game.Story.StoryNode;
+import Items.Weapons.daggeroftheInfernal;
 
 import javax.swing.text.html.Option;
 import java.util.Scanner;
@@ -30,6 +33,8 @@ public class Game {
     private TheTavern Tavern;
     private boolean hasGoneToTavern = false;
     private String[] tutorialOptions = new String[]{"Tavern Tutorial", "Beginning Tutorial", "Mechanics Tutorial"};
+	private YesOrNo Yes = new YesOrNo();
+	private Dice dice = new Dice();
 
     public Game(playerCharacter player) {
         Player = player;
@@ -84,6 +89,7 @@ public class Game {
                 case 5:
                     if (Enemy != null) {
                         BattleEngine.Battle(Enemy);
+						wonBattle();
                         Enemy = null;
                         mustFight = false;
                     } else {
@@ -107,9 +113,14 @@ public class Game {
             if(temp.mustFight()){
                 if (temp.fightNow()){
                     BattleEngine.Battle(Enemy);
-                    if (Enemy.name.equalsIgnoreCase("Fred the Goblin's Son")) {
-                        System.out.println("'Thank you' cried the Damsel 'Here is a token of my gratitude'");
-                        System.out.println("The damsel plants a kiss on your cheek and continue on her merrily way ");
+					if (wonBattle()) {
+						if (Enemy.name.equalsIgnoreCase("Fred the Goblin's Son")) {
+							System.out.println("'Thank you' cried the Damsel 'Here is a token of my gratitude'");
+							System.out.println("The damsel plants a kiss on your cheek and continue on her merrily way");
+							System.out.println("The damsel's Kiss gave you 50 more hitpoints");
+							Player.hitPoints = Player.hitPoints + 50;
+							System.out.println(Player.name + " now has " + Player.hitPoints + " hitpoints");
+						}
                     }
                     Enemy = null;
                 }else {
@@ -121,5 +132,23 @@ public class Game {
             System.exit(0);
         }
     }
+
+	private boolean wonBattle() {
+		if (Enemy.hitPoints <= 0) {
+			System.out.println("would you like to loot " + Enemy.name + " (Y/N)");
+			if (Yes.check()) {
+				int gold = dice.rollDice(1, 50);
+				System.out.println(Enemy.name + " had " + gold + " gold in his bag");
+				Player.gold = Player.gold + gold;
+				System.out.println(Player.name + " now has " + Player.gold + " gold");
+				if (Enemy.name.equalsIgnoreCase("The Merchant")) {
+					System.out.println(Player.name + " took The Dagger of the Infernal");
+					Player.Inventory.Add(new daggeroftheInfernal());
+				}
+			}
+			return true;
+		}
+		return false;
+	}
 
 }

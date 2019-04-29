@@ -18,7 +18,7 @@ public class Main {
         createCharacter createPlayer = new createCharacter();
         playerCharacter Player;
         intro();
-		System.out.println("Okay, next would you like to create a character?");
+		System.out.println("Okay, next would you like to create a character? (Y/N)");
 		if (Yes.check()) {
 			Player = createPlayer.newPlayer();
 		} else {
@@ -30,11 +30,11 @@ public class Main {
 //        if (Yes.check()) {
 //            Start.Combat(Player);
 //        }
-		System.out.println("Would you like to play the story?");
+		System.out.println("Would you like to play the story? (Y/N)");
 		if (Yes.check()) {
 			Game game = new Game(Player);
 		} else {
-			System.out.println("Would you just like to go to the Tavern?");
+			System.out.println("Would you just like to go to the Tavern? (Y/N)");
 			if (Yes.check()) {
 				TheTavern Tavern = new TheTavern(Player);
 				Tavern.Tavern(new BattleEngine(Player));

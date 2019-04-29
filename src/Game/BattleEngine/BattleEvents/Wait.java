@@ -11,6 +11,9 @@ public class Wait extends BattleEvent {
 
     @Override
     public void doEvent() {
-        System.out.println(reason);
+        if (reason != null) {
+            System.out.println(reason);
+            scan.nextLine();
+        }
     }
 }

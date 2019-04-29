@@ -33,7 +33,7 @@ public class Attack extends BattleEvent {
         scan.nextLine();
     }
     private void Attack(){
-        System.out.println(Owner.name + " Attacked " + Target.name + " with a " + weapon + " it did " + weapon.attack() + " damage");
+        System.out.println(Owner.name + " Attacked " + Target.name + " with a " + weapon + " it did " + (weapon.attack() + Owner.abilityMod(Owner.Strength)) + " damage");
         if (weapon instanceof Sword) {
             new swordAttack();
         } else if (weapon instanceof Knife) {
@@ -48,6 +48,6 @@ public class Attack extends BattleEvent {
             new AxeAttack();
         }
         Target.hitPoints = Target.hitPoints - (weapon.attack() + Owner.abilityMod(Owner.Strength));
-        Target.hitPoints++;
+        //Target.hitPoints++;
     }
 }

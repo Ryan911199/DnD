@@ -62,52 +62,75 @@ public class TheTavern {
 				}
 				break;
 			case 3:
-				Weapon temp1 = Meelee[dice.rollDice(1, 4) - 1];
-				Weapon temp2 = Ranged[dice.rollDice(1, 4) - 1];
-				Enemy Enemy = new Goblin(temp2, temp1);
-				for (int x = 0; x < 4; x++) {
-					item temp = items[dice.rollDice(1, 9) - 1];
-					if (temp != null) {
-						Enemy.Inventory.Add(temp);
-					}
-				}
-				for (int y = 0; y < 4; y++) {
-					Armor tempa = Armor[dice.rollDice(1, 20) - 1];
-					if (tempa != null) {
-						if (tempa instanceof boots) {
-							Enemy.boots = (boots) tempa;
-						}
-						if (tempa instanceof pants) {
-							Enemy.pants = (pants) tempa;
-						}
-						if (tempa instanceof gauntlets) {
-							Enemy.gauntlets = (gauntlets) tempa;
-						}
-						if (tempa instanceof chestplate) {
-							Enemy.chestplate = (chestplate) tempa;
-						}
-						if (tempa instanceof helmet) {
-							Enemy.helmet = (helmet) tempa;
-						}
-					}
-				}
-				Enemy.Setup(Names[dice.rollDice(1, 7) - 1], dice.rollDice(1, 100),
-						dice.rollDice(1, 20), dice.rollDice(1, 20), dice.rollDice(1, 20),
-						dice.rollDice(1, 20), dice.rollDice(1, 20), dice.rollDice(1, 20),
-						Race.halfelf);
-
-				Engine.Battle(Enemy);
-				int gold = dice.rollDice(3, 50);
-				if (dice.rollDice(1, 100) == 69) {
-					gold = 1000;
-				}
-				System.out.println("Great Job, You check the pockets of " + Enemy.name);
-				System.out.println(Player.name + " Was given " + gold);
-				Player.gold = Player.gold + gold;
-
+				getInFight(Engine);
 				break;
 			case 4:
-				//TODO implement get a drink
+				System.out.println("You bought a drink at the tavern which cost 25 gold");
+				Player.gold = Player.gold - 25;
+				System.out.println("You now have " + Player.gold + "gold");
+				int temp = dice.rollDice(1, 5);
+				int reward = dice.rollDice(1, 100);
+				if (temp == 1) {
+					System.out.println("While you were sitting at the bar you made a bet the the bar tender and won");
+					System.out.println("He gave you " + reward + " gold as a reward");
+					Player.gold = Player.gold + reward;
+					System.out.println("You now have " + Player.gold + "gold");
+				}
+				if (temp == 2) {
+					System.out.println("While you were sitting at the bar you offended a Goblin.");
+					System.out.println("the Goblin has challenged you to a battle");
+					getInFight(Engine);
+				}
+				break;
 		}
+	}
+
+	private boolean getInFight(BattleEngine Engine) {
+		Weapon temp1 = Meelee[dice.rollDice(1, 4) - 1];
+		Weapon temp2 = Ranged[dice.rollDice(1, 4) - 1];
+		Enemy Enemy = new Goblin(temp2, temp1);
+		for (int x = 0; x < 4; x++) {
+			item temp = items[dice.rollDice(1, 9) - 1];
+			if (temp != null) {
+				Enemy.Inventory.Add(temp);
+			}
+		}
+		for (int y = 0; y < 4; y++) {
+			Armor tempa = Armor[dice.rollDice(1, 20) - 1];
+			if (tempa != null) {
+				if (tempa instanceof boots) {
+					Enemy.boots = (boots) tempa;
+				}
+				if (tempa instanceof pants) {
+					Enemy.pants = (pants) tempa;
+				}
+				if (tempa instanceof gauntlets) {
+					Enemy.gauntlets = (gauntlets) tempa;
+				}
+				if (tempa instanceof chestplate) {
+					Enemy.chestplate = (chestplate) tempa;
+				}
+				if (tempa instanceof helmet) {
+					Enemy.helmet = (helmet) tempa;
+				}
+			}
+		}
+		Enemy.Setup(Names[dice.rollDice(1, 7) - 1], dice.rollDice(1, 100),
+				dice.rollDice(1, 20), dice.rollDice(1, 20), dice.rollDice(1, 20),
+				dice.rollDice(1, 20), dice.rollDice(1, 20), dice.rollDice(1, 20),
+				Race.halfelf);
+
+		Engine.Battle(Enemy);
+		int gold = dice.rollDice(3, 50);
+		if (dice.rollDice(1, 100) == 69) {
+			gold = 1000;
+		}
+		if (Enemy.hitPoints <= 0) {
+			System.out.println("Great Job, You check the pockets of " + Enemy.name);
+			System.out.println(Player.name + " Was given " + gold);
+			Player.gold = Player.gold + gold;
+			return true;
+		}
+		return false;
 	}
 }

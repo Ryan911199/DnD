@@ -18,6 +18,10 @@ public class BattleGrid {
     public void Setup(playerCharacter enemy){
         setEnemy(enemy);
         makeGrid();
+        enemyPosition[0] = 0;
+        enemyPosition[1] = 2;
+        playerPosition[0] = 4;
+        playerPosition[1] = 2;
         BattleGrid[enemyPosition[0]][enemyPosition[1]].setOccupant(Enemy);
         BattleGrid[playerPosition[0]][playerPosition[1]].setOccupant(Player);
     }
