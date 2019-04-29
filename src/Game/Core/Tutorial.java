@@ -52,13 +52,19 @@ public class Tutorial {
         System.out.println("barbarian, bard, cleric, druid, fighter, monk, paladin, ranger, rogue, sorcerer, wizard (E)");
         scan.nextLine();
         System.out.println("Each Race has their own strengths and weaknesses. For example, if you pick a Dwarf then you get a + 2 Constitution modifier and a -2 Charisma modifier");
-        //System.out.println("(dont worry we will tell you each Races Special class when the time comes)");
         System.out.println("Constitution and Charisma are both abilities.(E)");
         scan.nextLine();
         System.out.println("There are six ability categories");
         System.out.println("Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma,");
         System.out.println("Each category has an affect on how your player plays");
-
+        System.out.println("We will explain more about this when you create your character. (E)");
+        scan.nextLine();
+        System.out.println("Now let us talk about some of the components of the game.");
+        System.out.println("First of all we have the Tavern which holds the shop and other thinGs not directly related to the story.");
+        System.out.println("To find out more please visit the Tavern (WE HIGHLY RECOMMEND DOING THIS AS SOON AS POSSIBLE) (E");
+        scan.nextLine();
+        System.out.println("next we have combat");
+        Combat();
     }
 
     public void TavernTutorial() {
@@ -77,7 +83,8 @@ public class Tutorial {
         System.out.println("Welcome to the Shop, here you can buy items like armor, weapons, potions and food");
         System.out.println("Everything here costs gold. To buy something just select the number corresponding to the item. If you have the money and room to hold the item then it will be added to your inventory");
     }
-    public void Combat(playerCharacter Player){
-        System.out.println("Welcome tp the combat tutorial. This is where things get a little tricky so please read carefully.");
+
+    public void Combat() {
+        System.out.println("This is where things get a little tricky so please read carefully. (E)");
     }
 }
