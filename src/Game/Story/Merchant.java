@@ -30,7 +30,7 @@ public class Merchant extends StoryNode {
         System.out.println("but you also spot a unique looking dagger tucked away in the back of his shop");
         System.out.println("Do you ask if it is for sale? (Y/N)");
         if (Yes.check()) {
-            System.out.println("the merchant says the dagger is not for sale");//TODO add Demogorgon knife
+            System.out.println("the merchant says the dagger is not for sale");
             System.out.println("Would you like to try and forcefully take the knife? (Y/N)");
             if (Yes.check()) {
                 hasEnemy = true;

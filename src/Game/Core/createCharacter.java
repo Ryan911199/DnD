@@ -40,7 +40,11 @@ public class createCharacter {
 		playerCharacter player;
 		String ans = "n";
 		String[] classes = {"barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "wizard"};
-		String[] races = {"human", "dwarf", "elf", "gnome", "half-lings", "half-elf", "half-orc"};
+		String[] races = {"human (no specialises)", "dwarf (+2 Constitution and -2 Charisma)",
+				"elf (+2 Dexterity -2 Constitution)", "gnome (+2 Constitution -2 Strength)",
+				"halflings (+2 Dexterity -2 Strength)", "half-elf (no specialises)",
+				"half-orc (+2 Strength -2 Charisma -2 Intelligence)"};
+
 		playerCharacter[] PlayerPick = {new barbarian(), new bard(), new cleric(), new druid(),
 				new fighter(), new monk(), new paladin(), new ranger(), new rogue(), new sorcerer(), new wizard()};
 
@@ -54,7 +58,7 @@ public class createCharacter {
 		System.out.println("However if say you are using a bow and have low Dexterity " +
 				"(dexterity impacts Armor and Ranged weapon attacks) the damage you deal could be reduced. (E)");
 		scan.nextLine();
-		System.out.println(" now that you hvae a basic understanding of how ability scores work please roll the dice to determine your ability scores");
+		System.out.println("Now that you have a basic understanding of how ability scores work please roll the dice to determine your ability scores");
 		System.out.println("Hit Enter to roll the dice (E)");
 		scan.nextLine();
 		abilityRoll(scan);
@@ -117,7 +121,8 @@ public class createCharacter {
 			System.out.print(abilityScores[i] + ", ");
 		}
 		System.out.println();
-		System.out.println("do you want to reroll all of the dice?"); //TODO tell them why they might want to reroll
+		System.out.println("do you want to reroll all of the dice? (you might want to reroll if the scores are low)");
+
 		if (Yes.check()) {
 			reroll(scan);
 			return;
